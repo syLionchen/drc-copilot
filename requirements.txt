@@ -1,0 +1,10 @@
+requests
+python-dotenv
+pandas
+numpy
+numpy-financial
+scikit-learn
+pdfplumber
+streamlit
+streamlit-aggrid
+matplotlib
