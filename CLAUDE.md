@@ -16,8 +16,8 @@
 ## 2. 演示角色（PayPal Sandbox，全部 DE / EUR）
 | 角色 | 名称 | 类型 | 说明 |
 |---|---|---|---|
-| 商户 | Kaffee und Tee GmbH | Business | **App 凭证属于这个账户**；顾客付款进这里；每日分账从这里打出 |
-| 消费者 A | Anna Schmidt | Personal | 小额零散订单 |
+| 商户 | Kaffee und Tee GmbH（新沙盒账户） | Business | **App 凭证属于这个账户**；顾客付款进这里；每日分账从这里打出 |
+| 消费者 A | Anna Schmidt | Personal (DE) | 小额零散订单 |
 | 消费者 B | John and Peter GmbH | Business | 咨询公司，大额、定期的团队餐/会议订单（真实交易，AI 不应误判为刷单） |
 | DRC 托管账户 | DRC Fund I Escrow | Business | 接收每日分账；内部账本拆分为 PayPal 服务费 + 投资者净收益 |
 
@@ -25,24 +25,28 @@
 
 ## 3. 分账规则（Split Engine，核心业务逻辑，改动需经 Celina 确认）
 每日瀑布流（waterfall）：
-1. `verified_revenue` = AI 清洗后的当日已验证净营业额
-2. `drc_due` = verified_revenue × 当前分成比例（可阶梯：如日营业额 ≤ €5,000 部分 8%，超出部分 3%）
-3. **PayPal 打款手续费由付款方承担（实测 2%：€10 打款收 €0.20）**。为保证商户总支出 = 合同分成：
-   `payout_amount = drc_due − payout_fee`，使 `payout_amount + payout_fee = drc_due`
+1. `verified_net` = AI 清洗后（剔除规则确认的自刷单）、只计入已完成（`COMPLETED`）交易、并扣除 PayPal 收款手续费后的当日净额（真实交易用 Transaction Search 返回的实际 fee；模拟历史数据用 `config.FEE_MODEL` 估算）。**分账基数用 `verified_net`**；待复核（`at_risk`）的交易仍计入，单独汇总展示
+2. `drc_due` = verified_net × 当前分成比例（可阶梯：如日营业额 ≤ €5,000 部分 8%，超出部分 3%）
+3. **Payouts 手续费由商户在分成之外额外承担（Celina 11/7 确认）**：`payout_amount = drc_due`（全额打给托管账户）；`payout_fee` 由 PayPal 另行向商户收取（实测 2%：€10 打款收 €0.20），记为商户的 `merchant_settlement_cost`，**不计入 cap、不从托管池扣**。商户当日总支出 = `drc_due + payout_fee`。以 PayPal 返回的实际 fee 为准记账
 4. 托管资金池内部记账（不再单独打款）：
-   ① PayPal 服务费（servicing fee，优先扣）→ ② 打款手续费记为结算成本 → ③ 剩余为投资者净收益
+   ① PayPal 服务费（servicing fee，优先扣）→ ② 剩余为投资者净收益（不再有打款手续费这一项）
 5. 累计 `sum(drc_due)` ≥ 合同封顶金额（cap）→ 停止分账，生成合同终止记录；当日只扣到刚好达到 cap
-6. 同时显示 **gross IRR（按商户支付）** 和 **net IRR（投资者扣费后）**
+6. 显示三个指标（IRR 一律从投资人视角算，`payout_fee` 是商户成本，**不计入 IRR**）：
+   - **gross IRR**：现金流 = 每日 `drc_due`（托管账户实际收到的钱）对比 `investment_amount`
+   - **net IRR**：现金流 = 每日 `investor_net`（扣除 servicing fee 之后）
+   - **merchant effective cost**（商户视角，另外展示），用来说明结算频率对商户的影响：
+     - 总成本倍数 = `(累计 drc_due + 累计 payout_fee) / investment_amount`
+     - **merchant effective APR** = 商户现金流的 XIRR：融资日 `+investment_amount`，之后每个结算日 `−(drc_due + payout_fee)`。用 numpy-financial 或二分法求解，和 IRR 的算法一致（numpy-financial 的 `irr` 只适用于等间隔现金流；按实际日期计算时，用二分法对 XNPV 求根）
 7. **幂等**：`sender_batch_id = drc-{merchant_id}-{YYYYMMDD}`，同一天绝不重复打款（PayPal 会拒绝重复 ID，本地也要先查）
 8. 结算频率可配置：每日 / 满额（如累计 ≥ €100）/ 每周 —— 由优化器根据手续费拖累给出建议
 
 ## 4. 系统闭环（模块）
 ```
-① 收入进来     paypal/orders.py      消费者 A/B 通过 Orders API 在沙盒真实下单付款
-② AI 清洗      ai/anomaly.py         Isolation Forest 识别刷单/作废/改价/断流 → verified_revenue
+① 收入进来     买家通过 PayPal 钱包 Send（商品或服务）付款给商户，paypal/reporting.py 用 Transaction Search 读取。（paypal/orders.py 保留：Orders Checkout 在德国沙盒被 COMPLIANCE_KYC_VIOLATION 拦截，代码可用于其他地区）
+② AI 清洗      ai/anomaly.py         Isolation Forest 识别刷单/作废/改价/断流 → verified_net
 ③ AI 读合同    ai/contract_parser.py LLM 从 DRC 合同 PDF 提取结构化参数（JSON Schema）
 ④ 每日分账     engine/split_engine.py 按第 3 节规则计算 → paypal/payouts.py 真实打款
-⑤ 收益追踪     engine/irr_tracker.py  累计回款、gross/net IRR、触达 cap 自动终止
+⑤ 收益追踪     engine/irr_tracker.py  累计回款、gross/net IRR、merchant effective cost、触达 cap 自动终止
 ⑥ 健康度 Agent ai/health_agent.py    移动平均+阈值 → LLM 生成风险报告 → 建议下调分成比例 → 人工批准后次日生效（回到 ④）
 ⑦ 资产报告     reports/asset_report.py 输出"已验证流水报告"（JSON + PDF）给投资者
 （可选）       ai/optimizer.py        Monte Carlo 比较候选费率与结算频率
@@ -103,16 +107,18 @@ DEEPSEEK_API_KEY=
 | 日期 | 目标 | 完成标志 |
 |---|---|---|
 | 11/5 ✅ | 沙盒 4 账户 + Postman 测通 Token / Payouts / 状态查询 | 托管账户收到 €10，素材已存 |
-| 11/6 | 建仓库；`paypal/client.py` + `payouts.py`；`generate_data.py` 生成 90 天流水（含异常）；`orders.py` 让消费者 A/B 真实下单 | `python -m paypal.payouts` 打出一笔；商户 Total sales volume 不再是 "-" |
-| 11/7 | `anomaly.py`、`contract_parser.py`、`split_engine.py` + 单元测试 | 合同 → 参数 → 计算 €9.80 打款 → 沙盒到账 |
+| 11/6 ✅ | 建仓库；`paypal/client.py` + `payouts.py`；`generate_data.py` 生成 90 天流水（含异常）；`orders.py` / 买家 Send 付款 | 仓库已发布；payouts 自动打款 SUCCESS；generate_data.py 生成 90 天模拟历史流水（08-08 至 11-05，含 4 类植入异常）；买家 Send 4 笔真实付款（€171.50 gross / €166.84 net） |
+| 11/7 | `anomaly.py`（交易级 IsolationForest + 规则，日级移动平均/渠道占比）、`make_contract.py` 生成合同 PDF、`contract_parser.py`（Claude tool use + source_quote + 校验）、`ledger.py` + `split_engine.py` + 单元测试 | 4 类异常按类型输出 precision/recall，John and Peter 订单误报≈0；合同 → `contract_params.json` 校验通过；11/6 净营业额 €166.84 → drc_due €13.35 全额打款至托管账户 SUCCESS（商户另付手续费约 €0.27），同日重复运行被拒绝 |
 | 11/8 | `irr_tracker.py`、`health_agent.py`、`optimizer.py`（简版） | 触达 cap 自动停；风险报告生成 |
 | 11/9 | Streamlit 4 页面 + "Simulate next day" 按钮 + AG Grid 表格 | 本地全流程可点 |
 | 11/10 | 部署 Render、README、Devpost 文案 | 公开链接无痕窗口可用 |
 | 11/11 | 录视频、上传 YouTube、提交 Devpost | 提交成功（11/12 为缓冲） |
 
-## 10. 已知事实（Day 1 实测）
+## 10. 已知事实（实测）
 - 沙盒 Payout 约 24 秒从 PENDING → SUCCESS
 - 打款手续费 2%（€10 → €0.20），由付款方承担；收款方 Fee = €0.00
 - 每次打款在商户记录里生成两行：Mass payment（批次）+ Payment to 收款人
 - 交易记录页可导出 CSV
-- Day 2 实测：通过 Orders API 的网页结账，买家付款一律被拒（`COMPLIANCE_KYC_VIOLATION`，已排除账号、App、付款来源、订单写法）；买家钱包的 Send（Goods and services）正常。**备选方案：消费者 A/B 用钱包手动转账给商户，经 Transaction Search（`paypal/reporting.py`）读取**；`orders.py` 保留为代码，演示时如实说明。卡支付路径（`--mode card`）同样不通：`PAYEE_NOT_ENABLED_FOR_CARD_PROCESSING`（商户账号未开通卡处理，App 里勾选无效）
+- 德国沙盒里 Orders API 的 Checkout 页面被拒（`COMPLIANCE_KYC_VIOLATION`，换买家、换商户都一样；已排除账号、App、付款来源、订单写法），所以**顾客付款改用买家端 Send → Goods and Services 进入商户账户，代码通过 Transaction Search（`paypal/reporting.py`）读取**；`orders.py` 保留为代码，演示时如实说明。卡支付路径（`--mode card`）同样不通：`PAYEE_NOT_ENABLED_FOR_CARD_PROCESSING`（商户账号未开通卡处理，App 里勾选无效）
+- 商户收款费率实测 1.90% + €0.35/笔（€145 → €3.11）
+- Payout 状态会经过 PENDING → PROCESSING → SUCCESS，**只有 SUCCESS 才记账**

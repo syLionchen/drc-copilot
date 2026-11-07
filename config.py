@@ -2,6 +2,7 @@
 # Exposes PayPal sandbox credentials, demo account emails, and LLM provider
 # settings to the rest of the app. Never hardcode secrets here.
 import os
+from decimal import Decimal
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -22,3 +23,14 @@ ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
 
 CURRENCY = "EUR"
+
+# Fee model used to estimate net revenue from a transaction export
+# (percent is a fraction, fixed is EUR per transaction). Change values here.
+FEE_MODEL = {
+    # Measured in the PayPal sandbox: EUR 145.00 -> EUR 3.11 (1.90 % + EUR 0.35)
+    "PAYPAL": {"percent": Decimal("0.0190"), "fixed": Decimal("0.35")},
+    # ASSUMPTION: typical card-acquiring rate, not measured. Configurable.
+    "POS_CARD": {"percent": Decimal("0.0139"), "fixed": Decimal("0.00")},
+    # Cash carries no PayPal fee.
+    "POS_CASH_REPORTED": {"percent": Decimal("0.0000"), "fixed": Decimal("0.00")},
+}

@@ -3,7 +3,8 @@
 # to train/test against.
 #
 # Outputs (CSVs are git-ignored, the PNG is committed):
-#   data/transactions.csv         one row per transaction (Europe/Berlin local time)
+#   data/transactions.csv         one row per transaction (Europe/Berlin local time);
+#                                 list_price = price before any discount / manual override
 #   data/injected_anomalies.csv   ground truth: what was injected, where
 #   data/daily_summary.csv        daily revenue (raw, i.e. BEFORE AI cleaning)
 #   docs/screenshots/revenue_90d_raw.png         (no annotations)
@@ -75,10 +76,12 @@ def money(cents):
 
 
 def make_row(ts, channel, ctype, cid, cents, status="COMPLETED",
-             overridden=False, anom_type="", anom_detail=""):
+             overridden=False, anom_type="", anom_detail="", list_cents=None):
+    # list_cents = list (shelf) price before any discount; defaults to the amount charged.
     return {
         "timestamp": ts, "channel": channel, "customer_type": ctype,
         "customer_id": cid, "amount_cents": int(cents), "status": status,
+        "list_cents": int(cents if list_cents is None else list_cents),
         "price_overridden": overridden,
         "_anom_type": anom_type, "_anom_detail": anom_detail,
     }
@@ -106,6 +109,7 @@ def normal_rows(d, rng, evening_factor):
                 cid = "CASH-ANON"
             cents = int(round(float(np.clip(rng.lognormal(np.log(6.5), 0.38), 3, 15)) * 100))
             overridden = False
+            list_cents = cents  # price before the (optional) 10 % discount
             if rng.random() < LEGIT_OVERRIDE_P:
                 overridden = True
                 cents = max(100, int(round(cents * 0.9)))
@@ -116,7 +120,7 @@ def normal_rows(d, rng, evening_factor):
             elif r < VOID_P + REFUND_P and channel != "POS_CASH_REPORTED":
                 status = "REFUNDED"
             rows.append(make_row(rand_ts(rng, d, hour), channel, "INDIVIDUAL",
-                                 cid, cents, status, overridden))
+                                 cid, cents, status, overridden, list_cents=list_cents))
     # John and Peter GmbH: real team-lunch / meeting orders, every Tue & Thu
     if d.weekday() in (1, 3):
         ts = rand_ts(rng, d, int(rng.integers(11, 13)))
@@ -173,6 +177,7 @@ def build_data():
             for i in rng.choice(eligible, size=OVERRIDES_PER_DAY, replace=False):
                 r = day[int(i)]
                 orig = r["amount_cents"]
+                r["list_cents"] = orig  # the original price before the manual override
                 r["amount_cents"] = max(100, int(round(orig * rng.uniform(0.3, 0.6))))
                 r["price_overridden"] = True
                 r["_anom_type"] = T_PRICE
@@ -191,6 +196,20 @@ def build_data():
     return df, day_anoms, all_days
 
 
+def report_unchanged(path, new_df):
+    """Before overwriting a CSV, compare it with the new content (shared columns only)
+    and print whether it is identical. Lets us prove that adding a column did not
+    change any existing data."""
+    if not path.exists():
+        return
+    old = pd.read_csv(path, dtype=str, keep_default_na=False)
+    cols = [c for c in old.columns if c in new_df.columns]
+    new = new_df[cols].astype(str)
+    same = old[cols].to_numpy().tolist() == new.to_numpy().tolist()
+    verdict = "identical to the previous file on shared columns" if same else "CHANGED vs the previous file"
+    print(f"check {path.name:<22}: {verdict} ({len(old):,} -> {len(new_df):,} rows)")
+
+
 def write_outputs(df, day_anoms, all_days):
     # transactions.csv
     out = pd.DataFrame({
@@ -200,9 +219,11 @@ def write_outputs(df, day_anoms, all_days):
         "customer_type": df["customer_type"],
         "customer_id": df["customer_id"],
         "amount_eur": df["amount_cents"].map(money),
+        "list_price": df["list_cents"].map(money),
         "status": df["status"],
         "price_overridden": df["price_overridden"],
     })
+    report_unchanged(DATA_DIR / "transactions.csv", out)
     out.to_csv(DATA_DIR / "transactions.csv", index=False)
 
     # injected_anomalies.csv (ground truth)
@@ -216,6 +237,7 @@ def write_outputs(df, day_anoms, all_days):
     day_df = pd.DataFrame(day_anoms, columns=["anomaly_type", "date", "txn_id", "detail"])
     anoms = pd.concat([txn_anoms, day_df]).sort_values(
         ["anomaly_type", "date", "txn_id"]).reset_index(drop=True)
+    report_unchanged(DATA_DIR / "injected_anomalies.csv", anoms)
     anoms.to_csv(DATA_DIR / "injected_anomalies.csv", index=False)
 
     # daily_summary.csv (raw revenue = COMPLETED only, before AI cleaning)
