@@ -4,9 +4,11 @@
 #
 # Run (from the project root):
 #   python -m unittest discover -s tests -p "test_split_engine.py" -v
+import contextlib
+import io
 import sys
 import unittest
-from datetime import date
+from datetime import date, datetime
 from decimal import Decimal
 from pathlib import Path
 
@@ -15,6 +17,7 @@ sys.path.insert(0, str(ROOT))
 
 from engine import ledger  # noqa: E402
 from engine import split_engine as se  # noqa: E402
+from paypal import reporting  # noqa: E402
 
 PARAMS = {
     "tiers": [{"up_to": 703.26, "rate": 0.05}, {"up_to": None, "rate": 0.03}],
@@ -232,6 +235,164 @@ class ContractTermAndOrder(unittest.TestCase):
     def test_add_months(self):
         self.assertEqual(se.add_months(date(2026, 11, 6), 24), date(2028, 11, 6))
         self.assertEqual(se.add_months(date(2026, 1, 31), 1), date(2026, 2, 28))
+
+
+def live_row(transaction_id, gross, fee, payer_id=None, list_price=None):
+    """A customer-payment row as paypal/reporting.py returns it."""
+    row = {"transaction_id": transaction_id, "time_berlin": datetime(2026, 11, 6, 12, 0, 0),
+           "payer_name": f"Buyer {transaction_id}", "payer_id": payer_id, "gross": Decimal(gross),
+           "fee": Decimal(fee), "net": Decimal(gross) - Decimal(fee), "currency": "EUR", "event_code": "T0006"}
+    if list_price is not None:
+        row["list_price"] = Decimal(list_price)
+    return row
+
+
+# four ordinary payments: gross 171.50, fees 4.66, net 166.84 (the real 2026-11-06 sandbox day)
+NORMAL = [live_row("N1", "12.50", "0.59", "P1"), live_row("N2", "8.40", "0.51", "P2"),
+          live_row("N3", "100.00", "2.25", "P3"), live_row("N4", "50.60", "1.31", "P4")]
+
+
+class FakeReporting:
+    """Stands in for paypal.reporting: serves the given rows; daily_summary is the real, pure one."""
+
+    def __init__(self, rows, excluded=()):
+        self.rows, self.excluded, self.calls = rows, list(excluded), 0
+
+    def fetch_trading_day_detailed(self, day):
+        self.calls += 1
+        return list(self.rows), list(self.excluded)
+
+    daily_summary = staticmethod(reporting.daily_summary)
+
+
+def gather(rows, **kwargs):
+    lines = []
+    revenue = se.gather_revenue(DAY1, reporting_module=FakeReporting(rows), out=lines.append, **kwargs)
+    return revenue, lines
+
+
+class RevenueSource(unittest.TestCase):
+    def test_manual_revenue_is_used_as_is_and_reporting_is_not_called(self):
+        fake = FakeReporting(NORMAL)
+        revenue = se.gather_revenue(DAY1, manual_revenue=Decimal("166.84"), reporting_module=fake,
+                                    out=lambda *args: None)
+        self.assertEqual((revenue.net, revenue.source), (Decimal("166.84"), "manual --revenue"))
+        self.assertEqual(fake.calls, 0)
+
+    def test_without_manual_revenue_the_net_comes_from_transaction_search(self):
+        revenue, lines = gather(NORMAL)
+        self.assertEqual(revenue.net, Decimal("166.84"))
+        self.assertEqual(revenue.source, "PayPal Transaction Search (4 transactions)")
+        text = "\n".join(lines)
+        self.assertIn("clean: 4", text)
+        self.assertIn("under review (counted): 0", text)
+        self.assertIn("excluded (removed): 0", text)
+        self.assertEqual(se.calculate_split(revenue.net, PARAMS).drc_due, Decimal("8.34"))
+
+    def test_one_transaction_uses_the_singular(self):
+        revenue, _ = gather(NORMAL[:1])
+        self.assertEqual(revenue.source, "PayPal Transaction Search (1 transaction)")
+
+    def test_excluded_transactions_are_removed_from_verified_net(self):
+        micro = [live_row(f"M{i}", "0.80", "0.36", "FAKE1") for i in range(5)]     # self-dealing pattern
+        revenue, lines = gather(NORMAL + micro)
+        self.assertEqual(revenue.net, Decimal("166.84"))             # the 5 micro orders are gone
+        self.assertEqual(revenue.source, "PayPal Transaction Search (9 transactions)")
+        text = "\n".join(lines)
+        self.assertIn("excluded (removed): 5", text)
+        self.assertEqual(text.count("EXCLUDED (removed from verified_net)"), 5)
+        self.assertIn("SELF_DEALING_SUSPECT", text)
+
+    def test_four_small_orders_from_one_payer_are_not_enough_to_exclude(self):
+        revenue, _ = gather([live_row(f"S{i}", "0.80", "0.36", "SAME") for i in range(4)])
+        self.assertEqual(revenue.net, Decimal("1.76"))               # 4 x 0.44
+
+    def test_under_review_is_counted_but_printed(self):
+        suspicious = live_row("UR1", "8.00", "0.50", "P9", list_price="20.00")    # 60 % below list price
+        revenue, lines = gather(NORMAL + [suspicious])
+        self.assertEqual(revenue.net, Decimal("166.84") + Decimal("7.50"))        # still counted
+        text = "\n".join(lines)
+        self.assertIn("under review (counted): 1", text)
+        self.assertIn("UNDER REVIEW (counted in verified_net): UR1", text)
+        self.assertIn("PRICE_OVERRIDE_DEEP", text)
+
+    def test_no_transactions_is_refused_as_possible_data_delay(self):
+        with self.assertRaises(se.NoTransactionsFound) as ctx:
+            gather([])
+        self.assertIn("data delay", str(ctx.exception))
+
+    def test_a_zero_day_can_be_accepted_explicitly(self):
+        revenue, _ = gather([], allow_zero_day=True)
+        self.assertEqual((revenue.net, revenue.source), (Decimal("0.00"), "PayPal Transaction Search (0 transactions)"))
+
+    def test_dry_run_only_warns_about_an_empty_day(self):
+        revenue, lines = gather([], dry_run=True)
+        self.assertEqual(revenue.net, Decimal("0.00"))
+        self.assertTrue(any(line.startswith("WARNING") and "data delay" in line for line in lines))
+
+
+class ConfirmationPrompt(unittest.TestCase):
+    def test_mask_email(self):
+        self.assertEqual(se.mask_email("sb-q2scf53542513@business.example.com"), "sb-q2scf…@business.example.com")
+        self.assertEqual(se.mask_email("anna@example.test"), "anna@example.test")
+        self.assertEqual(se.mask_email("not-an-email"), "not-an-email")
+
+    def test_prompt_is_english_and_masks_the_escrow_address(self):
+        prompts = []
+        se.run_settlement(ledger.connect(":memory:"), PARAMS, DAY1, Decimal("166.84"), MERCHANT,
+                          "sb-q2scf53542513@business.example.com", FakePayouts(),
+                          confirm=lambda prompt: prompts.append(prompt) or True,
+                          sleep=lambda seconds: None, out=lambda *args: None)
+        self.assertEqual(prompts, ["Pay EUR 8.34 to escrow account sb-q2scf…@business.example.com? "
+                                   "Type YES to confirm: "])
+
+    def test_source_is_printed_with_the_calculation(self):
+        lines = []
+        se.run_settlement(ledger.connect(":memory:"), PARAMS, DAY1, Decimal("166.84"), MERCHANT, ESCROW,
+                          FakePayouts(), confirm=lambda prompt: True, sleep=lambda seconds: None,
+                          out=lines.append, source="manual --revenue")
+        self.assertIn("  source: manual --revenue", lines)
+
+    def test_all_engine_output_is_ascii_english(self):
+        lines = []
+        se.run_settlement(ledger.connect(":memory:"), PARAMS, DAY1, Decimal("166.84"), MERCHANT, ESCROW,
+                          FakePayouts(), confirm=lambda prompt: True, sleep=lambda seconds: None, out=lines.append)
+        for line in lines:
+            self.assertTrue(line.isascii(), line)
+
+
+class CommandLine(unittest.TestCase):
+    def setUp(self):
+        if not se.PARAMS_PATH.exists():
+            self.skipTest("data/contract_params.json not found")
+
+    def main(self, argv, **kwargs):
+        buffer = io.StringIO()
+        with contextlib.redirect_stdout(buffer):
+            code = se.main(argv, **kwargs)
+        return code, buffer.getvalue()
+
+    def test_dry_run_with_manual_revenue(self):
+        code, text = self.main(["--date", "2026-11-06", "--revenue", "166.84", "--dry-run", "--db", ":memory:"])
+        self.assertEqual(code, 0)
+        self.assertIn("source: manual --revenue", text)
+        self.assertIn("EUR 8.34", text)
+        self.assertIn("DRY RUN", text)
+
+    def test_dry_run_reads_transaction_search_when_no_revenue_is_given(self):
+        fake = FakeReporting(NORMAL)
+        code, text = self.main(["--date", "2026-11-06", "--dry-run", "--db", ":memory:"], reporting_module=fake)
+        self.assertEqual(code, 0)
+        self.assertEqual(fake.calls, 1)
+        self.assertIn("source: PayPal Transaction Search (4 transactions)", text)
+        self.assertIn("Anomaly screening", text)
+        self.assertIn("EUR 8.34", text)
+
+    def test_a_manual_revenue_never_calls_transaction_search(self):
+        fake = FakeReporting(NORMAL)
+        self.main(["--date", "2026-11-06", "--revenue", "1000", "--dry-run", "--db", ":memory:"],
+                  reporting_module=fake)
+        self.assertEqual(fake.calls, 0)
 
 
 if __name__ == "__main__":

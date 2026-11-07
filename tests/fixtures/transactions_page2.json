@@ -1,0 +1,71 @@
+{
+  "_comment": "MOCK Transaction Search response (page 2 of 2). Invented data, not from a real account.",
+  "page": 2,
+  "total_pages": 2,
+  "total_items": 11,
+  "transaction_details": [
+    {
+      "transaction_info": {
+        "transaction_id": "TESTTXN0003",
+        "transaction_event_code": "T0006",
+        "transaction_initiation_date": "2026-11-05T23:00:00+0000",
+        "transaction_amount": {"currency_code": "EUR", "value": "100.00"},
+        "fee_amount": {"currency_code": "EUR", "value": "-2.25"},
+        "transaction_status": "S"
+      },
+      "payer_info": {"payer_name": {"alternate_full_name": "Test Buyer Three GmbH"}}
+    },
+    {
+      "transaction_info": {
+        "transaction_id": "TESTTXN0004",
+        "transaction_event_code": "T0006",
+        "transaction_initiation_date": "2026-11-06T23:00:00+0000",
+        "transaction_amount": {"currency_code": "EUR", "value": "3.00"},
+        "fee_amount": {"currency_code": "EUR", "value": "-0.41"},
+        "transaction_status": "S"
+      },
+      "payer_info": {"payer_name": {"alternate_full_name": "Test Buyer Four"}}
+    },
+    {
+      "transaction_info": {
+        "transaction_id": "TESTPENDING1",
+        "transaction_event_code": "T0006",
+        "transaction_initiation_date": "2026-11-06T10:00:00+0000",
+        "transaction_amount": {"currency_code": "EUR", "value": "20.00"},
+        "fee_amount": {"currency_code": "EUR", "value": "-0.73"},
+        "transaction_status": "P"
+      },
+      "payer_info": {"payer_name": {"alternate_full_name": "Test Buyer Pending"}}
+    },
+    {
+      "transaction_info": {
+        "transaction_id": "TESTTXN0005",
+        "transaction_event_code": "T0006",
+        "transaction_initiation_date": "2026-11-06T07:15:00+0000",
+        "transaction_amount": {"currency_code": "EUR", "value": "4.20"},
+        "fee_amount": {"currency_code": "EUR", "value": "-0.43"},
+        "transaction_status": "S"
+      },
+      "payer_info": {"email_address": "buyer5@example.test", "payer_name": {"alternate_full_name": "Test Buyer Five"}}
+    },
+    {
+      "transaction_info": {
+        "transaction_id": "TESTTXN0006",
+        "transaction_event_code": "T0000",
+        "transaction_initiation_date": "2026-11-06T11:00:00+0000",
+        "transaction_amount": {"currency_code": "EUR", "value": "6.00"},
+        "transaction_status": "S"
+      },
+      "payer_info": {"payer_name": {"given_name": "Max", "surname": "Test"}}
+    },
+    {
+      "transaction_info": {
+        "transaction_id": "TESTHOLD1105",
+        "transaction_event_code": "T1105",
+        "transaction_initiation_date": "2026-11-06T13:00:00+0000",
+        "transaction_amount": {"currency_code": "EUR", "value": "1.02"},
+        "transaction_status": "S"
+      }
+    }
+  ]
+}

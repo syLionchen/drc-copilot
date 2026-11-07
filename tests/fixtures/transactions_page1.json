@@ -1,0 +1,60 @@
+{
+  "_comment": "MOCK Transaction Search response (page 1 of 2). Invented data, not from a real account.",
+  "page": 1,
+  "total_pages": 2,
+  "total_items": 11,
+  "transaction_details": [
+    {
+      "transaction_info": {
+        "transaction_id": "TESTTXN0001",
+        "transaction_event_code": "T0006",
+        "transaction_initiation_date": "2026-11-06T22:59:30+0000",
+        "transaction_amount": {"currency_code": "EUR", "value": "12.50"},
+        "fee_amount": {"currency_code": "EUR", "value": "-0.59"},
+        "transaction_status": "S"
+      },
+      "payer_info": {"account_id": "TESTACCT0001", "payer_name": {"alternate_full_name": "Test Buyer One"}}
+    },
+    {
+      "transaction_info": {
+        "transaction_id": "TESTTXN0002",
+        "transaction_event_code": "T0006",
+        "transaction_initiation_date": "2026-11-06T23:01:00+0000",
+        "transaction_amount": {"currency_code": "EUR", "value": "8.40"},
+        "fee_amount": {"currency_code": "EUR", "value": "-0.51"},
+        "transaction_status": "S"
+      },
+      "payer_info": {"payer_name": {"alternate_full_name": "Test Buyer Two"}}
+    },
+    {
+      "transaction_info": {
+        "transaction_id": "TESTPAYOUT01",
+        "transaction_event_code": "T0400",
+        "transaction_initiation_date": "2026-11-06T10:30:00+0000",
+        "transaction_amount": {"currency_code": "EUR", "value": "-8.34"},
+        "fee_amount": {"currency_code": "EUR", "value": "-0.17"},
+        "transaction_status": "S"
+      }
+    },
+    {
+      "transaction_info": {
+        "transaction_id": "TESTREFUND01",
+        "transaction_event_code": "T1107",
+        "transaction_initiation_date": "2026-11-06T13:00:00+0000",
+        "transaction_amount": {"currency_code": "EUR", "value": "-5.00"},
+        "transaction_status": "S"
+      },
+      "payer_info": {"payer_name": {"alternate_full_name": "Test Buyer One"}}
+    },
+    {
+      "transaction_info": {
+        "transaction_id": "TESTMASSPAY1",
+        "transaction_event_code": "T0001",
+        "transaction_initiation_date": "2026-11-06T09:00:00+0000",
+        "transaction_amount": {"currency_code": "EUR", "value": "-20.00"},
+        "fee_amount": {"currency_code": "EUR", "value": "-0.40"},
+        "transaction_status": "S"
+      }
+    }
+  ]
+}

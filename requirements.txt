@@ -10,3 +10,4 @@ streamlit-aggrid
 matplotlib
 fpdf2
 anthropic
+tzdata

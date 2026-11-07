@@ -1,6 +1,7 @@
 # Daily split engine (CLAUDE.md §3 - changes need Celina's confirmation).
 #
-# verified_revenue (= verified_net of one Trading Day)
+# verified_net of one Trading Day (the PayPal-channel net of customer payments, after the
+# anomaly rules have removed excluded transactions)
 #   -> drc_due       progressive tiers from data/contract_params.json
 #                    (5% up to the Baseline Threshold, 3% on the portion above; NOT one flat rate)
 #   -> payout_amount = drc_due, paid in full to the escrow account via PayPal Payouts
@@ -13,13 +14,19 @@
 #   -> idempotency: sender_batch_id = drc-{merchant_id}-{YYYYMMDD}; a day that already has a SUCCESS
 #      row is refused locally, before PayPal is called.
 #
+# Revenue input:
+#   * default            PayPal Transaction Search (paypal/reporting.py) for that Berlin Trading Day,
+#                        then ai/anomaly.py rules: EXCLUDED transactions are removed, UNDER_REVIEW
+#                        ones stay in verified_net but are printed.
+#   * --revenue X        manual verified_net (kept for tests and demos); no transaction-level check.
+#
 # Money: Decimal, rounded half-up to 2 places. The total drc_due is rounded once, after summing the
 # tiers (703.26 x 5% + 296.74 x 3% = 44.0652 -> 44.07).
 #
 # Usage (from the project root):
+#   python -m engine.split_engine --date 2026-11-06 --dry-run
+#   python -m engine.split_engine --date 2026-11-06            (asks for YES, then pays)
 #   python -m engine.split_engine --date 2026-11-06 --revenue 166.84 --dry-run
-#   python -m engine.split_engine --date 2026-11-06 --revenue 166.84        (asks for YES, then pays)
-# --revenue is a temporary input; Day 4 replaces it with Transaction Search data.
 import argparse
 import calendar
 import json
@@ -68,6 +75,10 @@ class PayoutNotConfirmed(SettlementError):
     pass
 
 
+class NoTransactionsFound(SettlementError):
+    pass
+
+
 # --------------------------------------------------------------- helpers
 def D(x):
     return Decimal(str(x))
@@ -81,6 +92,14 @@ def add_months(d, months):
     index = d.month - 1 + months
     year, month = d.year + index // 12, index % 12 + 1
     return date(year, month, min(d.day, calendar.monthrange(year, month)[1]))
+
+
+def mask_email(email):
+    """sb-q2scf53542513@business.example.com -> sb-q2scf…@business.example.com"""
+    local, at, domain = email.partition("@")
+    if not at:
+        return email
+    return (local[:8] + "…" if len(local) > 8 else local) + "@" + domain
 
 
 def load_params(path=PARAMS_PATH):
@@ -98,6 +117,58 @@ def check_in_term(day, params):
         raise OutsideContractTerm(f"{day} is before the Funding Date {funding}.")
     if day >= end:
         raise OutsideContractTerm(f"{day} is after the maximum term (ends {end}).")
+
+
+# ----------------------------------------------------------- revenue input
+@dataclass(frozen=True)
+class RevenueInput:
+    net: Decimal      # verified_net used as the split base
+    source: str       # e.g. "PayPal Transaction Search (4 transactions)" or "manual --revenue"
+
+
+def gather_revenue(day, manual_revenue=None, reporting_module=None, allow_zero_day=False,
+                   dry_run=False, out=print):
+    """verified_net for one Trading Day.
+
+    manual_revenue given -> used as is. Otherwise PayPal Transaction Search is read through
+    reporting_module.fetch_trading_day_detailed / daily_summary (default: paypal.reporting), the
+    ai/anomaly.py rules remove EXCLUDED transactions and UNDER_REVIEW ones are printed but counted."""
+    if manual_revenue is not None:
+        return RevenueInput(q2(D(manual_revenue)), "manual --revenue")
+
+    if reporting_module is None:
+        from paypal import reporting as reporting_module
+    from ai import anomaly
+
+    rows, excluded_by_reporting = reporting_module.fetch_trading_day_detailed(day)
+    summary = reporting_module.daily_summary(day, transactions=rows, excluded=excluded_by_reporting, out=out)
+    count = summary["count"]
+    if count == 0 and not allow_zero_day:
+        message = (f"No customer payments found for {day}. This may be data delay (up to 3 hours). "
+                   f"Run again later, or pass --allow-zero-day if the shop really had no sales that day.")
+        if not dry_run:
+            raise NoTransactionsFound(message)
+        out(f"WARNING: {message}")
+
+    verdicts = {v["transaction_id"]: v for v in anomaly.classify_live_batch(rows)}
+    excluded = [r for r in rows if verdicts[r["transaction_id"]]["tier"] == "EXCLUDED"]
+    under_review = [r for r in rows if verdicts[r["transaction_id"]]["tier"] == "UNDER_REVIEW"]
+    excluded_net = sum((r["net"] for r in excluded), Decimal("0.00"))
+    verified_net = q2(summary["net"] - excluded_net)
+
+    out("")
+    out("Anomaly screening (ai/anomaly.py rules)")
+    out(f"  clean: {count - len(excluded) - len(under_review)}   "
+        f"under review (counted): {len(under_review)}   excluded (removed): {len(excluded)}")
+    for tier_label, group in (("UNDER REVIEW (counted in verified_net)", under_review),
+                              ("EXCLUDED (removed from verified_net)", excluded)):
+        for r in group:
+            reasons = ", ".join(verdicts[r["transaction_id"]]["reasons"])
+            out(f"  {tier_label}: {r['transaction_id']}  EUR {r['gross']}  {reasons}")
+    out(f"  PayPal net EUR {summary['net']} - excluded EUR {excluded_net} = verified_net EUR {verified_net}")
+
+    noun = "transaction" if count == 1 else "transactions"
+    return RevenueInput(verified_net, f"PayPal Transaction Search ({count} {noun})")
 
 
 # ----------------------------------------------------------- calculation
@@ -187,8 +258,10 @@ def plan_settlement(conn, merchant_id, day, revenue, params):
     return sender_batch_id, None, split
 
 
-def describe_split(split, params, out=print):
-    out(f"  verified_revenue (verified_net)   : EUR {split.verified_revenue}")
+def describe_split(split, params, out=print, source=None):
+    if source:
+        out(f"  source: {source}")
+    out(f"  verified_net (split base)         : EUR {split.verified_revenue}")
     for i, (portion, rate, amount) in enumerate(split.tier_parts, start=1):
         out(f"  tier {i}: EUR {portion} x {rate * 100:g}% = {amount}")
     out(f"  drc_due                           : EUR {split.drc_due}   (blended rate {split.rate_applied})")
@@ -206,10 +279,10 @@ def describe_split(split, params, out=print):
 
 # ------------------------------------------------------------- settlement
 def run_settlement(conn, params, day, revenue, merchant_id, escrow_email, payouts, confirm,
-                   sleep=time.sleep, poll_seconds=5, timeout_seconds=300, out=print):
-    """Compute, confirm, pay and record one trading day. `payouts` must offer
-    create_payout(receiver_email, amount, sender_batch_id, note) and get_payout_status(batch_id);
-    `confirm(prompt) -> bool` is the human confirmation."""
+                   sleep=time.sleep, poll_seconds=5, timeout_seconds=300, out=print, source=None):
+    """Compute, confirm, pay and record one trading day. `revenue` is verified_net; `source` is only
+    printed. `payouts` must offer create_payout(receiver_email, amount, sender_batch_id, note) and
+    get_payout_status(batch_id); `confirm(prompt) -> bool` is the human confirmation."""
     sender_batch_id, existing, split = plan_settlement(conn, merchant_id, day, revenue, params)
 
     if existing is not None:
@@ -225,7 +298,7 @@ def run_settlement(conn, params, day, revenue, merchant_id, escrow_email, payout
             f"PayPal rejects a repeated sender_batch_id, so check the payout in PayPal first.")
 
     out(f"Settlement for Trading Day {day}  (merchant {merchant_id})")
-    describe_split(split, params, out)
+    describe_split(split, params, out, source=source)
     row = {
         "date": day.isoformat(), "merchant_id": merchant_id,
         "verified_revenue": split.verified_revenue, "rate_applied": split.rate_applied,
@@ -241,7 +314,8 @@ def run_settlement(conn, params, day, revenue, merchant_id, escrow_email, payout
         out("Nothing is due for this day (drc_due = 0.00): recorded as NO_PAYOUT, no PayPal call.")
         return ledger.get_by_batch_id(conn, sender_batch_id)
 
-    if not confirm(f"将向 ESCROW_EMAIL ({escrow_email}) 打款 €{split.payout_amount}，确认请输入 YES: "):
+    if not confirm(f"Pay EUR {split.payout_amount} to escrow account {mask_email(escrow_email)}? "
+                   f"Type YES to confirm: "):
         raise PayoutNotConfirmed("not confirmed - nothing was paid and nothing was recorded.")
 
     ledger.insert_settlement(conn, row)   # sender_batch_id is UNIQUE: a second run cannot pass this point
@@ -310,43 +384,66 @@ def _decimal_arg(text):
     return value
 
 
-def main(argv=None):
+def main(argv=None, reporting_module=None):
     parser = argparse.ArgumentParser(description="Compute and pay one Trading Day's DRC contribution.")
-    parser.add_argument("--date", required=True, type=date.fromisoformat, help="Trading Day, YYYY-MM-DD")
-    parser.add_argument("--revenue", required=True, type=_decimal_arg,
-                        help="verified_net of that day in EUR (temporary; Day 4 reads Transaction Search)")
+    parser.add_argument("--date", required=True, type=date.fromisoformat, help="Trading Day, YYYY-MM-DD (Berlin)")
+    parser.add_argument("--revenue", type=_decimal_arg, default=None,
+                        help="manual verified_net in EUR; without it, revenue is read from PayPal Transaction Search")
+    parser.add_argument("--allow-zero-day", action="store_true",
+                        help="accept a day with no customer payments in Transaction Search (otherwise it is "
+                             "treated as possible data delay and refused)")
     parser.add_argument("--dry-run", action="store_true", help="only print the calculation, pay nothing")
     parser.add_argument("--merchant-id", default=config.MERCHANT_ID)
     parser.add_argument("--db", default=str(ledger.DB_PATH))
     parser.add_argument("--params", default=str(PARAMS_PATH))
     args = parser.parse_args(argv)
 
+    live_revenue = args.revenue is None
+    external_errors = ()
+    if live_revenue or not args.dry_run:
+        from paypal.client import PayPalError
+        from paypal.reporting import ReportingError
+        external_errors = (PayPalError, ReportingError)
+
     params = load_params(args.params)
     conn = ledger.connect(args.db)
     try:
-        if args.dry_run:
-            _, existing, split = plan_settlement(conn, args.merchant_id, args.date, args.revenue, params)
-            if existing is not None:
+        # A day that already has a ledger row is handled before PayPal Transaction Search is queried.
+        batch_id = ledger.make_sender_batch_id(args.merchant_id, args.date)
+        existing = ledger.get_by_batch_id(conn, batch_id)
+        if existing is not None:
+            if args.dry_run:
                 print(f"A settlement row for {args.date} already exists (status {existing['status']}).")
                 return 1
+            if existing["status"] in ledger.TERMINAL_FOR_DAY:
+                raise AlreadySettled(f"{args.date} is already settled (status {existing['status']}); "
+                                     f"refusing to pay twice.")
+            revenue = RevenueInput(Decimal("0.00"), "existing ledger row")   # unused: the row decides
+        else:
+            revenue = gather_revenue(args.date, manual_revenue=args.revenue, reporting_module=reporting_module,
+                                     allow_zero_day=args.allow_zero_day, dry_run=args.dry_run)
+
+        if args.dry_run:
+            _, _, split = plan_settlement(conn, args.merchant_id, args.date, revenue.net, params)
+            print("")
             print(f"DRY RUN - Trading Day {args.date}  (merchant {args.merchant_id}); nothing is paid or recorded")
-            describe_split(split, params)
+            describe_split(split, params, source=revenue.source)
             return 0
 
         if not config.ESCROW_EMAIL:
             raise SystemExit("ESCROW_EMAIL is not set in .env.")
         from paypal import payouts as paypal_payouts  # imported late so tests never need the network
-        from paypal.client import PayPalError
 
-        try:
-            run_settlement(conn, params, args.date, args.revenue, args.merchant_id, config.ESCROW_EMAIL,
-                           paypal_payouts, confirm=lambda prompt: input(prompt).strip() == "YES")
-        except PayPalError as exc:
-            print(f"PayPal error: {exc}")
-            return 1
+        print("")
+        run_settlement(conn, params, args.date, revenue.net, args.merchant_id, config.ESCROW_EMAIL,
+                       paypal_payouts, confirm=lambda prompt: input(prompt).strip() == "YES",
+                       source=revenue.source)
         return 0
     except SettlementError as exc:
         print(f"REFUSED: {exc}")
+        return 1
+    except external_errors as exc:
+        print(f"ERROR: {exc}")
         return 1
     finally:
         conn.close()

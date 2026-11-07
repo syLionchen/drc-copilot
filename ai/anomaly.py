@@ -35,7 +35,6 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import IsolationForest
 
 import config
 
@@ -96,6 +95,8 @@ def load_transactions():
 
 
 def detect_transactions(tx):
+    from sklearn.ensemble import IsolationForest  # imported here so classify_live_batch stays light
+
     tx = tx.copy()
     tx["amount"] = tx["amount_cents"] / 100.0
     tx["is_weekend"] = (tx["weekday"] >= 5).astype(int)
@@ -169,6 +170,39 @@ def detect_transactions(tx):
     tx["flagged"] = tx["tier"] != ""
     tx["fee_cents"] = [fee_cents(c, a) for c, a in zip(tx["channel"], tx["amount_cents"])]
     return tx
+
+
+def classify_live_batch(rows):
+    """Rule layer for ONE day of live transactions (e.g. from paypal/reporting.py), used by
+    engine/split_engine.py before the split. Same thresholds as detect_transactions(), but:
+      * no history and no IsolationForest (a single day is too small a sample);
+      * the customer is payer_id, or payer_name if there is no id; rows without either are anonymous.
+    rows: dicts with transaction_id and gross (Decimal EUR); optional payer_id, payer_name and
+    list_price (Decimal; live Transaction Search data has no list price, so that rule is skipped).
+    Returns [{"transaction_id", "tier", "reasons"}] in input order.
+      tier "EXCLUDED"     SELF_DEALING_SUSPECT: same customer >= 5 orders that day, each < EUR 1.50
+      tier "UNDER_REVIEW" PRICE_OVERRIDE_DEEP: charged >= 30 % below list_price (stays in verified_net)
+      tier ""             verified
+    """
+    from collections import Counter
+
+    def customer(row):
+        return row.get("payer_id") or row.get("payer_name")
+
+    orders = Counter(customer(r) for r in rows if customer(r))
+    verdicts = []
+    for row in rows:
+        cents = int(row["gross"] * 100)
+        tier, reasons = "", []
+        who = customer(row)
+        if who and orders[who] >= SELF_DEALING_MIN_COUNT and cents < SELF_DEALING_MAX_CENTS:
+            tier, reasons = "EXCLUDED", ["SELF_DEALING_SUSPECT"]
+        elif row.get("list_price") is not None:
+            list_cents = int(row["list_price"] * 100)
+            if cents * 100 <= list_cents * (100 - DEEP_DISCOUNT_PCT):
+                tier, reasons = "UNDER_REVIEW", ["PRICE_OVERRIDE_DEEP"]
+        verdicts.append({"transaction_id": row["transaction_id"], "tier": tier, "reasons": reasons})
+    return verdicts
 
 
 # ------------------------------------------------------------------ layer 2
