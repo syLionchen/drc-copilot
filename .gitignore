@@ -20,6 +20,10 @@ __pycache__/
 
 # Generated data (not committed)
 data/*.csv
+data/contract_params_rejected.json
+
+# Parsed contract parameters ARE committed
+!data/contract_params.json
 
 # OS / editor
 .DS_Store

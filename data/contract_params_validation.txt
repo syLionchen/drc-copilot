@@ -1,0 +1,41 @@
+Contract parameter validation
+PDF   : data/sample_contract.pdf
+Model : claude-sonnet-5-5
+Result: PASSED (36 of 36 checks passed)
+
+[PASS] structure: all 27 fields present
+[PASS] types: all non-null values have the expected type
+[PASS] null_fields_have_reason: no null fields
+[PASS] rates_between_0_and_1: all rates are between 0 and 1
+[PASS] cap_amount_equals_investment_x_multiple: cap_amount 23000 = 20000 x 1.15
+[PASS] tiers_ascending: 2 tier(s), up_to strictly increasing, last tier open-ended
+[PASS] servicing_fee_below_0.2: servicing_fee_rate 0.05 < 0.2
+[PASS] first_tier_up_to_equals_baseline: tiers[0].up_to 703.26 = baseline_threshold_amount 703.26
+[PASS] funding_date_is_iso: funding_date 2026-11-06 is a valid ISO date
+[PASS] source_quote[investment_amount]: quote found in the PDF text
+[PASS] source_quote[funding_date]: quote found in the PDF text
+[PASS] source_quote[day_basis]: quote found in the PDF text
+[PASS] source_quote[timezone]: quote found in the PDF text
+[PASS] source_quote[revenue_base]: quote found in the PDF text
+[PASS] source_quote[tiers]: quote found in the PDF text
+[PASS] source_quote[baseline_threshold_amount]: quote found in the PDF text
+[PASS] source_quote[baseline_threshold_method]: quote found in the PDF text
+[PASS] source_quote[cap_multiple]: quote found in the PDF text
+[PASS] source_quote[cap_amount]: quote found in the PDF text
+[PASS] source_quote[max_term_months]: quote found in the PDF text
+[PASS] source_quote[settlement_frequency]: quote found in the PDF text
+[PASS] source_quote[collection_method]: quote found in the PDF text
+[PASS] source_quote[fallback_collection]: quote found in the PDF text
+[PASS] source_quote[payout_fee_borne_by]: quote found in the PDF text
+[PASS] source_quote[servicing_fee_rate]: quote found in the PDF text
+[PASS] source_quote[health_trigger_drop_pct]: quote found in the PDF text
+[PASS] source_quote[health_window_short_days]: quote found in the PDF text
+[PASS] source_quote[health_window_long_days]: quote found in the PDF text
+[PASS] source_quote[reduced_rate]: quote found in the PDF text
+[PASS] source_quote[reduced_rate_max_days]: quote found in the PDF text
+[PASS] source_quote[requires_investor_approval]: quote found in the PDF text
+[PASS] source_quote[card_gap_breach_days]: quote found in the PDF text
+[PASS] source_quote[channel_share_drop_trigger_pp]: quote found in the PDF text
+[PASS] source_quote[monthly_report_days]: quote found in the PDF text
+[PASS] source_quote[vat_copy_days]: quote found in the PDF text
+[PASS] source_quote[annual_statement_months]: quote found in the PDF text

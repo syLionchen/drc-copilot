@@ -21,8 +21,15 @@ CONSUMER_B_EMAIL = os.getenv("CONSUMER_B_EMAIL", "")
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "anthropic")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
+# Claude model used by ai/contract_parser.py (override with CLAUDE_MODEL in .env)
+CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-5-5")
 
 CURRENCY = "EUR"
+
+# Merchant id used in sender_batch_id = drc-{merchant_id}-{YYYYMMDD} (engine/split_engine.py)
+MERCHANT_ID = os.getenv("MERCHANT_ID", "kaffee-und-tee")
+# Only used to PRINT an estimate before paying; the ledger always records PayPal's actual fee.
+PAYOUT_FEE_ESTIMATE_RATE = Decimal("0.02")
 
 # Fee model used to estimate net revenue from a transaction export
 # (percent is a fraction, fixed is EUR per transaction). Change values here.

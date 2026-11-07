@@ -1,0 +1,152 @@
+{
+  "source_pdf": "data/sample_contract.pdf",
+  "model": "claude-sonnet-5-5",
+  "params": {
+    "investment_amount": 20000,
+    "funding_date": "2026-11-06",
+    "day_basis": "trading_day",
+    "timezone": "Europe/Berlin",
+    "revenue_base": "total_receipts_all_channels",
+    "tiers": [
+      {
+        "up_to": 703.26,
+        "rate": 0.05
+      },
+      {
+        "up_to": null,
+        "rate": 0.03
+      }
+    ],
+    "baseline_threshold_amount": 703.26,
+    "baseline_threshold_method": "90% of the average daily Verified Net Revenue per Trading Day over the 90 days before the Funding Date, fixed at signing at EUR 703.26",
+    "cap_multiple": 1.15,
+    "cap_amount": 23000,
+    "max_term_months": 24,
+    "settlement_frequency": "daily",
+    "collection_method": "PayPal balance",
+    "fallback_collection": "SEPA direct debit",
+    "payout_fee_borne_by": "merchant",
+    "servicing_fee_rate": 0.05,
+    "health_trigger_drop_pct": 20,
+    "health_window_short_days": 7,
+    "health_window_long_days": 30,
+    "reduced_rate": 0.03,
+    "reduced_rate_max_days": 30,
+    "requires_investor_approval": true,
+    "card_gap_breach_days": 3,
+    "channel_share_drop_trigger_pp": 15,
+    "monthly_report_days": 10,
+    "vat_copy_days": 14,
+    "annual_statement_months": 6
+  },
+  "evidence": {
+    "investment_amount": {
+      "source_quote": "The Investor shall pay the Merchant EUR 20,000 (the \"Investment Amount\").",
+      "not_found_reason": null
+    },
+    "funding_date": {
+      "source_quote": "The Investment Amount is funded on 2026-11-06 (the \"Funding Date\").",
+      "not_found_reason": null
+    },
+    "day_basis": {
+      "source_quote": "On each Trading Day starting on the Funding Date, the Merchant shall contribute to the Investor 5% of Verified Net Revenue per Trading Day up to the Baseline Threshold of EUR 703.26, and 3% on the portion of Verified Net Revenue above the Baseline Threshold (together, the \"Daily Contribution\").",
+      "not_found_reason": null
+    },
+    "timezone": {
+      "source_quote": "Trading Days and daily cut-off times are determined in the Europe/Berlin time zone.",
+      "not_found_reason": null
+    },
+    "revenue_base": {
+      "source_quote": "\"Total Receipts\" means all amounts received by the Merchant from customers for completed sales through any payment channel, including PayPal, card, cash and bank transfer.",
+      "not_found_reason": null
+    },
+    "tiers": {
+      "source_quote": "On each Trading Day starting on the Funding Date, the Merchant shall contribute to the Investor 5% of Verified Net Revenue per Trading Day up to the Baseline Threshold of EUR 703.26, and 3% on the portion of Verified Net Revenue above the Baseline Threshold (together, the \"Daily Contribution\").",
+      "not_found_reason": null
+    },
+    "baseline_threshold_amount": {
+      "source_quote": "\"Baseline Threshold\" means 90% of the average daily Verified Net Revenue per Trading Day over the 90 days before the Funding Date, fixed at signing at EUR 703.26.",
+      "not_found_reason": null
+    },
+    "baseline_threshold_method": {
+      "source_quote": "\"Baseline Threshold\" means 90% of the average daily Verified Net Revenue per Trading Day over the 90 days before the Funding Date, fixed at signing at EUR 703.26.",
+      "not_found_reason": null
+    },
+    "cap_multiple": {
+      "source_quote": "The Merchant's total Daily Contributions are capped at 1.15 times the Investment Amount, being EUR 23,000 (the \"Repayment Cap\").",
+      "not_found_reason": null
+    },
+    "cap_amount": {
+      "source_quote": "The Merchant's total Daily Contributions are capped at 1.15 times the Investment Amount, being EUR 23,000 (the \"Repayment Cap\").",
+      "not_found_reason": null
+    },
+    "max_term_months": {
+      "source_quote": "The maximum term of this Agreement is 24 months from the Funding Date.",
+      "not_found_reason": null
+    },
+    "settlement_frequency": {
+      "source_quote": "The Daily Contribution is settled daily via PayPal Payouts to the Escrow Account.",
+      "not_found_reason": null
+    },
+    "collection_method": {
+      "source_quote": "Contributions are collected daily from the Merchant's PayPal balance; if the balance is insufficient, the shortfall is collected by SEPA direct debit from the Merchant's nominated bank account.",
+      "not_found_reason": null
+    },
+    "fallback_collection": {
+      "source_quote": "Contributions are collected daily from the Merchant's PayPal balance; if the balance is insufficient, the shortfall is collected by SEPA direct debit from the Merchant's nominated bank account.",
+      "not_found_reason": null
+    },
+    "payout_fee_borne_by": {
+      "source_quote": "PayPal payout fees are borne by the Merchant in addition to the Daily Contribution; they are charged to the Merchant separately and are not deducted from the amount transferred.",
+      "not_found_reason": null
+    },
+    "servicing_fee_rate": {
+      "source_quote": "The Servicer is entitled to a servicing fee of 5% of each Daily Contribution (the \"Servicing Fee\").",
+      "not_found_reason": null
+    },
+    "health_trigger_drop_pct": {
+      "source_quote": "If the average Verified Net Revenue over the last 7 Trading Days falls more than 20% below the average over the last 30 Trading Days, the revenue share rate of 5% may be reduced to 3% for up to 30 days, subject to the approval of the Investor.",
+      "not_found_reason": null
+    },
+    "health_window_short_days": {
+      "source_quote": "If the average Verified Net Revenue over the last 7 Trading Days falls more than 20% below the average over the last 30 Trading Days, the revenue share rate of 5% may be reduced to 3% for up to 30 days, subject to the approval of the Investor.",
+      "not_found_reason": null
+    },
+    "health_window_long_days": {
+      "source_quote": "If the average Verified Net Revenue over the last 7 Trading Days falls more than 20% below the average over the last 30 Trading Days, the revenue share rate of 5% may be reduced to 3% for up to 30 days, subject to the approval of the Investor.",
+      "not_found_reason": null
+    },
+    "reduced_rate": {
+      "source_quote": "If the average Verified Net Revenue over the last 7 Trading Days falls more than 20% below the average over the last 30 Trading Days, the revenue share rate of 5% may be reduced to 3% for up to 30 days, subject to the approval of the Investor.",
+      "not_found_reason": null
+    },
+    "reduced_rate_max_days": {
+      "source_quote": "If the average Verified Net Revenue over the last 7 Trading Days falls more than 20% below the average over the last 30 Trading Days, the revenue share rate of 5% may be reduced to 3% for up to 30 days, subject to the approval of the Investor.",
+      "not_found_reason": null
+    },
+    "requires_investor_approval": {
+      "source_quote": "No reduction applies without the Investor's approval.",
+      "not_found_reason": null
+    },
+    "card_gap_breach_days": {
+      "source_quote": "Unexplained card-revenue gaps of 3 or more Trading Days constitute a reporting breach by the Merchant.",
+      "not_found_reason": null
+    },
+    "channel_share_drop_trigger_pp": {
+      "source_quote": "If the PayPal share of Total Receipts falls more than 15 percentage points below its 90-day pre-funding baseline, the Servicer may request a written explanation and a review; this alone is not an event of default.",
+      "not_found_reason": null
+    },
+    "monthly_report_days": {
+      "source_quote": "The Merchant shall deliver to the Investor in electronic form: (a) within 10 days after each month-end, a statement of Total Receipts for that month by payment channel, including cash and other receipts outside PayPal; (b) within 14 days after filing, a copy of each periodic VAT return (Umsatzsteuer-Voranmeldung); and (c) within 6 months after each financial year-end, its annual financial statements and the related income tax filing or assessment.",
+      "not_found_reason": null
+    },
+    "vat_copy_days": {
+      "source_quote": "The Merchant shall deliver to the Investor in electronic form: (a) within 10 days after each month-end, a statement of Total Receipts for that month by payment channel, including cash and other receipts outside PayPal; (b) within 14 days after filing, a copy of each periodic VAT return (Umsatzsteuer-Voranmeldung); and (c) within 6 months after each financial year-end, its annual financial statements and the related income tax filing or assessment.",
+      "not_found_reason": null
+    },
+    "annual_statement_months": {
+      "source_quote": "The Merchant shall deliver to the Investor in electronic form: (a) within 10 days after each month-end, a statement of Total Receipts for that month by payment channel, including cash and other receipts outside PayPal; (b) within 14 days after filing, a copy of each periodic VAT return (Umsatzsteuer-Voranmeldung); and (c) within 6 months after each financial year-end, its annual financial statements and the related income tax filing or assessment.",
+      "not_found_reason": null
+    }
+  }
+}

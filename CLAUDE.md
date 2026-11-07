@@ -26,7 +26,7 @@
 ## 3. 分账规则（Split Engine，核心业务逻辑，改动需经 Celina 确认）
 每日瀑布流（waterfall）：
 1. `verified_net` = AI 清洗后（剔除规则确认的自刷单）、只计入已完成（`COMPLETED`）交易、并扣除 PayPal 收款手续费后的当日净额（真实交易用 Transaction Search 返回的实际 fee；模拟历史数据用 `config.FEE_MODEL` 估算）。**分账基数用 `verified_net`**；待复核（`at_risk`）的交易仍计入，单独汇总展示
-2. `drc_due` = verified_net × 当前分成比例（可阶梯：如日营业额 ≤ €5,000 部分 8%，超出部分 3%）
+2. `drc_due` = verified_net × 当前分成比例（阶梯：当日 verified_net 中不超过 Baseline Threshold 的部分 5%，超出部分 3%；Baseline Threshold = 融资前 90 天日均 verified_net 的 90%，签约时固定为 €703.26）
 3. **Payouts 手续费由商户在分成之外额外承担（Celina 11/7 确认）**：`payout_amount = drc_due`（全额打给托管账户）；`payout_fee` 由 PayPal 另行向商户收取（实测 2%：€10 打款收 €0.20），记为商户的 `merchant_settlement_cost`，**不计入 cap、不从托管池扣**。商户当日总支出 = `drc_due + payout_fee`。以 PayPal 返回的实际 fee 为准记账
 4. 托管资金池内部记账（不再单独打款）：
    ① PayPal 服务费（servicing fee，优先扣）→ ② 剩余为投资者净收益（不再有打款手续费这一项）
@@ -39,6 +39,8 @@
      - **merchant effective APR** = 商户现金流的 XIRR：融资日 `+investment_amount`，之后每个结算日 `−(drc_due + payout_fee)`。用 numpy-financial 或二分法求解，和 IRR 的算法一致（numpy-financial 的 `irr` 只适用于等间隔现金流；按实际日期计算时，用二分法对 XNPV 求根）
 7. **幂等**：`sender_batch_id = drc-{merchant_id}-{YYYYMMDD}`，同一天绝不重复打款（PayPal 会拒绝重复 ID，本地也要先查）
 8. 结算频率可配置：每日 / 满额（如累计 ≥ €100）/ 每周 —— 由优化器根据手续费拖累给出建议
+
+示例合同（`data/sample_contract.pdf`，数值以合同为准）：出资 €20,000，出资日 2026-11-06；分成 5%（不超过 Baseline Threshold €703.26/营业日的部分）/ 3%（超出部分）；封顶 1.15x = €23,000；最长 24 个月；服务费 5%；健康条款触发后降至 3%（最长 30 天，需投资人批准）；Baseline Threshold = 2026-08-08 至 2026-11-05 共 90 天 verified_net 均值 × 0.9
 
 ## 4. 系统闭环（模块）
 ```
@@ -107,8 +109,8 @@ DEEPSEEK_API_KEY=
 | 日期 | 目标 | 完成标志 |
 |---|---|---|
 | 11/5 ✅ | 沙盒 4 账户 + Postman 测通 Token / Payouts / 状态查询 | 托管账户收到 €10，素材已存 |
-| 11/6 ✅ | 建仓库；`paypal/client.py` + `payouts.py`；`generate_data.py` 生成 90 天流水（含异常）；`orders.py` / 买家 Send 付款 | 仓库已发布；payouts 自动打款 SUCCESS；generate_data.py 生成 90 天模拟历史流水（08-08 至 11-05，含 4 类植入异常）；买家 Send 4 笔真实付款（€171.50 gross / €166.84 net） |
-| 11/7 | `anomaly.py`（交易级 IsolationForest + 规则，日级移动平均/渠道占比）、`make_contract.py` 生成合同 PDF、`contract_parser.py`（Claude tool use + source_quote + 校验）、`ledger.py` + `split_engine.py` + 单元测试 | 4 类异常按类型输出 precision/recall，John and Peter 订单误报≈0；合同 → `contract_params.json` 校验通过；11/6 净营业额 €166.84 → drc_due €13.35 全额打款至托管账户 SUCCESS（商户另付手续费约 €0.27），同日重复运行被拒绝 |
+| 11/6 ✅ | 建仓库；`paypal/client.py` + `payouts.py`；`generate_data.py` 生成 90 天流水（含异常）；`orders.py` / 买家 Send 付款 | 仓库已发布；payouts 自动打款 SUCCESS；generate_data.py 生成 90 天模拟历史流水（08-08 至 11-05，含 4 类植入异常）；买家 Send 4 笔真实付款（€171.50 gross / €166.84 net）；合同出资日定为 2026-11-06（Baseline 基线 = 08-08 至 11-05 共 90 天） |
+| 11/7 | `anomaly.py`（交易级 IsolationForest + 规则，日级移动平均/渠道占比）、`make_contract.py` 生成合同 PDF、`contract_parser.py`（Claude tool use + source_quote + 校验）、`ledger.py` + `split_engine.py` + 单元测试 | 4 类异常按类型输出 precision/recall，John and Peter 订单误报≈0；合同 → `contract_params.json` 校验通过；11/6 净营业额 €166.84 → drc_due €8.34（5% × €166.84，低于 Baseline Threshold）全额打款至托管账户 SUCCESS（商户另付手续费约 €0.17），同日重复运行被拒绝 |
 | 11/8 | `irr_tracker.py`、`health_agent.py`、`optimizer.py`（简版） | 触达 cap 自动停；风险报告生成 |
 | 11/9 | Streamlit 4 页面 + "Simulate next day" 按钮 + AG Grid 表格 | 本地全流程可点 |
 | 11/10 | 部署 Render、README、Devpost 文案 | 公开链接无痕窗口可用 |
@@ -122,3 +124,4 @@ DEEPSEEK_API_KEY=
 - 德国沙盒里 Orders API 的 Checkout 页面被拒（`COMPLIANCE_KYC_VIOLATION`，换买家、换商户都一样；已排除账号、App、付款来源、订单写法），所以**顾客付款改用买家端 Send → Goods and Services 进入商户账户，代码通过 Transaction Search（`paypal/reporting.py`）读取**；`orders.py` 保留为代码，演示时如实说明。卡支付路径（`--mode card`）同样不通：`PAYEE_NOT_ENABLED_FOR_CARD_PROCESSING`（商户账号未开通卡处理，App 里勾选无效）
 - 商户收款费率实测 1.90% + €0.35/笔（€145 → €3.11）
 - Payout 状态会经过 PENDING → PROCESSING → SUCCESS，**只有 SUCCESS 才记账**
+- **待办**：合同按营业日（Trading Day）计算。接入真实数据时，`anomaly.py` 的 7 日 / 30 日均线要改为按 Trading Day 计算，未事先通知休息的零交易日按 0 计入（目前模拟数据每天都有交易，按自然日算暂无差别）
