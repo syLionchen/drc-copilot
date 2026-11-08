@@ -73,12 +73,43 @@
   {
     "date": "2026-11-07",
     "summary": {
-      "count": 0,
-      "gross": "0.00",
-      "fees": "0.00",
-      "net": "0.00"
+      "count": 3,
+      "gross": "75.76",
+      "fees": "2.49",
+      "net": "73.27"
     },
-    "transactions": [],
+    "transactions": [
+      {
+        "transaction_id": "…725X",
+        "time_berlin": "2026-11-07T23:26:44+01:00",
+        "payer_name": "Anna Schmidt",
+        "gross": "8.96",
+        "fee": "0.52",
+        "net": "8.44",
+        "currency": "EUR",
+        "event_code": "T0000"
+      },
+      {
+        "transaction_id": "…6741",
+        "time_berlin": "2026-11-07T23:28:46+01:00",
+        "payer_name": "Anna Schmidt",
+        "gross": "16.80",
+        "fee": "0.67",
+        "net": "16.13",
+        "currency": "EUR",
+        "event_code": "T0000"
+      },
+      {
+        "transaction_id": "…0544",
+        "time_berlin": "2026-11-07T23:33:16+01:00",
+        "payer_name": "John and Peter GmbH",
+        "gross": "50.00",
+        "fee": "1.30",
+        "net": "48.70",
+        "currency": "EUR",
+        "event_code": "T0000"
+      }
+    ],
     "excluded": [
       {
         "transaction_id": "…951S",

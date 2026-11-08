@@ -10,5 +10,17 @@
     "investor_net": "7.92",
     "cumulative_due": "8.34",
     "status": "SUCCESS"
+  },
+  {
+    "date": "2026-11-07",
+    "verified_revenue": "73.27",
+    "rate_applied": "0.050000",
+    "drc_due": "3.66",
+    "payout_amount": "3.66",
+    "merchant_payout_fee": "0.07",
+    "servicing_fee": "0.18",
+    "investor_net": "3.48",
+    "cumulative_due": "12.00",
+    "status": "SUCCESS"
   }
 ]
