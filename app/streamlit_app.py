@@ -6,6 +6,7 @@
 # Run (from the project root):  python -m streamlit run app/streamlit_app.py
 import html
 import json
+import re
 import sys
 from datetime import date, timedelta
 from decimal import Decimal
@@ -53,6 +54,12 @@ h1, h2, h3, h4 {{ color: {BLUE_DARK}; }}
 .real-card th {{ text-align: left; color: {BLUE_DARK}; padding: 4px 8px; border-bottom: 1px solid #c9d8ee; }}
 .real-card td {{ padding: 4px 8px; border-bottom: 1px solid #dde8f6; }}
 .real-card p {{ margin: 8px 0 0 0; color: #33415c; }}
+.doc-card {{ background: white; border: 1px solid #d9e2ef; border-radius: 10px; padding: 14px 16px; min-height: 190px; }}
+.doc-card.selected {{ box-shadow: 0 0 0 3px {BLUE}; }}
+.doc-card h4 {{ margin: 0 0 6px 0; }}
+.doc-card p {{ margin: 2px 0; font-size: 0.9rem; color: #33415c; }}
+.doc-card .verdict {{ margin-top: 10px; font-weight: 700; }}
+.doc-text {{ white-space: pre-wrap; font-family: Consolas, 'Courier New', monospace; font-size: 0.84rem; line-height: 1.4; }}
 .why-card ul {{ margin: 0 0 6px 0; padding-left: 18px; font-size: 0.92rem; color: {BLUE_DARK}; }}
 .why-card .big {{ font-size: 1.35rem; font-weight: 700; color: {BLUE_DARK}; }}
 .why-card .small {{ font-size: 0.82rem; color: #6B7C93; margin-bottom: 6px; }}
@@ -150,6 +157,33 @@ def tier_parameters(params):
 
 
 # ---------------------------------------------------------------- Overview
+def reader_stats(extracted):
+    """Average reading time and estimated cost per merchant document (from ai/doc_reader.py's run records)."""
+    documents = (extracted or {}).get("documents") or {}
+    metas = [d["meta"] for d in documents.values() if d.get("meta")]
+    if not metas:
+        return None
+    costs = [D(m["estimated_cost_usd"]) for m in metas if m.get("estimated_cost_usd")]
+    return {"documents": len(metas),
+            "avg_seconds": sum(float(m["elapsed_seconds"]) for m in metas) / len(metas),
+            "avg_cost": (float(sum(costs) / len(costs)) if len(costs) == len(metas) else None)}
+
+
+def caught_sentence(reconciliation):
+    """'In the demo set it caught ...' from the first review record of reconciliation.json (None if there is none)."""
+    if not reconciliation:
+        return None
+    for review in reconciliation.get("review_required", []):
+        checks = reconciliation["documents"][review["document"]]["checks"]
+        lead = next((c for c in checks if c["check"] in review["affected_checks"] and c["status"] == "MISMATCH"), None)
+        if lead and lead["percent"] is not None:
+            label = CHECK_LABELS.get(lead["check"], (lead["check"],))[0].lower()
+            size = abs(Decimal(lead["percent"])).normalize()
+            return (f"In the demo set it caught a POS report that {lead['direction']} {label} by "
+                    f"{size:f}%.")
+    return None
+
+
 def page_overview():
     params = need_contract()["params"]
     settlements = need("settlements.json")
@@ -166,8 +200,8 @@ def page_overview():
     steps = [
         ("STEP 1", "AI verifies", "Rules and an Isolation Forest screen every transaction. Fake orders are removed "
                                   "before any money is split."),
-        ("STEP 2", "AI reads contract", "Claude extracts the contract terms. Each value carries a verbatim "
-                                        "quote that is checked against the PDF."),
+        ("STEP 2", "AI reads documents", "Claude extracts contract terms, POS reports and VAT returns. Each value "
+                                         "carries a verbatim quote that code checks against the source."),
         ("STEP 3", "PayPal splits daily", "Progressive tiers on verified net revenue; the contribution is paid "
                                           "to escrow with PayPal Payouts."),
         ("STEP 4", "Investor gets paid", "The servicing fee is deducted in escrow, the rest goes to the investor "
@@ -197,16 +231,18 @@ def page_overview():
     detector_html = (f"<ul>{''.join(items)}</ul>" if items else
                      f"<p class='small'>Detector results not loaded. Run: {SNAPSHOT_HINT}</p>")
 
-    meta = need_contract().get("meta")
-    if meta and meta.get("elapsed_seconds") is not None:
-        cost = meta.get("estimated_cost_usd")
-        headline = f"{float(meta['elapsed_seconds']):.0f} s" + (f" &middot; ~${float(cost):.3f}" if cost else "")
-        parse_html = (f"<div class='big'>{headline}</div><div class='small'>per contract "
-                      f"({int(meta['input_tokens']):,} in / {int(meta['output_tokens']):,} out tokens, estimated "
-                      f"from list prices)</div>")
+    reading = reader_stats(load_json("extracted.json"))
+    if reading:
+        headline = f"{reading['avg_seconds']:.0f} s" + (f" &middot; ~${reading['avg_cost']:.3f}"
+                                                         if reading["avg_cost"] is not None else "")
+        parse_html = (f"<div class='big'>{headline}</div><div class='small'>per document (average of "
+                      f"{reading['documents']}, cost estimated from list prices)</div>")
     else:
-        parse_html = ("<div class='small'>Parse time and cost are not recorded yet. "
-                      "Run: python -m ai.contract_parser</div>")
+        parse_html = ("<div class='small'>Reading time and cost are not recorded yet. "
+                      "Run: python -m ai.doc_reader --all</div>")
+
+    caught = caught_sentence(load_json("reconciliation.json"))
+    caught_html = f" {html.escape(caught)}" if caught else ""
 
     why_cards = [
         ("Screens every transaction",
@@ -215,8 +251,8 @@ def page_overview():
                          "patterns; Isolation Forest flags statistical outliers for human review.</div>",
          "Self-dealing, voids and missing card revenue are flagged before any money is split."),
         ("Reads documents, with proof", parse_html,
-         "Contracts today; merchants’ POS reports and VAT returns next, in any format. Every extracted value "
-         "carries a verbatim quote that code checks against the source."),
+         "Contracts, POS reports and VAT returns in any format. Every extracted value carries a verbatim "
+         "quote that code checks against the source." + caught_html),
         ("Makes small deals economical", "",
          "Manual due diligence doesn’t pay off for a EUR 20,000 deal. Automated verification and daily "
          "servicing make micro revenue-share financing viable."),
@@ -250,11 +286,14 @@ def page_overview():
                         "- PayPal Payouts to escrow (see the ledger on the Investor view)\n"
                         "- PayPal Transaction Search\n"
                         "- Claude contract parsing with verified quotes\n"
+                        "- Claude reading of POS reports and VAT returns, cross-checked by code\n"
                         "- Idempotent settlement")
     with simulated:
         with st.container(border=True):
             st.markdown("#### What is simulated")
-            st.markdown("- 90-day sales history\n- Card and cash channels\n- Future revenue in the projection")
+            st.markdown("- 90-day sales history\n- Card and cash channels\n"
+                        "- Merchant documents (sample POS reports and a VAT return)\n"
+                        "- Future revenue in the projection")
 
 
 # ----------------------------------------------------------- Merchant view
@@ -664,6 +703,165 @@ def page_ai():
             column_config={"Reason": reason_column})
 
 
+# ------------------------------------------------------- Merchant documents
+DOC_ORDER = ("z_bericht_A", "z_bericht_B", "ustva")
+SOURCE_FORMATS = {"z_bericht_A": "Kassensystem A", "z_bericht_B": "Kassensystem B", "ustva": "UStVA"}
+DOC_TYPE_LABELS = {"z_report": "POS daily report (Z-Bericht)", "vat_return": "VAT return (Umsatzsteuer-Voranmeldung)",
+                   "other": "Other document"}
+CHECK_LABELS = {  # check -> (what the merchant reported, name of our data)
+    "paypal": ("PayPal payments", "PayPal data"),
+    "card": ("Card payments", "card terminal data"),
+    "cash": ("Cash payments", "our cash data"),
+    "gross_total": ("Gross total", "our gross revenue data"),
+    "vat_vs_verified_revenue": ("Revenue implied by the VAT bases", "verified revenue"),
+}
+
+
+def doc_key(file_name):
+    return next((k for k in DOC_ORDER if file_name.startswith(k)), None)
+
+
+def fmt_percent(value):
+    if value is None:
+        return "n/a"
+    x = Decimal(str(value)).quantize(Decimal("0.01"))
+    return f"{abs(x) if x == 0 else x}%".replace("-", "−")
+
+
+def source_label(source, values):
+    """Reader-friendly name of the reference data. The October figures come from the simulated ledger."""
+    if not source or ".csv" not in source:      # verified_daily.csv and daily_summary.csv are both simulated history
+        return source or ""
+    start, end = date.fromisoformat(values["period_start"]), date.fromisoformat(values["period_end"])
+    month = start.strftime("%b %Y")
+    if values.get("doc_type") == "vat_return":
+        return f"Simulated ledger, {start.day}–{end.day} {month}"
+    return f"Simulated ledger ({month})"
+
+
+def plural_checks(n):
+    return f"{n} check" if n == 1 else f"{n} checks"
+
+
+def sections_text(contract_clause):
+    numbers = sorted({int(n) for n in re.findall(r"Section (\d+)", contract_clause or "")})
+    if not numbers:
+        return "the contract"
+    if len(numbers) > 1 and numbers == list(range(numbers[0], numbers[-1] + 1)):
+        return f"Sections {numbers[0]}–{numbers[-1]}"
+    return ("Section " if len(numbers) == 1 else "Sections ") + ", ".join(str(n) for n in numbers)
+
+
+def review_message(review, checks):
+    """Plain-English explanation of one review record, built from the reconciliation numbers."""
+    by_name = {c["check"]: c for c in checks}
+    lead = by_name[review["affected_checks"][0]]
+    label, data_label = CHECK_LABELS.get(lead["check"], (lead["check"], "our data"))
+    text = (f"{label} reported EUR {review['reported']}, {data_label} shows EUR {review['reference']} "
+            f"({fmt_percent(lead['percent'])}, {lead['direction']}). Flagged for review (contract "
+            f"{sections_text(review['contract'])}: a person decides whether it is a breach); "
+            f"no automatic change to the split.")
+    same = [by_name[n] for n in review["affected_checks"][1:] if n in by_name]
+    if same:
+        text += (" Same root cause: " + ", ".join(
+            f"{CHECK_LABELS.get(c['check'], (c['check'],))[0].lower()} is short by the same amount "
+            f"({fmt_percent(c['percent'])})" for c in same) + ", counted as one finding.")
+    return text
+
+
+def select_document(name):
+    st.session_state["merchant_doc"] = name
+
+
+def page_merchant_docs():
+    extracted = need("extracted.json")["documents"]
+    reconciliation = need("reconciliation.json")
+    texts = need("merchant_doc_texts.json")
+    names = sorted(extracted, key=lambda n: (DOC_ORDER.index(doc_key(n)) if doc_key(n) else len(DOC_ORDER), n))
+
+    st.title("Merchant documents")
+    st.markdown("**Merchants submit POS reports and VAT returns in whatever format their till or tax adviser "
+                "produces. AI reads them; code checks every number against PayPal and the verified ledger.**")
+    tolerance = reconciliation.get("tolerance_percent", "3")
+
+    def verdict(name):
+        summary = reconciliation["documents"].get(name, {}).get("summary", {})
+        total = sum(summary.get(k, 0) for k in ("ok", "mismatch", "not_reported", "no_reference"))
+        if summary.get("mismatch"):
+            return "MISMATCH", RED, f"MISMATCH: {summary['mismatch']} of {plural_checks(total)} outside ±{tolerance}%"
+        return "OK", GREEN, f"OK: {summary.get('ok', 0)} of {plural_checks(total)} within ±{tolerance}%"
+
+    if st.session_state.get("merchant_doc") not in extracted:
+        st.session_state["merchant_doc"] = next((n for n in names if verdict(n)[0] == "MISMATCH"), names[0])
+    selected = st.session_state["merchant_doc"]
+
+    for column, name in zip(st.columns(len(names)), names):
+        meta = extracted[name]["meta"]
+        status, color, text = verdict(name)
+        cost = meta.get("estimated_cost_usd")
+        reading = f"{float(meta['elapsed_seconds']):.1f} s" + (f" &middot; ~${float(cost):.3f}" if cost else "")
+        column.markdown(
+            f'<div class="doc-card{" selected" if name == selected else ""}" style="border-top: 5px solid {color}">'
+            f'<h4>{DOC_TYPE_LABELS.get(extracted[name]["values"]["doc_type"], "Document")}</h4>'
+            f'<p>Source format: <b>{SOURCE_FORMATS.get(doc_key(name), "Other")}</b></p>'
+            f'<p>Read by AI in {reading}</p><p style="color:#6B7C93">{html.escape(name)}</p>'
+            f'<div class="verdict" style="color:{color}">{text}</div></div>', unsafe_allow_html=True)
+        column.button("Showing below" if name == selected else "Open details", key=f"open_{name}",
+                      on_click=select_document, args=(name,), disabled=name == selected)
+
+    result, checks = extracted[selected], reconciliation["documents"].get(selected, {}).get("checks", [])
+    st.divider()
+    st.subheader(f"{SOURCE_FORMATS.get(doc_key(selected), 'Document')} - {selected}")
+
+    reviews = [r for r in reconciliation.get("review_required", []) if r["document"] == selected]
+    if reviews:
+        for review in reviews:
+            st.error(review_message(review, checks))
+        info = next((i["detail"] for i in result["validation"].get("info", []) if "adds up" in i["detail"]
+                     or "=" in i["detail"]), None)
+        if info and "does not add up" not in info:
+            st.caption("The document is internally consistent (cash + card + PayPal = total), so the gap only shows "
+                       "when the figures are compared with external data.")
+    else:
+        st.success(f"All checks are within ±{tolerance}% of our data. Nothing to review.")
+
+    left, right = st.columns([5, 7])
+    with left:
+        st.markdown("#### Document text (as read from the PDF)")
+        with st.container(height=640, border=True):
+            st.markdown(f'<div class="doc-text">{html.escape(texts.get(selected, ""))}</div>', unsafe_allow_html=True)
+    with right:
+        st.markdown("#### Extracted fields, with source quotes")
+        rows = []
+        for field, value in result["values"].items():
+            evidence = result["evidence"][field]
+            printed = result["raw"].get(field)
+            shown = "—" if value is None else html.escape(str(value))
+            if value is not None and printed is not None and str(printed) != str(value):
+                shown += f" <span style='color:#6B7C93'>(printed {html.escape(str(printed))})</span>"
+            quote = evidence["source_quote"] or f"(not in the document: {evidence['not_found_reason']})"
+            rows.append(f"<tr><td><b>{field}</b></td><td>{shown}</td><td class='quote'>{html.escape(quote)}</td></tr>")
+        with st.container(height=340, border=True):
+            st.markdown("<table class='params'><tr><th>Field</th><th>Value</th><th>Source quote</th></tr>"
+                        + "".join(rows) + "</table>", unsafe_allow_html=True)
+
+        st.markdown("#### Comparison with our data")
+        comparison = []
+        for c in checks:
+            color = {"OK": GREEN, "MISMATCH": RED}.get(c["status"], GRAY)
+            label = CHECK_LABELS.get(c["check"], (c["check"],))[0]
+            status = c["status"] + (f" ({c['direction']})" if c["direction"] else "")
+            comparison.append(
+                f"<tr><td>{html.escape(label)}</td><td>{c['reported'] or '—'}</td><td>{c['reference'] or '—'}</td>"
+                f"<td>{c['difference'] or '—'}</td><td>{fmt_percent(c['percent'])}</td>"
+                f"<td style='color:{color};font-weight:700'>{status}</td>"
+                f"<td class='quote'>{html.escape(source_label(c['reference_source'], result['values']))}</td></tr>")
+        st.markdown("<table class='params'><tr><th>Check</th><th>Reported (EUR)</th><th>Our data (EUR)</th>"
+                    "<th>Diff</th><th>%</th><th>Result</th><th>Our data source</th></tr>"
+                    + "".join(comparison) + "</table>", unsafe_allow_html=True)
+        st.caption("October figures are simulated history; real PayPal sandbox data starts 6 Nov 2026.")
+
+
 # ------------------------------------------------------------------ Contract
 @st.cache_data
 def contract_text(path_text, modified):
@@ -725,6 +923,7 @@ navigation = st.navigation([
     st.Page(page_merchant, title="Merchant view", url_path="merchant"),
     st.Page(page_investor, title="Investor view", url_path="investor"),
     st.Page(page_ai, title="AI verification", url_path="ai-verification"),
+    st.Page(page_merchant_docs, title="Merchant documents", url_path="merchant-documents"),
     st.Page(page_contract, title="Contract", url_path="contract"),
 ])
 navigation.run()

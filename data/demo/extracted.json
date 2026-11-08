@@ -1,0 +1,318 @@
+{
+  "model": "claude-sonnet-5-5",
+  "totals": {
+    "elapsed_seconds": 24.7,
+    "input_tokens": 10309,
+    "output_tokens": 2488,
+    "estimated_cost_usd": "0.0455"
+  },
+  "documents": {
+    "ustva_2026-10.pdf": {
+      "file": "ustva_2026-10.pdf",
+      "values": {
+        "doc_type": "vat_return",
+        "period_start": "2026-10-01",
+        "period_end": "2026-10-31",
+        "gross_total": null,
+        "cash": null,
+        "card": null,
+        "paypal": null,
+        "voids_count": null,
+        "voids_amount": null,
+        "vat_19_net": "12016.00",
+        "vat_7_net": "8909.00",
+        "currency": "EUR"
+      },
+      "raw": {
+        "doc_type": "vat_return",
+        "period_start": "2026-10-01",
+        "period_end": "2026-10-31",
+        "gross_total": null,
+        "cash": null,
+        "card": null,
+        "paypal": null,
+        "voids_count": null,
+        "voids_amount": null,
+        "vat_19_net": "12.016,00",
+        "vat_7_net": "8.909,00",
+        "currency": "EUR"
+      },
+      "evidence": {
+        "doc_type": {
+          "source_quote": "Umsatzsteuer-Voranmeldung 2026",
+          "not_found_reason": null
+        },
+        "period_start": {
+          "source_quote": "Voranmeldungszeitraum: Oktober 2026 (Monat 10)",
+          "not_found_reason": null
+        },
+        "period_end": {
+          "source_quote": "Voranmeldungszeitraum: Oktober 2026 (Monat 10)",
+          "not_found_reason": null
+        },
+        "gross_total": {
+          "source_quote": null,
+          "not_found_reason": "The VAT return does not print a gross total including VAT."
+        },
+        "cash": {
+          "source_quote": null,
+          "not_found_reason": "No cash payment amount in the document."
+        },
+        "card": {
+          "source_quote": null,
+          "not_found_reason": "No card payment amount in the document."
+        },
+        "paypal": {
+          "source_quote": null,
+          "not_found_reason": "No PayPal payment amount in the document."
+        },
+        "voids_count": {
+          "source_quote": null,
+          "not_found_reason": "No voids information in the document."
+        },
+        "voids_amount": {
+          "source_quote": null,
+          "not_found_reason": "No voids information in the document."
+        },
+        "vat_19_net": {
+          "source_quote": "81 Steuerpflichtige Umsätze zum Steuersatz von 19 % 12.016,00 2.283,04",
+          "not_found_reason": null
+        },
+        "vat_7_net": {
+          "source_quote": "86 Steuerpflichtige Umsätze zum Steuersatz von 7 % 8.909,00 623,63",
+          "not_found_reason": null
+        },
+        "currency": {
+          "source_quote": "Kz Lieferungen und sonstige Leistungen Bemessungs- Steuer EUR",
+          "not_found_reason": null
+        }
+      },
+      "validation": {
+        "passed": true,
+        "failed": [],
+        "info": []
+      },
+      "meta": {
+        "elapsed_seconds": 15.1,
+        "api_seconds": 10.0,
+        "api_calls": 1,
+        "input_tokens": 3495,
+        "output_tokens": 852,
+        "estimated_cost_usd": "0.0155",
+        "pricing_usd_per_mtok": {
+          "input": "2.00",
+          "output": "10.00"
+        },
+        "note": "cost is an estimate from list prices, not a billed amount"
+      }
+    },
+    "z_bericht_A_2026-10-15.pdf": {
+      "file": "z_bericht_A_2026-10-15.pdf",
+      "values": {
+        "doc_type": "z_report",
+        "period_start": "2026-10-15",
+        "period_end": "2026-10-15",
+        "gross_total": "997.13",
+        "cash": "217.13",
+        "card": "371.89",
+        "paypal": "408.11",
+        "voids_count": 1,
+        "voids_amount": "4.45",
+        "vat_19_net": "502.76",
+        "vat_7_net": "372.76",
+        "currency": "EUR"
+      },
+      "raw": {
+        "doc_type": "z_report",
+        "period_start": "2026-10-15",
+        "period_end": "2026-10-15",
+        "gross_total": "997,13",
+        "cash": "217,13",
+        "card": "371,89",
+        "paypal": "408,11",
+        "voids_count": 1,
+        "voids_amount": "4,45",
+        "vat_19_net": "502,76",
+        "vat_7_net": "372,76",
+        "currency": "EUR"
+      },
+      "evidence": {
+        "doc_type": {
+          "source_quote": "KASSENSYSTEM A | Z-Bericht (Tagesabschluss)",
+          "not_found_reason": null
+        },
+        "period_start": {
+          "source_quote": "15.10.2026 0069 1 133",
+          "not_found_reason": null
+        },
+        "period_end": {
+          "source_quote": "15.10.2026 0069 1 133",
+          "not_found_reason": null
+        },
+        "gross_total": {
+          "source_quote": "Umsatz brutto 133 997,13",
+          "not_found_reason": null
+        },
+        "cash": {
+          "source_quote": "davon Bar 217,13",
+          "not_found_reason": null
+        },
+        "card": {
+          "source_quote": "davon Karte 371,89",
+          "not_found_reason": null
+        },
+        "paypal": {
+          "source_quote": "davon PayPal 408,11",
+          "not_found_reason": null
+        },
+        "voids_count": {
+          "source_quote": "Stornierte Vorgänge 1 4,45",
+          "not_found_reason": null
+        },
+        "voids_amount": {
+          "source_quote": "Stornierte Vorgänge 1 4,45",
+          "not_found_reason": null
+        },
+        "vat_19_net": {
+          "source_quote": "MwSt 19 % 598,28 502,76 95,52",
+          "not_found_reason": null
+        },
+        "vat_7_net": {
+          "source_quote": "MwSt 7 % 398,85 372,76 26,09",
+          "not_found_reason": null
+        },
+        "currency": {
+          "source_quote": "Umsatz Anzahl Betrag EUR",
+          "not_found_reason": null
+        }
+      },
+      "validation": {
+        "passed": true,
+        "failed": [],
+        "info": [
+          {
+            "check": "info:internal_sum",
+            "detail": "cash + card + paypal = gross_total"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_seconds": 4.1,
+        "api_seconds": 4.1,
+        "api_calls": 1,
+        "input_tokens": 3449,
+        "output_tokens": 792,
+        "estimated_cost_usd": "0.0148",
+        "pricing_usd_per_mtok": {
+          "input": "2.00",
+          "output": "10.00"
+        },
+        "note": "cost is an estimate from list prices, not a billed amount"
+      }
+    },
+    "z_bericht_B_2026-10-22.pdf": {
+      "file": "z_bericht_B_2026-10-22.pdf",
+      "values": {
+        "doc_type": "z_report",
+        "period_start": "2026-10-22",
+        "period_end": "2026-10-22",
+        "gross_total": "796.26",
+        "cash": "156.43",
+        "card": "247.21",
+        "paypal": "392.62",
+        "voids_count": 3,
+        "voids_amount": "19.57",
+        "vat_19_net": null,
+        "vat_7_net": null,
+        "currency": "EUR"
+      },
+      "raw": {
+        "doc_type": "z_report",
+        "period_start": "2026-10-22",
+        "period_end": "2026-10-22",
+        "gross_total": "796,26",
+        "cash": "156,43",
+        "card": "247,21",
+        "paypal": "392,62",
+        "voids_count": 3,
+        "voids_amount": "19,57",
+        "vat_19_net": null,
+        "vat_7_net": null,
+        "currency": "EUR"
+      },
+      "evidence": {
+        "doc_type": {
+          "source_quote": "Tagesabschluss",
+          "not_found_reason": null
+        },
+        "period_start": {
+          "source_quote": "Donnerstag, 22.10.2026 | Abschluss-Nr. B-0076",
+          "not_found_reason": null
+        },
+        "period_end": {
+          "source_quote": "Donnerstag, 22.10.2026 | Abschluss-Nr. B-0076",
+          "not_found_reason": null
+        },
+        "gross_total": {
+          "source_quote": "Gesamtumsatz inkl. USt: 796,26 €",
+          "not_found_reason": null
+        },
+        "cash": {
+          "source_quote": "Barzahlungen: 156,43 €",
+          "not_found_reason": null
+        },
+        "card": {
+          "source_quote": "Kartenzahlungen: 247,21 €",
+          "not_found_reason": null
+        },
+        "paypal": {
+          "source_quote": "Online (PayPal): 392,62 €",
+          "not_found_reason": null
+        },
+        "voids_count": {
+          "source_quote": "Stornierte Vorgänge: 3 Stück",
+          "not_found_reason": null
+        },
+        "voids_amount": {
+          "source_quote": "Stornosumme: 19,57 €",
+          "not_found_reason": null
+        },
+        "vat_19_net": {
+          "source_quote": null,
+          "not_found_reason": "Only the VAT amount (Enthaltene USt 19 %) is printed, not the net amount."
+        },
+        "vat_7_net": {
+          "source_quote": null,
+          "not_found_reason": "Only the VAT amount (Enthaltene USt 7 %) is printed, not the net amount."
+        },
+        "currency": {
+          "source_quote": "Gesamtumsatz inkl. USt: 796,26 €",
+          "not_found_reason": null
+        }
+      },
+      "validation": {
+        "passed": true,
+        "failed": [],
+        "info": [
+          {
+            "check": "info:internal_sum",
+            "detail": "cash + card + paypal = gross_total"
+          }
+        ]
+      },
+      "meta": {
+        "elapsed_seconds": 5.5,
+        "api_seconds": 5.5,
+        "api_calls": 1,
+        "input_tokens": 3365,
+        "output_tokens": 844,
+        "estimated_cost_usd": "0.0152",
+        "pricing_usd_per_mtok": {
+          "input": "2.00",
+          "output": "10.00"
+        },
+        "note": "cost is an estimate from list prices, not a billed amount"
+      }
+    }
+  }
+}

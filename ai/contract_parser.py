@@ -136,10 +136,20 @@ def read_pdf_text(path=PDF_PATH):
 def extract_with_claude(contract_text):
     """Call Claude once (plus one retry if it skips the tool). Returns (tool input dict, usage dict);
     usage counts API calls, tokens and API seconds over all attempts."""
+    prompt = (f"<contract>\n{contract_text}\n</contract>\n\n"
+              f"Extract the parameters by calling the tool {TOOL_NAME}.")
+    return call_claude_tool(SYSTEM_PROMPT, build_tool(), prompt)
+
+
+def call_claude_tool(system_prompt, tool, prompt):
+    """Shared by the contract parser and ai/doc_reader.py. Claude Sonnet 5.5 does not allow forced tool
+    use, so the model is told to answer only through `tool`; one retry, then an error. Returns
+    (tool input dict, usage dict)."""
+    tool_name = tool["name"]
     provider = (config.LLM_PROVIDER or "").strip().lower()
     if provider != "anthropic":
         raise SystemExit(
-            f"LLM_PROVIDER is '{config.LLM_PROVIDER}', but contract parsing is only implemented for "
+            f"LLM_PROVIDER is '{config.LLM_PROVIDER}', but this step is only implemented for "
             "'anthropic'. Set LLM_PROVIDER=anthropic in .env (and ANTHROPIC_API_KEY), then run again."
         )
     if not config.ANTHROPIC_API_KEY:
@@ -148,10 +158,7 @@ def extract_with_claude(contract_text):
     import anthropic
 
     client = anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY)
-    tool = build_tool()
-    prompt = (f"<contract>\n{contract_text}\n</contract>\n\n"
-              f"Extract the parameters by calling the tool {TOOL_NAME}.")
-    reminder = f"\n\nYou must answer by calling the tool {TOOL_NAME}; do not reply with text."
+    reminder = f"\n\nYou must answer by calling the tool {tool_name}; do not reply with text."
 
     usage = {"api_calls": 0, "input_tokens": 0, "output_tokens": 0, "api_seconds": 0.0}
     for attempt in (1, 2):
@@ -160,7 +167,7 @@ def extract_with_claude(contract_text):
             response = client.messages.create(
                 model=config.CLAUDE_MODEL,
                 max_tokens=16000,
-                system=SYSTEM_PROMPT,
+                system=system_prompt,
                 tools=[tool],
                 messages=[{"role": "user", "content": prompt + (reminder if attempt == 2 else "")}],
             )
@@ -182,11 +189,11 @@ def extract_with_claude(contract_text):
         if response.stop_reason == "max_tokens":
             raise SystemExit("The answer was cut off (max_tokens). Increase max_tokens in contract_parser.py.")
         for block in response.content:
-            if block.type == "tool_use" and block.name == TOOL_NAME:
+            if block.type == "tool_use" and block.name == tool_name:
                 return block.input, usage
         print(f"Attempt {attempt}: the model did not call the tool; "
               f"{'retrying once' if attempt == 1 else 'giving up'}.")
-    raise SystemExit(f"The model did not call the tool {TOOL_NAME} after 2 attempts.")
+    raise SystemExit(f"The model did not call the tool {tool_name} after 2 attempts.")
 
 
 def split_result(raw):

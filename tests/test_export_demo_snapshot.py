@@ -10,6 +10,7 @@ import unittest
 from datetime import date, datetime
 from decimal import Decimal
 from pathlib import Path
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -160,6 +161,30 @@ class AnomalyMetricsAndFlagged(unittest.TestCase):
         exp.check_clean({"anomaly_flagged.json": exp.dump(rows)})
 
 
+class MerchantDocs(unittest.TestCase):
+    def test_nothing_is_exported_before_the_documents_were_read_and_reconciled(self):
+        with tempfile.TemporaryDirectory() as folder:
+            self.assertEqual(exp.build_merchant_docs(folder), {})
+
+    def test_results_and_pdf_text_are_exported_and_pass_the_safety_check(self):
+        with tempfile.TemporaryDirectory() as folder:
+            folder = Path(folder)
+            (folder / "extracted.json").write_text(json.dumps({"documents": {"a.pdf": {}, "b.pdf": {}}}), encoding="utf-8")
+            (folder / "reconciliation.json").write_text('{"review_required": []}', encoding="utf-8")
+            for name in ("a.pdf", "b.pdf"):
+                (folder / name).write_bytes(b"%PDF-1.4 fake")
+            with mock.patch("ai.contract_parser.read_pdf_text", side_effect=lambda p: f"text of {Path(p).name} €"):
+                files = exp.build_merchant_docs(folder)
+        self.assertEqual(set(files), {"extracted.json", "reconciliation.json", "merchant_doc_texts.json"})
+        texts = json.loads(files["merchant_doc_texts.json"])
+        self.assertEqual(texts, {"a.pdf": "text of a.pdf €", "b.pdf": "text of b.pdf €"})
+        exp.check_clean(files)
+
+    def test_a_secret_in_the_document_text_stops_the_export(self):
+        with self.assertRaises(exp.UnsafeExport):
+            exp.check_clean({"merchant_doc_texts.json": '{"a.pdf": "contact: buyer@example.test"}'})
+
+
 class WholeExport(unittest.TestCase):
     def setUp(self):
         needed = (exp.se.PARAMS_PATH, exp.irr.VERIFIED_DAILY_PATH)
@@ -170,8 +195,10 @@ class WholeExport(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             files = exp.build_all(Path(folder) / "none.db", "kut", exp.se.load_params(),
                                   exp.irr.VERIFIED_DAILY_PATH, exp.DEFAULT_DAYS, skip_paypal=True)
-        self.assertEqual(set(files), {"verified_daily.csv", "settlements.json", "projection.json",
-                                      "anomaly_daily.json", "anomaly_flagged.json", "anomaly_metrics.json"})
+        base = {"verified_daily.csv", "settlements.json", "projection.json",
+                "anomaly_daily.json", "anomaly_flagged.json", "anomaly_metrics.json"}
+        merchant = {"extracted.json", "reconciliation.json", "merchant_doc_texts.json"}
+        self.assertIn(set(files), (base, base | merchant))          # the merchant documents are optional
         exp.check_clean(files)
         projection = json.loads(files["projection.json"])
         self.assertEqual([s["name"] for s in projection["scenarios"]], ["Baseline", "-20%", "-40%"])

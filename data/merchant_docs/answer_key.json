@@ -1,0 +1,103 @@
+{
+  "note": "Simulated documents for evaluation. Amounts are plain decimal strings in EUR.",
+  "sources": {
+    "verified_daily.csv": "verified_gross (Umsatz brutto) and card_revenue_eur per day",
+    "daily_summary.csv": "cash / PayPal split, number of transactions and the voided amount (not available in verified_daily.csv)"
+  },
+  "documents": {
+    "z_bericht_A_2026-10-15.pdf": {
+      "type": "Z-Bericht",
+      "system": "Kassensystem A",
+      "layout": "tables",
+      "date": "2026-10-15",
+      "z_nr": "0069",
+      "numbers": {
+        "umsatz_brutto": "997.13",
+        "bar": "217.13",
+        "karte": "371.89",
+        "paypal": "408.11",
+        "vorgaenge": 133,
+        "mwst_19": {
+          "brutto": "598.28",
+          "netto": "502.76",
+          "steuer": "95.52"
+        },
+        "mwst_7": {
+          "brutto": "398.85",
+          "netto": "372.76",
+          "steuer": "26.09"
+        },
+        "storno_anzahl": 1,
+        "storno_betrag": "4.45"
+      },
+      "vat_split_rule": "60 % of gross revenue at 19 %, 40 % at 7 %",
+      "verified_reference": {
+        "verified_gross": "997.13",
+        "card_revenue_eur": "371.89"
+      },
+      "planted_inconsistencies": []
+    },
+    "z_bericht_B_2026-10-22.pdf": {
+      "type": "Tagesabschluss",
+      "system": "Kassensystem B",
+      "layout": "plain text list, German number format",
+      "date": "2026-10-22",
+      "abschluss_nr": "B-0076",
+      "numbers": {
+        "gesamtumsatz_inkl_ust": "796.26",
+        "barzahlungen": "156.43",
+        "kartenzahlungen": "247.21",
+        "online_paypal": "392.62",
+        "ust_19": "76.28",
+        "ust_7": "20.84",
+        "stornierte_vorgaenge": 3,
+        "stornosumme": "19.57",
+        "anzahl_bons": 103
+      },
+      "vat_split_rule": "60 % of gross revenue at 19 %, 40 % at 7 % (of the reported total)",
+      "verified_reference": {
+        "verified_gross": "850.52",
+        "card_revenue_eur": "301.47"
+      },
+      "internally_consistent": "Barzahlungen + Kartenzahlungen + Online (PayPal) = Gesamtumsatz inkl. USt",
+      "planted_inconsistencies": [
+        {
+          "description": "under-reported card revenue (-18%) vs card terminal data",
+          "field": "Kartenzahlungen",
+          "reported": "247.21",
+          "verified": "301.47",
+          "difference": "-54.26",
+          "deviation_percent": "-18",
+          "effect": "Gesamtumsatz inkl. USt is 54.26 lower than verified_gross (796.26 vs 850.52); the document adds up internally, so the gap only shows against external data",
+          "simulated_motive": "merchant hides revenue to pay a smaller revenue share",
+          "detectable_by": "comparison with verified_daily.csv card_revenue_eur (card terminal data)"
+        }
+      ]
+    },
+    "ustva_2026-10.pdf": {
+      "type": "Umsatzsteuer-Voranmeldung (copy)",
+      "period": "2026-10",
+      "steuernummer": "12/345/67890 (Muster)",
+      "numbers": {
+        "kennzahl_81_bemessungsgrundlage": "12016",
+        "kennzahl_81_steuer": "2283.04",
+        "kennzahl_86_bemessungsgrundlage": "8909",
+        "kennzahl_86_steuer": "623.63",
+        "summe_umsatzsteuer": "2906.67"
+      },
+      "derivation": {
+        "october_verified_gross_total": "23833.61",
+        "days": 31,
+        "gross_at_19_percent": "14300.17",
+        "gross_at_7_percent": "9533.44",
+        "net_19_exact": "12016.95",
+        "net_7_exact": "8909.76",
+        "rule": "60 % of gross revenue at 19 %, 40 % at 7 %; net = gross / 1.19 and gross / 1.07; the form shows the net amounts rounded down to whole euros"
+      },
+      "verified_reference": {
+        "october_verified_gross": "23833.61"
+      },
+      "planted_inconsistencies": []
+    }
+  }
+}

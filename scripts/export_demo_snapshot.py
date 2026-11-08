@@ -11,6 +11,9 @@
 #   anomaly_flagged.json   every excluded / under-review transaction with its reasons (simulated history)
 #   anomaly_metrics.json   precision / recall per detector against the injected anomalies
 #   sample_contract.pdf    copy of data/sample_contract.pdf
+#   extracted.json, reconciliation.json, merchant_doc_texts.json
+#                          the merchant documents: what the AI read, how it matched our data, and the
+#                          PDF text (only when ai.doc_reader --all and engine.reconcile have been run)
 #
 # Safety check: everything is built in memory and scanned first. If any output contains "@", "sk-",
 # "client_secret" or "access_token", nothing is written and the script stops with an error.
@@ -257,6 +260,29 @@ def build_anomaly_metrics(flagged_text, injected_text, daily_text, transactions_
     return result
 
 
+def build_merchant_docs(merchant_dir):
+    """extracted.json and reconciliation.json (as they are) plus the text of every merchant PDF.
+    Returns {} if the documents have not been read and reconciled yet."""
+    merchant_dir = Path(merchant_dir)
+    extracted, reconciliation = merchant_dir / "extracted.json", merchant_dir / "reconciliation.json"
+    if not (extracted.exists() and reconciliation.exists()):
+        return {}
+    from ai.contract_parser import read_pdf_text
+
+    names = sorted(json.loads(extracted.read_text(encoding="utf-8"))["documents"])
+    texts = {}
+    for name in names:
+        pdf = merchant_dir / name
+        if not pdf.exists():
+            raise SystemExit(f"{pdf} not found (it is listed in extracted.json). Run: python -m data.make_merchant_docs")
+        texts[name] = read_pdf_text(pdf)
+    return {
+        "extracted.json": extracted.read_text(encoding="utf-8"),
+        "reconciliation.json": reconciliation.read_text(encoding="utf-8"),
+        "merchant_doc_texts.json": dump(texts),
+    }
+
+
 def build_all(db_path, merchant_id, params, verified_daily_path, days, skip_paypal=False, reporting_module=None,
               data_dir=None):
     """Everything as {file name: text}. Nothing is written here."""
@@ -291,6 +317,7 @@ def build_all(db_path, merchant_id, params, verified_daily_path, days, skip_payp
         "anomaly_flagged.json": dump(build_flagged(flagged_text)),
         "anomaly_metrics.json": dump(build_anomaly_metrics(flagged_text, injected_text, csv_text, transactions_text)),
     }
+    files.update(build_merchant_docs(data_dir / "merchant_docs"))
     if not skip_paypal:
         files["paypal_receipts.json"] = dump(build_receipts(days, reporting_module))
     return files
@@ -338,6 +365,9 @@ def main(argv=None):
         print(f"wrote {out / contract_pdf.name}  (copy of the sample contract)")
     if args.skip_paypal:
         print("paypal_receipts.json was skipped (--skip-paypal); an existing file is left untouched.")
+    if "extracted.json" not in files:
+        print("Merchant documents were not exported: run `python -m ai.doc_reader --all` and "
+              "`python -m engine.reconcile` first.")
     print("Safety check passed: no '@', 'sk-', 'client_secret' or 'access_token' in any output.")
     return 0
 

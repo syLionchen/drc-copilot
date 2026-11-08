@@ -1,0 +1,166 @@
+{
+  "tolerance_percent": "3",
+  "note": "A MISMATCH never changes the split; it creates a review record for a person to decide.",
+  "documents": {
+    "ustva_2026-10.pdf": {
+      "doc_type": "vat_return",
+      "period": "2026-10-01..2026-10-31",
+      "checks": [
+        {
+          "check": "vat_vs_verified_revenue",
+          "status": "OK",
+          "reported": "23831.67",
+          "reference": "23833.61",
+          "reference_source": "verified_daily.csv verified_gross, 2026-10-01..2026-10-31 (31 days)",
+          "difference": "-1.94",
+          "percent": "-0.01",
+          "direction": null,
+          "explanation": "within +-3% of our data"
+        }
+      ],
+      "summary": {
+        "ok": 1,
+        "mismatch": 0,
+        "not_reported": 0,
+        "no_reference": 0,
+        "review_items": 0
+      }
+    },
+    "z_bericht_A_2026-10-15.pdf": {
+      "doc_type": "z_report",
+      "period": "2026-10-15",
+      "checks": [
+        {
+          "check": "paypal",
+          "status": "OK",
+          "reported": "408.11",
+          "reference": "408.11",
+          "reference_source": "daily_summary.csv paypal_eur",
+          "difference": "0.00",
+          "percent": "0.00",
+          "direction": null,
+          "explanation": "within +-3% of our data"
+        },
+        {
+          "check": "card",
+          "status": "OK",
+          "reported": "371.89",
+          "reference": "371.89",
+          "reference_source": "verified_daily.csv card_revenue_eur",
+          "difference": "0.00",
+          "percent": "0.00",
+          "direction": null,
+          "explanation": "within +-3% of our data"
+        },
+        {
+          "check": "cash",
+          "status": "OK",
+          "reported": "217.13",
+          "reference": "217.13",
+          "reference_source": "daily_summary.csv pos_cash_reported_eur",
+          "difference": "0.00",
+          "percent": "0.00",
+          "direction": null,
+          "explanation": "within +-3% of our data"
+        },
+        {
+          "check": "gross_total",
+          "status": "OK",
+          "reported": "997.13",
+          "reference": "997.13",
+          "reference_source": "verified_daily.csv raw_gross",
+          "difference": "0.00",
+          "percent": "0.00",
+          "direction": null,
+          "explanation": "within +-3% of our data"
+        }
+      ],
+      "summary": {
+        "ok": 4,
+        "mismatch": 0,
+        "not_reported": 0,
+        "no_reference": 0,
+        "review_items": 0
+      }
+    },
+    "z_bericht_B_2026-10-22.pdf": {
+      "doc_type": "z_report",
+      "period": "2026-10-22",
+      "checks": [
+        {
+          "check": "paypal",
+          "status": "OK",
+          "reported": "392.62",
+          "reference": "392.62",
+          "reference_source": "daily_summary.csv paypal_eur",
+          "difference": "0.00",
+          "percent": "0.00",
+          "direction": null,
+          "explanation": "within +-3% of our data"
+        },
+        {
+          "check": "card",
+          "status": "MISMATCH",
+          "reported": "247.21",
+          "reference": "301.47",
+          "reference_source": "verified_daily.csv card_revenue_eur",
+          "difference": "-54.26",
+          "percent": "-18.00",
+          "direction": "under-reported",
+          "explanation": "card payments is 54.26 EUR below our data: possible under-reporting of card payments (less revenue share would be due), or a gap in our own data"
+        },
+        {
+          "check": "cash",
+          "status": "OK",
+          "reported": "156.43",
+          "reference": "156.43",
+          "reference_source": "daily_summary.csv pos_cash_reported_eur",
+          "difference": "0.00",
+          "percent": "0.00",
+          "direction": null,
+          "explanation": "within +-3% of our data"
+        },
+        {
+          "check": "gross_total",
+          "status": "MISMATCH",
+          "reported": "796.26",
+          "reference": "850.52",
+          "reference_source": "verified_daily.csv raw_gross",
+          "difference": "-54.26",
+          "percent": "-6.38",
+          "direction": "under-reported",
+          "explanation": "gross total is 54.26 EUR below our data: possible under-reporting of gross total (less revenue share would be due), or a gap in our own data"
+        }
+      ],
+      "summary": {
+        "ok": 2,
+        "mismatch": 2,
+        "not_reported": 0,
+        "no_reference": 0,
+        "review_items": 1
+      }
+    }
+  },
+  "review_required": [
+    {
+      "id": "REV-2026-10-22-card",
+      "document": "z_bericht_B_2026-10-22.pdf",
+      "date": "2026-10-22",
+      "status": "review required",
+      "root_cause": "card under-reported",
+      "affected_checks": [
+        "card",
+        "gross_total"
+      ],
+      "difference_eur": "-54.26",
+      "percent": "-18.00",
+      "reported": "247.21",
+      "reference": "301.47",
+      "reference_source": "verified_daily.csv card_revenue_eur",
+      "explanation": "card payments is 54.26 EUR below our data: possible under-reporting of card payments (less revenue share would be due), or a gap in our own data. gross_total is short by the same amount, so this is ONE finding with one root cause, not 2 separate ones",
+      "contract": "Possible breach of Financial and Tax Reporting (Section 12) and Representations (Section 13); whether it is a breach is decided by a person (Consequences of Breach (Section 14)).",
+      "counts_as": "one review item (one root cause)",
+      "automatic_action": "none: the split is unchanged until a person decides"
+    }
+  ]
+}
