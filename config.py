@@ -23,6 +23,11 @@ ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
 # Claude model used by ai/contract_parser.py (override with CLAUDE_MODEL in .env)
 CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-5-5")
+# List prices in USD per million tokens. Used ONLY to estimate what one contract parse costs
+# (ai/contract_parser.py); it is not a billed amount. Check Anthropic's current price list.
+CLAUDE_PRICING_USD_PER_MTOK = {
+    "claude-sonnet-5-5": {"input": Decimal("2.00"), "output": Decimal("10.00")},
+}
 
 CURRENCY = "EUR"
 

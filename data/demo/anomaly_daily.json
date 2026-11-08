@@ -1,0 +1,975 @@
+[
+  {
+    "date": "2026-08-08",
+    "raw": "697.33",
+    "excluded": "0.00",
+    "at_risk": "14.58",
+    "verified_gross": "697.33",
+    "verified_net": "678.73",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-08-09",
+    "raw": "743.73",
+    "excluded": "0.00",
+    "at_risk": "29.90",
+    "verified_gross": "743.73",
+    "verified_net": "725.09",
+    "flagged_txn_count": 2,
+    "flags": []
+  },
+  {
+    "date": "2026-08-10",
+    "raw": "705.12",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "705.12",
+    "verified_net": "682.88",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-11",
+    "raw": "856.68",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "856.68",
+    "verified_net": "827.50",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-12",
+    "raw": "885.09",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "885.09",
+    "verified_net": "862.21",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-13",
+    "raw": "1032.49",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "1032.49",
+    "verified_net": "1002.86",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-14",
+    "raw": "938.48",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "938.48",
+    "verified_net": "913.23",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-15",
+    "raw": "528.84",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "528.84",
+    "verified_net": "514.29",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-16",
+    "raw": "735.55",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "735.55",
+    "verified_net": "714.27",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-17",
+    "raw": "775.15",
+    "excluded": "0.00",
+    "at_risk": "14.86",
+    "verified_gross": "775.15",
+    "verified_net": "748.36",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-08-18",
+    "raw": "1264.65",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "1264.65",
+    "verified_net": "1222.80",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-08-19",
+    "raw": "997.98",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "997.98",
+    "verified_net": "968.08",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-20",
+    "raw": "1006.38",
+    "excluded": "0.00",
+    "at_risk": "18.56",
+    "verified_gross": "1006.38",
+    "verified_net": "976.08",
+    "flagged_txn_count": 8,
+    "flags": [
+      "PRICE_OVERRIDE_CLUSTER_DAY"
+    ]
+  },
+  {
+    "date": "2026-08-21",
+    "raw": "953.00",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "953.00",
+    "verified_net": "923.27",
+    "flagged_txn_count": 0,
+    "flags": [
+      "VOID_SPIKE_DAY"
+    ]
+  },
+  {
+    "date": "2026-08-22",
+    "raw": "549.56",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "549.56",
+    "verified_net": "530.68",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-23",
+    "raw": "635.97",
+    "excluded": "0.00",
+    "at_risk": "30.00",
+    "verified_gross": "635.97",
+    "verified_net": "617.53",
+    "flagged_txn_count": 2,
+    "flags": []
+  },
+  {
+    "date": "2026-08-24",
+    "raw": "779.80",
+    "excluded": "0.00",
+    "at_risk": "19.39",
+    "verified_gross": "779.80",
+    "verified_net": "754.89",
+    "flagged_txn_count": 2,
+    "flags": []
+  },
+  {
+    "date": "2026-08-25",
+    "raw": "946.50",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "946.50",
+    "verified_net": "918.65",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-26",
+    "raw": "887.97",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "887.97",
+    "verified_net": "859.55",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-27",
+    "raw": "1184.32",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "1184.32",
+    "verified_net": "1147.44",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-28",
+    "raw": "816.93",
+    "excluded": "0.00",
+    "at_risk": "30.00",
+    "verified_gross": "816.93",
+    "verified_net": "794.51",
+    "flagged_txn_count": 2,
+    "flags": []
+  },
+  {
+    "date": "2026-08-29",
+    "raw": "671.38",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "671.38",
+    "verified_net": "649.83",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-08-30",
+    "raw": "781.40",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "781.40",
+    "verified_net": "754.81",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-08-31",
+    "raw": "616.02",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "616.02",
+    "verified_net": "598.88",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-01",
+    "raw": "1050.40",
+    "excluded": "0.00",
+    "at_risk": "23.70",
+    "verified_gross": "1050.40",
+    "verified_net": "1022.38",
+    "flagged_txn_count": 2,
+    "flags": []
+  },
+  {
+    "date": "2026-09-02",
+    "raw": "917.50",
+    "excluded": "0.00",
+    "at_risk": "28.50",
+    "verified_gross": "917.50",
+    "verified_net": "888.61",
+    "flagged_txn_count": 2,
+    "flags": []
+  },
+  {
+    "date": "2026-09-03",
+    "raw": "972.70",
+    "excluded": "0.00",
+    "at_risk": "29.24",
+    "verified_gross": "972.70",
+    "verified_net": "943.43",
+    "flagged_txn_count": 8,
+    "flags": [
+      "PRICE_OVERRIDE_CLUSTER_DAY"
+    ]
+  },
+  {
+    "date": "2026-09-04",
+    "raw": "708.61",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "708.61",
+    "verified_net": "688.46",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-05",
+    "raw": "649.81",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "649.81",
+    "verified_net": "632.86",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-06",
+    "raw": "629.74",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "629.74",
+    "verified_net": "606.94",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-07",
+    "raw": "783.07",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "783.07",
+    "verified_net": "759.16",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-08",
+    "raw": "940.87",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "940.87",
+    "verified_net": "912.48",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-09",
+    "raw": "860.00",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "860.00",
+    "verified_net": "834.44",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-10",
+    "raw": "1037.56",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "1037.56",
+    "verified_net": "1008.42",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-11",
+    "raw": "746.16",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "746.16",
+    "verified_net": "725.58",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-12",
+    "raw": "754.60",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "754.60",
+    "verified_net": "728.95",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-09-13",
+    "raw": "681.54",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "681.54",
+    "verified_net": "657.97",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-09-14",
+    "raw": "854.13",
+    "excluded": "0.00",
+    "at_risk": "2.70",
+    "verified_gross": "854.13",
+    "verified_net": "830.10",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-09-15",
+    "raw": "881.64",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "881.64",
+    "verified_net": "853.36",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-16",
+    "raw": "765.53",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "765.53",
+    "verified_net": "740.91",
+    "flagged_txn_count": 0,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-09-17",
+    "raw": "1001.46",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "1001.46",
+    "verified_net": "971.54",
+    "flagged_txn_count": 0,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-09-18",
+    "raw": "711.46",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "711.46",
+    "verified_net": "685.80",
+    "flagged_txn_count": 0,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-09-19",
+    "raw": "753.70",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "753.70",
+    "verified_net": "732.80",
+    "flagged_txn_count": 0,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-09-20",
+    "raw": "595.87",
+    "excluded": "0.00",
+    "at_risk": "23.42",
+    "verified_gross": "595.87",
+    "verified_net": "577.91",
+    "flagged_txn_count": 2,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-09-21",
+    "raw": "978.68",
+    "excluded": "0.00",
+    "at_risk": "44.73",
+    "verified_gross": "978.68",
+    "verified_net": "948.37",
+    "flagged_txn_count": 3,
+    "flags": []
+  },
+  {
+    "date": "2026-09-22",
+    "raw": "1188.07",
+    "excluded": "145.80",
+    "at_risk": "2.95",
+    "verified_gross": "1042.27",
+    "verified_net": "1011.45",
+    "flagged_txn_count": 201,
+    "flags": [
+      "SELF_DEALING_DAY"
+    ]
+  },
+  {
+    "date": "2026-09-23",
+    "raw": "1104.11",
+    "excluded": "178.50",
+    "at_risk": "0.00",
+    "verified_gross": "925.61",
+    "verified_net": "894.50",
+    "flagged_txn_count": 236,
+    "flags": [
+      "SELF_DEALING_DAY"
+    ]
+  },
+  {
+    "date": "2026-09-24",
+    "raw": "1108.30",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "1108.30",
+    "verified_net": "1073.88",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-25",
+    "raw": "769.70",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "769.70",
+    "verified_net": "749.62",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-26",
+    "raw": "563.65",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "563.65",
+    "verified_net": "545.78",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-09-27",
+    "raw": "622.60",
+    "excluded": "0.00",
+    "at_risk": "3.92",
+    "verified_gross": "622.60",
+    "verified_net": "602.75",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-09-28",
+    "raw": "725.20",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "725.20",
+    "verified_net": "706.37",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-09-29",
+    "raw": "1068.77",
+    "excluded": "0.00",
+    "at_risk": "40.13",
+    "verified_gross": "1068.77",
+    "verified_net": "1038.74",
+    "flagged_txn_count": 9,
+    "flags": [
+      "PRICE_OVERRIDE_CLUSTER_DAY"
+    ]
+  },
+  {
+    "date": "2026-09-30",
+    "raw": "768.59",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "768.59",
+    "verified_net": "746.69",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-10-01",
+    "raw": "929.61",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "929.61",
+    "verified_net": "900.70",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-10-02",
+    "raw": "910.95",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "910.95",
+    "verified_net": "879.09",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-10-03",
+    "raw": "619.91",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "619.91",
+    "verified_net": "602.44",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-10-04",
+    "raw": "687.32",
+    "excluded": "0.00",
+    "at_risk": "14.97",
+    "verified_gross": "687.32",
+    "verified_net": "662.64",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-10-05",
+    "raw": "638.22",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "638.22",
+    "verified_net": "614.78",
+    "flagged_txn_count": 1,
+    "flags": [
+      "VOID_SPIKE_DAY"
+    ]
+  },
+  {
+    "date": "2026-10-06",
+    "raw": "879.71",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "879.71",
+    "verified_net": "849.02",
+    "flagged_txn_count": 0,
+    "flags": [
+      "VOID_SPIKE_DAY"
+    ]
+  },
+  {
+    "date": "2026-10-07",
+    "raw": "708.45",
+    "excluded": "0.00",
+    "at_risk": "14.53",
+    "verified_gross": "708.45",
+    "verified_net": "683.08",
+    "flagged_txn_count": 1,
+    "flags": [
+      "VOID_SPIKE_DAY"
+    ]
+  },
+  {
+    "date": "2026-10-08",
+    "raw": "702.73",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "702.73",
+    "verified_net": "679.82",
+    "flagged_txn_count": 0,
+    "flags": [
+      "VOID_SPIKE_DAY"
+    ]
+  },
+  {
+    "date": "2026-10-09",
+    "raw": "771.64",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "771.64",
+    "verified_net": "746.01",
+    "flagged_txn_count": 0,
+    "flags": [
+      "VOID_SPIKE_DAY"
+    ]
+  },
+  {
+    "date": "2026-10-10",
+    "raw": "553.24",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "553.24",
+    "verified_net": "534.94",
+    "flagged_txn_count": 0,
+    "flags": [
+      "VOID_SPIKE_DAY"
+    ]
+  },
+  {
+    "date": "2026-10-11",
+    "raw": "560.72",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "560.72",
+    "verified_net": "541.44",
+    "flagged_txn_count": 0,
+    "flags": [
+      "VOID_SPIKE_DAY"
+    ]
+  },
+  {
+    "date": "2026-10-12",
+    "raw": "884.74",
+    "excluded": "0.00",
+    "at_risk": "18.57",
+    "verified_gross": "884.74",
+    "verified_net": "858.37",
+    "flagged_txn_count": 2,
+    "flags": []
+  },
+  {
+    "date": "2026-10-13",
+    "raw": "867.37",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "867.37",
+    "verified_net": "841.43",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-10-14",
+    "raw": "945.12",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "945.12",
+    "verified_net": "914.95",
+    "flagged_txn_count": 1,
+    "flags": []
+  },
+  {
+    "date": "2026-10-15",
+    "raw": "997.13",
+    "excluded": "0.00",
+    "at_risk": "34.20",
+    "verified_gross": "997.13",
+    "verified_net": "968.48",
+    "flagged_txn_count": 9,
+    "flags": [
+      "PRICE_OVERRIDE_CLUSTER_DAY"
+    ]
+  },
+  {
+    "date": "2026-10-16",
+    "raw": "776.90",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "776.90",
+    "verified_net": "749.34",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-10-17",
+    "raw": "585.98",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "585.98",
+    "verified_net": "568.64",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-10-18",
+    "raw": "763.51",
+    "excluded": "0.00",
+    "at_risk": "30.00",
+    "verified_gross": "763.51",
+    "verified_net": "737.35",
+    "flagged_txn_count": 2,
+    "flags": []
+  },
+  {
+    "date": "2026-10-19",
+    "raw": "828.61",
+    "excluded": "0.00",
+    "at_risk": "33.25",
+    "verified_gross": "828.61",
+    "verified_net": "806.69",
+    "flagged_txn_count": 3,
+    "flags": []
+  },
+  {
+    "date": "2026-10-20",
+    "raw": "952.06",
+    "excluded": "0.00",
+    "at_risk": "28.53",
+    "verified_gross": "952.06",
+    "verified_net": "927.42",
+    "flagged_txn_count": 8,
+    "flags": [
+      "PRICE_OVERRIDE_CLUSTER_DAY"
+    ]
+  },
+  {
+    "date": "2026-10-21",
+    "raw": "1017.97",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "1017.97",
+    "verified_net": "986.45",
+    "flagged_txn_count": 0,
+    "flags": []
+  },
+  {
+    "date": "2026-10-22",
+    "raw": "850.52",
+    "excluded": "0.00",
+    "at_risk": "10.91",
+    "verified_gross": "850.52",
+    "verified_net": "826.95",
+    "flagged_txn_count": 1,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-10-23",
+    "raw": "628.21",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "628.21",
+    "verified_net": "610.31",
+    "flagged_txn_count": 0,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-10-24",
+    "raw": "501.57",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "501.57",
+    "verified_net": "483.49",
+    "flagged_txn_count": 0,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-10-25",
+    "raw": "541.86",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "541.86",
+    "verified_net": "523.80",
+    "flagged_txn_count": 0,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-10-26",
+    "raw": "989.99",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "989.99",
+    "verified_net": "954.01",
+    "flagged_txn_count": 1,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-10-27",
+    "raw": "683.43",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "683.43",
+    "verified_net": "653.38",
+    "flagged_txn_count": 1,
+    "flags": [
+      "CARD_REVENUE_MISSING",
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-10-28",
+    "raw": "1087.26",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "1087.26",
+    "verified_net": "1058.62",
+    "flagged_txn_count": 0,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-10-29",
+    "raw": "887.27",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "887.27",
+    "verified_net": "862.95",
+    "flagged_txn_count": 0,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-10-30",
+    "raw": "500.16",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "500.16",
+    "verified_net": "478.47",
+    "flagged_txn_count": 0,
+    "flags": [
+      "CARD_REVENUE_MISSING",
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-10-31",
+    "raw": "581.45",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "581.45",
+    "verified_net": "565.48",
+    "flagged_txn_count": 0,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-11-01",
+    "raw": "630.20",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "630.20",
+    "verified_net": "610.34",
+    "flagged_txn_count": 1,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-11-02",
+    "raw": "733.77",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "733.77",
+    "verified_net": "712.79",
+    "flagged_txn_count": 1,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-11-03",
+    "raw": "651.52",
+    "excluded": "0.00",
+    "at_risk": "0.00",
+    "verified_gross": "651.52",
+    "verified_net": "628.67",
+    "flagged_txn_count": 0,
+    "flags": [
+      "CARD_REVENUE_MISSING",
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-11-04",
+    "raw": "835.80",
+    "excluded": "0.00",
+    "at_risk": "15.00",
+    "verified_gross": "835.80",
+    "verified_net": "809.00",
+    "flagged_txn_count": 1,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  },
+  {
+    "date": "2026-11-05",
+    "raw": "1014.20",
+    "excluded": "0.00",
+    "at_risk": "40.98",
+    "verified_gross": "1014.20",
+    "verified_net": "988.26",
+    "flagged_txn_count": 3,
+    "flags": [
+      "EVENING_SHARE_DROP"
+    ]
+  }
+]

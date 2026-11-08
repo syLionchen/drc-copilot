@@ -1,0 +1,6970 @@
+[
+  {
+    "txn_id": "TXN-20260808-0037",
+    "timestamp": "2026-08-08 12:03:56",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "14.58",
+    "list_price": "14.58",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260809-0012",
+    "timestamp": "2026-08-09 09:15:35",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260809-0095",
+    "timestamp": "2026-08-09 18:06:28",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0009",
+    "amount_eur": "14.90",
+    "list_price": "14.9",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260817-0101",
+    "timestamp": "2026-08-17 19:01:36",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0011",
+    "amount_eur": "14.86",
+    "list_price": "14.86",
+    "discount_pct": "-0.001",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260818-0137",
+    "timestamp": "2026-08-18 19:09:23",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260820-0022",
+    "timestamp": "2026-08-20 09:13:44",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0122",
+    "amount_eur": "1.55",
+    "list_price": "4.31",
+    "discount_pct": "0.64",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260820-0034",
+    "timestamp": "2026-08-20 09:57:22",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0258",
+    "amount_eur": "3.68",
+    "list_price": "6.79",
+    "discount_pct": "0.458",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260820-0051",
+    "timestamp": "2026-08-20 12:10:06",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0056",
+    "amount_eur": "1.48",
+    "list_price": "4.02",
+    "discount_pct": "0.631",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260820-0053",
+    "timestamp": "2026-08-20 12:14:07",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "2.99",
+    "list_price": "6.48",
+    "discount_pct": "0.539",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260820-0071",
+    "timestamp": "2026-08-20 13:26:29",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0216",
+    "amount_eur": "2.48",
+    "list_price": "4.31",
+    "discount_pct": "0.423",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260820-0076",
+    "timestamp": "2026-08-20 13:42:52",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "1.36",
+    "list_price": "3.0",
+    "discount_pct": "0.547",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260820-0089",
+    "timestamp": "2026-08-20 15:23:32",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0024",
+    "amount_eur": "2.23",
+    "list_price": "3.87",
+    "discount_pct": "0.424",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260820-0113",
+    "timestamp": "2026-08-20 18:33:58",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0134",
+    "amount_eur": "2.79",
+    "list_price": "5.8",
+    "discount_pct": "0.518",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260823-0042",
+    "timestamp": "2026-08-23 11:56:30",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260823-0068",
+    "timestamp": "2026-08-23 16:04:30",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260824-0065",
+    "timestamp": "2026-08-24 13:19:20",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260824-0111",
+    "timestamp": "2026-08-24 20:40:55",
+    "channel": "PAYPAL",
+    "customer_id": "PP-0067",
+    "amount_eur": "4.39",
+    "list_price": "4.88",
+    "discount_pct": "0.099",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260828-0109",
+    "timestamp": "2026-08-28 20:30:48",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260828-0112",
+    "timestamp": "2026-08-28 20:53:19",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260830-0004",
+    "timestamp": "2026-08-30 08:33:24",
+    "channel": "PAYPAL",
+    "customer_id": "CONSUMER-A",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260901-0003",
+    "timestamp": "2026-09-01 07:05:01",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "8.84",
+    "list_price": "9.82",
+    "discount_pct": "0.1",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260901-0088",
+    "timestamp": "2026-09-01 15:28:42",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "14.86",
+    "list_price": "14.86",
+    "discount_pct": "-0.001",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260902-0041",
+    "timestamp": "2026-09-02 09:49:59",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0200",
+    "amount_eur": "13.50",
+    "list_price": "15.0",
+    "discount_pct": "0.1",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260902-0117",
+    "timestamp": "2026-09-02 18:35:02",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260903-0006",
+    "timestamp": "2026-09-03 07:28:15",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "2.89",
+    "list_price": "6.28",
+    "discount_pct": "0.54",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260903-0030",
+    "timestamp": "2026-09-03 09:18:27",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0085",
+    "amount_eur": "8.03",
+    "list_price": "15.0",
+    "discount_pct": "0.465",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260903-0048",
+    "timestamp": "2026-09-03 10:57:57",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0232",
+    "amount_eur": "1.49",
+    "list_price": "4.62",
+    "discount_pct": "0.677",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260903-0061",
+    "timestamp": "2026-09-03 12:29:06",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "4.06",
+    "list_price": "6.86",
+    "discount_pct": "0.408",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260903-0064",
+    "timestamp": "2026-09-03 12:40:49",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "1.88",
+    "list_price": "4.85",
+    "discount_pct": "0.612",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260903-0069",
+    "timestamp": "2026-09-03 13:01:03",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0374",
+    "amount_eur": "3.16",
+    "list_price": "9.85",
+    "discount_pct": "0.679",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260903-0097",
+    "timestamp": "2026-09-03 16:35:50",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "4.95",
+    "list_price": "9.88",
+    "discount_pct": "0.499",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260903-0103",
+    "timestamp": "2026-09-03 17:26:16",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0038",
+    "amount_eur": "2.78",
+    "list_price": "5.7",
+    "discount_pct": "0.512",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260912-0029",
+    "timestamp": "2026-09-12 10:47:58",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260913-0006",
+    "timestamp": "2026-09-13 07:35:36",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0393",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260914-0081",
+    "timestamp": "2026-09-14 13:25:43",
+    "channel": "PAYPAL",
+    "customer_id": "PP-0029",
+    "amount_eur": "2.70",
+    "list_price": "3.0",
+    "discount_pct": "0.1",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260920-0086",
+    "timestamp": "2026-09-20 18:51:05",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "8.42",
+    "list_price": "9.35",
+    "discount_pct": "0.099",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260920-0088",
+    "timestamp": "2026-09-20 18:57:04",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0032",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260921-0001",
+    "timestamp": "2026-09-21 07:12:30",
+    "channel": "PAYPAL",
+    "customer_id": "PP-0115",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260921-0080",
+    "timestamp": "2026-09-21 13:37:25",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "14.73",
+    "list_price": "14.73",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260921-0094",
+    "timestamp": "2026-09-21 14:55:52",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0084",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0031",
+    "timestamp": "2026-09-22 09:03:55",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0036",
+    "timestamp": "2026-09-22 09:27:11",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0038",
+    "timestamp": "2026-09-22 09:41:23",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "1.00",
+    "list_price": "1.0",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0039",
+    "timestamp": "2026-09-22 09:41:43",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.53",
+    "list_price": "0.53",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0044",
+    "timestamp": "2026-09-22 09:49:13",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.85",
+    "list_price": "0.85",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0045",
+    "timestamp": "2026-09-22 09:50:11",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.81",
+    "list_price": "0.81",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0047",
+    "timestamp": "2026-09-22 09:59:50",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.84",
+    "list_price": "0.84",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0049",
+    "timestamp": "2026-09-22 10:04:45",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0050",
+    "timestamp": "2026-09-22 10:06:30",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.91",
+    "list_price": "0.91",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0051",
+    "timestamp": "2026-09-22 10:15:16",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.95",
+    "list_price": "0.95",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0053",
+    "timestamp": "2026-09-22 10:34:03",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.99",
+    "list_price": "0.99",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0054",
+    "timestamp": "2026-09-22 10:34:04",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.76",
+    "list_price": "0.76",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0058",
+    "timestamp": "2026-09-22 10:41:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.53",
+    "list_price": "0.53",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0059",
+    "timestamp": "2026-09-22 10:42:18",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "1.00",
+    "list_price": "1.0",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0065",
+    "timestamp": "2026-09-22 11:28:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.76",
+    "list_price": "0.76",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0066",
+    "timestamp": "2026-09-22 11:28:54",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.92",
+    "list_price": "0.92",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0068",
+    "timestamp": "2026-09-22 11:30:20",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.93",
+    "list_price": "0.93",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0070",
+    "timestamp": "2026-09-22 11:31:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.51",
+    "list_price": "0.51",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0073",
+    "timestamp": "2026-09-22 11:37:12",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0076",
+    "timestamp": "2026-09-22 11:49:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.67",
+    "list_price": "0.67",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0077",
+    "timestamp": "2026-09-22 11:52:42",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.75",
+    "list_price": "0.75",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0080",
+    "timestamp": "2026-09-22 12:07:23",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.52",
+    "list_price": "0.52",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0082",
+    "timestamp": "2026-09-22 12:10:59",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.66",
+    "list_price": "0.66",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0086",
+    "timestamp": "2026-09-22 12:20:58",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.66",
+    "list_price": "0.66",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0088",
+    "timestamp": "2026-09-22 12:23:57",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.65",
+    "list_price": "0.65",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0093",
+    "timestamp": "2026-09-22 12:40:22",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.72",
+    "list_price": "0.72",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0096",
+    "timestamp": "2026-09-22 12:50:06",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.69",
+    "list_price": "0.69",
+    "discount_pct": "-0.015",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0098",
+    "timestamp": "2026-09-22 12:53:56",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.77",
+    "list_price": "0.77",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0105",
+    "timestamp": "2026-09-22 13:16:32",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.85",
+    "list_price": "0.85",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0108",
+    "timestamp": "2026-09-22 13:35:33",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.73",
+    "list_price": "0.73",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0112",
+    "timestamp": "2026-09-22 13:44:36",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.72",
+    "list_price": "0.72",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0117",
+    "timestamp": "2026-09-22 13:56:12",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.74",
+    "list_price": "0.74",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0120",
+    "timestamp": "2026-09-22 14:09:28",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.57",
+    "list_price": "0.57",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0121",
+    "timestamp": "2026-09-22 14:14:02",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.94",
+    "list_price": "0.94",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0122",
+    "timestamp": "2026-09-22 14:27:08",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.88",
+    "list_price": "0.88",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0123",
+    "timestamp": "2026-09-22 14:28:45",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.58",
+    "list_price": "0.58",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0126",
+    "timestamp": "2026-09-22 14:47:06",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0127",
+    "timestamp": "2026-09-22 14:47:23",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0128",
+    "timestamp": "2026-09-22 14:50:51",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.53",
+    "list_price": "0.53",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0132",
+    "timestamp": "2026-09-22 15:38:40",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.99",
+    "list_price": "0.99",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0133",
+    "timestamp": "2026-09-22 15:40:37",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.94",
+    "list_price": "0.94",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0135",
+    "timestamp": "2026-09-22 15:59:09",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.81",
+    "list_price": "0.81",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0136",
+    "timestamp": "2026-09-22 15:59:53",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.57",
+    "list_price": "0.57",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0138",
+    "timestamp": "2026-09-22 16:06:46",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.78",
+    "list_price": "0.78",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0139",
+    "timestamp": "2026-09-22 16:07:13",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.57",
+    "list_price": "0.57",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0140",
+    "timestamp": "2026-09-22 16:07:19",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.60",
+    "list_price": "0.6",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0141",
+    "timestamp": "2026-09-22 16:12:08",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.77",
+    "list_price": "0.77",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0143",
+    "timestamp": "2026-09-22 16:16:17",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.88",
+    "list_price": "0.88",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0144",
+    "timestamp": "2026-09-22 16:44:35",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.71",
+    "list_price": "0.71",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0145",
+    "timestamp": "2026-09-22 16:53:31",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0146",
+    "timestamp": "2026-09-22 16:53:31",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.58",
+    "list_price": "0.58",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0148",
+    "timestamp": "2026-09-22 16:58:45",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0150",
+    "timestamp": "2026-09-22 17:07:29",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.76",
+    "list_price": "0.76",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0152",
+    "timestamp": "2026-09-22 17:18:57",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.81",
+    "list_price": "0.81",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0155",
+    "timestamp": "2026-09-22 17:30:37",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0159",
+    "timestamp": "2026-09-22 17:36:01",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.75",
+    "list_price": "0.75",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0160",
+    "timestamp": "2026-09-22 17:37:25",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.84",
+    "list_price": "0.84",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0162",
+    "timestamp": "2026-09-22 17:48:56",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.56",
+    "list_price": "0.56",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0164",
+    "timestamp": "2026-09-22 17:54:08",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.81",
+    "list_price": "0.81",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0165",
+    "timestamp": "2026-09-22 17:55:09",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0166",
+    "timestamp": "2026-09-22 17:58:21",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.99",
+    "list_price": "0.99",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0167",
+    "timestamp": "2026-09-22 18:02:33",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.81",
+    "list_price": "0.81",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0168",
+    "timestamp": "2026-09-22 18:07:00",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0034",
+    "amount_eur": "2.95",
+    "list_price": "3.28",
+    "discount_pct": "0.098",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0170",
+    "timestamp": "2026-09-22 18:13:29",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.72",
+    "list_price": "0.72",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0173",
+    "timestamp": "2026-09-22 18:30:13",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.99",
+    "list_price": "0.99",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0174",
+    "timestamp": "2026-09-22 18:41:54",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.52",
+    "list_price": "0.52",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0175",
+    "timestamp": "2026-09-22 18:43:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.95",
+    "list_price": "0.95",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0177",
+    "timestamp": "2026-09-22 18:49:09",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.75",
+    "list_price": "0.75",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0178",
+    "timestamp": "2026-09-22 18:51:35",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.78",
+    "list_price": "0.78",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0179",
+    "timestamp": "2026-09-22 18:53:17",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.62",
+    "list_price": "0.62",
+    "discount_pct": "-0.016",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0180",
+    "timestamp": "2026-09-22 18:53:20",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.80",
+    "list_price": "0.8",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0182",
+    "timestamp": "2026-09-22 19:08:44",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0185",
+    "timestamp": "2026-09-22 19:18:48",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.70",
+    "list_price": "0.7",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0186",
+    "timestamp": "2026-09-22 19:20:01",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.93",
+    "list_price": "0.93",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0191",
+    "timestamp": "2026-09-22 19:41:47",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.70",
+    "list_price": "0.7",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0194",
+    "timestamp": "2026-09-22 19:48:26",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.77",
+    "list_price": "0.77",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0195",
+    "timestamp": "2026-09-22 20:11:41",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0196",
+    "timestamp": "2026-09-22 20:19:47",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.68",
+    "list_price": "0.68",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0197",
+    "timestamp": "2026-09-22 20:23:21",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.71",
+    "list_price": "0.71",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0198",
+    "timestamp": "2026-09-22 20:24:22",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.84",
+    "list_price": "0.84",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0200",
+    "timestamp": "2026-09-22 20:27:45",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0201",
+    "timestamp": "2026-09-22 20:30:43",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.77",
+    "list_price": "0.77",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0208",
+    "timestamp": "2026-09-22 21:00:24",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.53",
+    "list_price": "0.53",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0209",
+    "timestamp": "2026-09-22 21:01:11",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.78",
+    "list_price": "0.78",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0210",
+    "timestamp": "2026-09-22 21:01:12",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.62",
+    "list_price": "0.62",
+    "discount_pct": "-0.016",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0211",
+    "timestamp": "2026-09-22 21:02:00",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.91",
+    "list_price": "0.91",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0212",
+    "timestamp": "2026-09-22 21:05:32",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0213",
+    "timestamp": "2026-09-22 21:08:35",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.95",
+    "list_price": "0.95",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0214",
+    "timestamp": "2026-09-22 21:09:09",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.71",
+    "list_price": "0.71",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0215",
+    "timestamp": "2026-09-22 21:09:37",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0216",
+    "timestamp": "2026-09-22 21:10:32",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.56",
+    "list_price": "0.56",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0217",
+    "timestamp": "2026-09-22 21:11:37",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.67",
+    "list_price": "0.67",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0218",
+    "timestamp": "2026-09-22 21:12:48",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.86",
+    "list_price": "0.86",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0219",
+    "timestamp": "2026-09-22 21:12:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.58",
+    "list_price": "0.58",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0220",
+    "timestamp": "2026-09-22 21:16:10",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.75",
+    "list_price": "0.75",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0221",
+    "timestamp": "2026-09-22 21:17:02",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0222",
+    "timestamp": "2026-09-22 21:19:47",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.79",
+    "list_price": "0.79",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0223",
+    "timestamp": "2026-09-22 21:23:06",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0224",
+    "timestamp": "2026-09-22 21:25:38",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.70",
+    "list_price": "0.7",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0225",
+    "timestamp": "2026-09-22 21:26:53",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.71",
+    "list_price": "0.71",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0226",
+    "timestamp": "2026-09-22 21:27:39",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0227",
+    "timestamp": "2026-09-22 21:30:48",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.73",
+    "list_price": "0.73",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0228",
+    "timestamp": "2026-09-22 21:33:07",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.86",
+    "list_price": "0.86",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0229",
+    "timestamp": "2026-09-22 21:33:44",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.91",
+    "list_price": "0.91",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0230",
+    "timestamp": "2026-09-22 21:35:33",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.74",
+    "list_price": "0.74",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0231",
+    "timestamp": "2026-09-22 21:37:19",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.79",
+    "list_price": "0.79",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0232",
+    "timestamp": "2026-09-22 21:38:30",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.87",
+    "list_price": "0.87",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0233",
+    "timestamp": "2026-09-22 21:41:17",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.92",
+    "list_price": "0.92",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0234",
+    "timestamp": "2026-09-22 21:42:20",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0235",
+    "timestamp": "2026-09-22 21:45:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.58",
+    "list_price": "0.58",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0236",
+    "timestamp": "2026-09-22 21:46:24",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.93",
+    "list_price": "0.93",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0237",
+    "timestamp": "2026-09-22 21:49:37",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.68",
+    "list_price": "0.68",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0238",
+    "timestamp": "2026-09-22 21:51:39",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.77",
+    "list_price": "0.77",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0239",
+    "timestamp": "2026-09-22 21:52:01",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.97",
+    "list_price": "0.97",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0240",
+    "timestamp": "2026-09-22 21:53:54",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.54",
+    "list_price": "0.54",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0241",
+    "timestamp": "2026-09-22 21:54:57",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.69",
+    "list_price": "0.69",
+    "discount_pct": "-0.015",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0242",
+    "timestamp": "2026-09-22 21:55:57",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.75",
+    "list_price": "0.75",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0243",
+    "timestamp": "2026-09-22 21:58:31",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.52",
+    "list_price": "0.52",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0244",
+    "timestamp": "2026-09-22 22:00:29",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.82",
+    "list_price": "0.82",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0245",
+    "timestamp": "2026-09-22 22:01:10",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.66",
+    "list_price": "0.66",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0246",
+    "timestamp": "2026-09-22 22:03:23",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.96",
+    "list_price": "0.96",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0247",
+    "timestamp": "2026-09-22 22:09:03",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.64",
+    "list_price": "0.64",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0248",
+    "timestamp": "2026-09-22 22:09:22",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0249",
+    "timestamp": "2026-09-22 22:10:26",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.80",
+    "list_price": "0.8",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0250",
+    "timestamp": "2026-09-22 22:12:31",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.66",
+    "list_price": "0.66",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0251",
+    "timestamp": "2026-09-22 22:12:55",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0252",
+    "timestamp": "2026-09-22 22:13:23",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.67",
+    "list_price": "0.67",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0253",
+    "timestamp": "2026-09-22 22:18:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.52",
+    "list_price": "0.52",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0254",
+    "timestamp": "2026-09-22 22:25:02",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.52",
+    "list_price": "0.52",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0255",
+    "timestamp": "2026-09-22 22:27:21",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.58",
+    "list_price": "0.58",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0256",
+    "timestamp": "2026-09-22 22:27:27",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.71",
+    "list_price": "0.71",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0257",
+    "timestamp": "2026-09-22 22:29:25",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.71",
+    "list_price": "0.71",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0258",
+    "timestamp": "2026-09-22 22:29:28",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0259",
+    "timestamp": "2026-09-22 22:30:46",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0260",
+    "timestamp": "2026-09-22 22:31:57",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.58",
+    "list_price": "0.58",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0261",
+    "timestamp": "2026-09-22 22:33:26",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0262",
+    "timestamp": "2026-09-22 22:34:16",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.81",
+    "list_price": "0.81",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0263",
+    "timestamp": "2026-09-22 22:34:55",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.89",
+    "list_price": "0.89",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0264",
+    "timestamp": "2026-09-22 22:35:43",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.51",
+    "list_price": "0.51",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0265",
+    "timestamp": "2026-09-22 22:36:27",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "1.00",
+    "list_price": "1.0",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0266",
+    "timestamp": "2026-09-22 22:40:56",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.80",
+    "list_price": "0.8",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0267",
+    "timestamp": "2026-09-22 22:41:14",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0268",
+    "timestamp": "2026-09-22 22:41:37",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.58",
+    "list_price": "0.58",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0269",
+    "timestamp": "2026-09-22 22:46:23",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.77",
+    "list_price": "0.77",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0270",
+    "timestamp": "2026-09-22 22:48:58",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.62",
+    "list_price": "0.62",
+    "discount_pct": "-0.016",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0271",
+    "timestamp": "2026-09-22 22:51:01",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.78",
+    "list_price": "0.78",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0272",
+    "timestamp": "2026-09-22 22:52:17",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.99",
+    "list_price": "0.99",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0273",
+    "timestamp": "2026-09-22 22:52:29",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.71",
+    "list_price": "0.71",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0274",
+    "timestamp": "2026-09-22 22:54:52",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.70",
+    "list_price": "0.7",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0275",
+    "timestamp": "2026-09-22 22:56:52",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.72",
+    "list_price": "0.72",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0276",
+    "timestamp": "2026-09-22 22:57:50",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.86",
+    "list_price": "0.86",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0277",
+    "timestamp": "2026-09-22 22:58:07",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.64",
+    "list_price": "0.64",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0278",
+    "timestamp": "2026-09-22 22:58:52",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0279",
+    "timestamp": "2026-09-22 23:02:22",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.51",
+    "list_price": "0.51",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0280",
+    "timestamp": "2026-09-22 23:02:58",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.57",
+    "list_price": "0.57",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0281",
+    "timestamp": "2026-09-22 23:04:25",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.93",
+    "list_price": "0.93",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0282",
+    "timestamp": "2026-09-22 23:05:06",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0283",
+    "timestamp": "2026-09-22 23:08:24",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.73",
+    "list_price": "0.73",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0284",
+    "timestamp": "2026-09-22 23:09:37",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.59",
+    "list_price": "0.59",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0285",
+    "timestamp": "2026-09-22 23:10:34",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.76",
+    "list_price": "0.76",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0286",
+    "timestamp": "2026-09-22 23:11:54",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.74",
+    "list_price": "0.74",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0287",
+    "timestamp": "2026-09-22 23:12:41",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0288",
+    "timestamp": "2026-09-22 23:13:50",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.69",
+    "list_price": "0.69",
+    "discount_pct": "-0.015",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0289",
+    "timestamp": "2026-09-22 23:15:43",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.94",
+    "list_price": "0.94",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0290",
+    "timestamp": "2026-09-22 23:16:11",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.68",
+    "list_price": "0.68",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0291",
+    "timestamp": "2026-09-22 23:18:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.91",
+    "list_price": "0.91",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0292",
+    "timestamp": "2026-09-22 23:22:42",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.56",
+    "list_price": "0.56",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0293",
+    "timestamp": "2026-09-22 23:24:42",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.84",
+    "list_price": "0.84",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0294",
+    "timestamp": "2026-09-22 23:25:08",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.69",
+    "list_price": "0.69",
+    "discount_pct": "-0.015",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0295",
+    "timestamp": "2026-09-22 23:27:38",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0296",
+    "timestamp": "2026-09-22 23:30:26",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0297",
+    "timestamp": "2026-09-22 23:32:51",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0298",
+    "timestamp": "2026-09-22 23:32:58",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.87",
+    "list_price": "0.87",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0299",
+    "timestamp": "2026-09-22 23:33:17",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.71",
+    "list_price": "0.71",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0300",
+    "timestamp": "2026-09-22 23:34:55",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.86",
+    "list_price": "0.86",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0301",
+    "timestamp": "2026-09-22 23:36:08",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0302",
+    "timestamp": "2026-09-22 23:38:18",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.70",
+    "list_price": "0.7",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0303",
+    "timestamp": "2026-09-22 23:38:24",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.53",
+    "list_price": "0.53",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0304",
+    "timestamp": "2026-09-22 23:39:19",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.80",
+    "list_price": "0.8",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0305",
+    "timestamp": "2026-09-22 23:39:47",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.51",
+    "list_price": "0.51",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0306",
+    "timestamp": "2026-09-22 23:40:52",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.54",
+    "list_price": "0.54",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0307",
+    "timestamp": "2026-09-22 23:41:04",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0308",
+    "timestamp": "2026-09-22 23:41:31",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.77",
+    "list_price": "0.77",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0309",
+    "timestamp": "2026-09-22 23:43:00",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.91",
+    "list_price": "0.91",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0310",
+    "timestamp": "2026-09-22 23:44:12",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0311",
+    "timestamp": "2026-09-22 23:45:19",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.63",
+    "list_price": "0.63",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0312",
+    "timestamp": "2026-09-22 23:45:55",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.96",
+    "list_price": "0.96",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0313",
+    "timestamp": "2026-09-22 23:47:19",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.64",
+    "list_price": "0.64",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0314",
+    "timestamp": "2026-09-22 23:48:12",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.73",
+    "list_price": "0.73",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0315",
+    "timestamp": "2026-09-22 23:48:20",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.56",
+    "list_price": "0.56",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0316",
+    "timestamp": "2026-09-22 23:49:16",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.56",
+    "list_price": "0.56",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0317",
+    "timestamp": "2026-09-22 23:49:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.76",
+    "list_price": "0.76",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0318",
+    "timestamp": "2026-09-22 23:51:13",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.52",
+    "list_price": "0.52",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0319",
+    "timestamp": "2026-09-22 23:51:25",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.87",
+    "list_price": "0.87",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0320",
+    "timestamp": "2026-09-22 23:52:01",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0321",
+    "timestamp": "2026-09-22 23:53:39",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.83",
+    "list_price": "0.83",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0322",
+    "timestamp": "2026-09-22 23:53:47",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.73",
+    "list_price": "0.73",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0323",
+    "timestamp": "2026-09-22 23:53:57",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.59",
+    "list_price": "0.59",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0324",
+    "timestamp": "2026-09-22 23:55:37",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.65",
+    "list_price": "0.65",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0325",
+    "timestamp": "2026-09-22 23:56:16",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.79",
+    "list_price": "0.79",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260922-0326",
+    "timestamp": "2026-09-22 23:59:15",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.54",
+    "list_price": "0.54",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0029",
+    "timestamp": "2026-09-23 09:11:02",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.82",
+    "list_price": "0.82",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0033",
+    "timestamp": "2026-09-23 09:13:52",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.73",
+    "list_price": "0.73",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0036",
+    "timestamp": "2026-09-23 09:24:15",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.65",
+    "list_price": "0.65",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0041",
+    "timestamp": "2026-09-23 09:35:43",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0042",
+    "timestamp": "2026-09-23 09:37:37",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0043",
+    "timestamp": "2026-09-23 09:38:43",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.89",
+    "list_price": "0.89",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0044",
+    "timestamp": "2026-09-23 09:39:19",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.60",
+    "list_price": "0.6",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0045",
+    "timestamp": "2026-09-23 09:39:21",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.95",
+    "list_price": "0.95",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0046",
+    "timestamp": "2026-09-23 09:42:36",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.73",
+    "list_price": "0.73",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0047",
+    "timestamp": "2026-09-23 09:44:31",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.89",
+    "list_price": "0.89",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0048",
+    "timestamp": "2026-09-23 09:45:10",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.85",
+    "list_price": "0.85",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0050",
+    "timestamp": "2026-09-23 09:49:26",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.78",
+    "list_price": "0.78",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0055",
+    "timestamp": "2026-09-23 10:17:45",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0057",
+    "timestamp": "2026-09-23 10:23:40",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.86",
+    "list_price": "0.86",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0058",
+    "timestamp": "2026-09-23 10:30:47",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.68",
+    "list_price": "0.68",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0059",
+    "timestamp": "2026-09-23 10:35:32",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.56",
+    "list_price": "0.56",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0061",
+    "timestamp": "2026-09-23 10:57:02",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.87",
+    "list_price": "0.87",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0065",
+    "timestamp": "2026-09-23 11:22:48",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.75",
+    "list_price": "0.75",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0067",
+    "timestamp": "2026-09-23 11:25:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.75",
+    "list_price": "0.75",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0068",
+    "timestamp": "2026-09-23 11:27:15",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.80",
+    "list_price": "0.8",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0071",
+    "timestamp": "2026-09-23 11:34:09",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.94",
+    "list_price": "0.94",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0074",
+    "timestamp": "2026-09-23 11:41:52",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0077",
+    "timestamp": "2026-09-23 11:46:57",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.73",
+    "list_price": "0.73",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0078",
+    "timestamp": "2026-09-23 11:48:07",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.95",
+    "list_price": "0.95",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0080",
+    "timestamp": "2026-09-23 11:57:02",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.81",
+    "list_price": "0.81",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0081",
+    "timestamp": "2026-09-23 12:00:22",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.56",
+    "list_price": "0.56",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0082",
+    "timestamp": "2026-09-23 12:00:46",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.68",
+    "list_price": "0.68",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0086",
+    "timestamp": "2026-09-23 12:05:37",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.60",
+    "list_price": "0.6",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0087",
+    "timestamp": "2026-09-23 12:06:39",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.73",
+    "list_price": "0.73",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0088",
+    "timestamp": "2026-09-23 12:08:06",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.56",
+    "list_price": "0.56",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0099",
+    "timestamp": "2026-09-23 12:28:20",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.76",
+    "list_price": "0.76",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0103",
+    "timestamp": "2026-09-23 12:32:02",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0106",
+    "timestamp": "2026-09-23 12:37:01",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.68",
+    "list_price": "0.68",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0107",
+    "timestamp": "2026-09-23 12:39:20",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0114",
+    "timestamp": "2026-09-23 12:56:23",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.56",
+    "list_price": "0.56",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0118",
+    "timestamp": "2026-09-23 13:05:38",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.51",
+    "list_price": "0.51",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0119",
+    "timestamp": "2026-09-23 13:08:45",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.73",
+    "list_price": "0.73",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0122",
+    "timestamp": "2026-09-23 13:13:36",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0123",
+    "timestamp": "2026-09-23 13:20:13",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.77",
+    "list_price": "0.77",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0125",
+    "timestamp": "2026-09-23 13:24:11",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.97",
+    "list_price": "0.97",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0131",
+    "timestamp": "2026-09-23 13:34:56",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.91",
+    "list_price": "0.91",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0134",
+    "timestamp": "2026-09-23 13:37:42",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.74",
+    "list_price": "0.74",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0136",
+    "timestamp": "2026-09-23 13:41:35",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.97",
+    "list_price": "0.97",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0137",
+    "timestamp": "2026-09-23 13:43:24",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0139",
+    "timestamp": "2026-09-23 13:49:39",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.74",
+    "list_price": "0.74",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0141",
+    "timestamp": "2026-09-23 13:53:45",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.57",
+    "list_price": "0.57",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0143",
+    "timestamp": "2026-09-23 13:56:24",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0145",
+    "timestamp": "2026-09-23 14:05:48",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0146",
+    "timestamp": "2026-09-23 14:07:01",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.56",
+    "list_price": "0.56",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0147",
+    "timestamp": "2026-09-23 14:19:44",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.79",
+    "list_price": "0.79",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0148",
+    "timestamp": "2026-09-23 14:30:01",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.97",
+    "list_price": "0.97",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0151",
+    "timestamp": "2026-09-23 14:42:33",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.59",
+    "list_price": "0.59",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0153",
+    "timestamp": "2026-09-23 14:51:20",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.74",
+    "list_price": "0.74",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0157",
+    "timestamp": "2026-09-23 15:12:14",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.59",
+    "list_price": "0.59",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0159",
+    "timestamp": "2026-09-23 15:20:56",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.84",
+    "list_price": "0.84",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0165",
+    "timestamp": "2026-09-23 15:44:22",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0168",
+    "timestamp": "2026-09-23 16:12:47",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.94",
+    "list_price": "0.94",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0171",
+    "timestamp": "2026-09-23 16:30:33",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.97",
+    "list_price": "0.97",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0173",
+    "timestamp": "2026-09-23 16:40:57",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.94",
+    "list_price": "0.94",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0177",
+    "timestamp": "2026-09-23 17:08:39",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.81",
+    "list_price": "0.81",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0178",
+    "timestamp": "2026-09-23 17:10:00",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.66",
+    "list_price": "0.66",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0179",
+    "timestamp": "2026-09-23 17:12:45",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.95",
+    "list_price": "0.95",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0182",
+    "timestamp": "2026-09-23 17:20:47",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.80",
+    "list_price": "0.8",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0183",
+    "timestamp": "2026-09-23 17:23:03",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0184",
+    "timestamp": "2026-09-23 17:32:25",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.95",
+    "list_price": "0.95",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0185",
+    "timestamp": "2026-09-23 17:36:29",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "1.00",
+    "list_price": "1.0",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0189",
+    "timestamp": "2026-09-23 17:52:40",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.83",
+    "list_price": "0.83",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0190",
+    "timestamp": "2026-09-23 17:53:06",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0192",
+    "timestamp": "2026-09-23 17:55:25",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.58",
+    "list_price": "0.58",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0193",
+    "timestamp": "2026-09-23 17:56:07",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.84",
+    "list_price": "0.84",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0194",
+    "timestamp": "2026-09-23 18:01:25",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.63",
+    "list_price": "0.63",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0195",
+    "timestamp": "2026-09-23 18:07:58",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.78",
+    "list_price": "0.78",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0196",
+    "timestamp": "2026-09-23 18:08:34",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "1.00",
+    "list_price": "1.0",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0200",
+    "timestamp": "2026-09-23 18:20:45",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.93",
+    "list_price": "0.93",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0204",
+    "timestamp": "2026-09-23 18:44:13",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.92",
+    "list_price": "0.92",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0205",
+    "timestamp": "2026-09-23 18:50:53",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0207",
+    "timestamp": "2026-09-23 19:14:32",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.92",
+    "list_price": "0.92",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0209",
+    "timestamp": "2026-09-23 19:19:44",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.75",
+    "list_price": "0.75",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0211",
+    "timestamp": "2026-09-23 19:25:44",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.83",
+    "list_price": "0.83",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0213",
+    "timestamp": "2026-09-23 19:36:53",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.82",
+    "list_price": "0.82",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0215",
+    "timestamp": "2026-09-23 19:43:36",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.93",
+    "list_price": "0.93",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0217",
+    "timestamp": "2026-09-23 19:48:46",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.62",
+    "list_price": "0.62",
+    "discount_pct": "-0.016",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0219",
+    "timestamp": "2026-09-23 19:57:33",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.57",
+    "list_price": "0.57",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0220",
+    "timestamp": "2026-09-23 19:59:36",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.85",
+    "list_price": "0.85",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0221",
+    "timestamp": "2026-09-23 20:03:43",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.60",
+    "list_price": "0.6",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0224",
+    "timestamp": "2026-09-23 20:17:40",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "1.00",
+    "list_price": "1.0",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0227",
+    "timestamp": "2026-09-23 20:38:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0228",
+    "timestamp": "2026-09-23 20:40:36",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0229",
+    "timestamp": "2026-09-23 20:41:28",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.57",
+    "list_price": "0.57",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0230",
+    "timestamp": "2026-09-23 20:46:18",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.81",
+    "list_price": "0.81",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0231",
+    "timestamp": "2026-09-23 20:47:33",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.99",
+    "list_price": "0.99",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0232",
+    "timestamp": "2026-09-23 20:50:00",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.76",
+    "list_price": "0.76",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0234",
+    "timestamp": "2026-09-23 21:00:01",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0235",
+    "timestamp": "2026-09-23 21:00:06",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.81",
+    "list_price": "0.81",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0236",
+    "timestamp": "2026-09-23 21:04:30",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0237",
+    "timestamp": "2026-09-23 21:05:39",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.91",
+    "list_price": "0.91",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0238",
+    "timestamp": "2026-09-23 21:06:21",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.70",
+    "list_price": "0.7",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0239",
+    "timestamp": "2026-09-23 21:12:34",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.51",
+    "list_price": "0.51",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0240",
+    "timestamp": "2026-09-23 21:13:41",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.53",
+    "list_price": "0.53",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0241",
+    "timestamp": "2026-09-23 21:16:04",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.92",
+    "list_price": "0.92",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0242",
+    "timestamp": "2026-09-23 21:19:04",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.94",
+    "list_price": "0.94",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0243",
+    "timestamp": "2026-09-23 21:19:11",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0244",
+    "timestamp": "2026-09-23 21:19:23",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0245",
+    "timestamp": "2026-09-23 21:22:46",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.67",
+    "list_price": "0.67",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0246",
+    "timestamp": "2026-09-23 21:26:34",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.78",
+    "list_price": "0.78",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0247",
+    "timestamp": "2026-09-23 21:26:41",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.91",
+    "list_price": "0.91",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0248",
+    "timestamp": "2026-09-23 21:26:50",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.76",
+    "list_price": "0.76",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0249",
+    "timestamp": "2026-09-23 21:27:09",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.63",
+    "list_price": "0.63",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0250",
+    "timestamp": "2026-09-23 21:28:01",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.89",
+    "list_price": "0.89",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0251",
+    "timestamp": "2026-09-23 21:29:21",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.84",
+    "list_price": "0.84",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0252",
+    "timestamp": "2026-09-23 21:29:38",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.94",
+    "list_price": "0.94",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0253",
+    "timestamp": "2026-09-23 21:30:40",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0254",
+    "timestamp": "2026-09-23 21:31:35",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.53",
+    "list_price": "0.53",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0255",
+    "timestamp": "2026-09-23 21:33:34",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.93",
+    "list_price": "0.93",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0256",
+    "timestamp": "2026-09-23 21:33:50",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.80",
+    "list_price": "0.8",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0257",
+    "timestamp": "2026-09-23 21:35:30",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.52",
+    "list_price": "0.52",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0258",
+    "timestamp": "2026-09-23 21:36:34",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.70",
+    "list_price": "0.7",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0259",
+    "timestamp": "2026-09-23 21:37:27",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.53",
+    "list_price": "0.53",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0260",
+    "timestamp": "2026-09-23 21:40:29",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.52",
+    "list_price": "0.52",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0261",
+    "timestamp": "2026-09-23 21:41:46",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.69",
+    "list_price": "0.69",
+    "discount_pct": "-0.015",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0262",
+    "timestamp": "2026-09-23 21:42:15",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.53",
+    "list_price": "0.53",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0263",
+    "timestamp": "2026-09-23 21:42:24",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.68",
+    "list_price": "0.68",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0264",
+    "timestamp": "2026-09-23 21:43:54",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.94",
+    "list_price": "0.94",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0265",
+    "timestamp": "2026-09-23 21:46:27",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0266",
+    "timestamp": "2026-09-23 21:47:39",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.91",
+    "list_price": "0.91",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0267",
+    "timestamp": "2026-09-23 21:48:09",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.82",
+    "list_price": "0.82",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0268",
+    "timestamp": "2026-09-23 21:51:02",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.62",
+    "list_price": "0.62",
+    "discount_pct": "-0.016",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0269",
+    "timestamp": "2026-09-23 21:53:50",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.91",
+    "list_price": "0.91",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0270",
+    "timestamp": "2026-09-23 21:55:06",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.92",
+    "list_price": "0.92",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0271",
+    "timestamp": "2026-09-23 21:55:44",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.60",
+    "list_price": "0.6",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0272",
+    "timestamp": "2026-09-23 21:57:16",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.95",
+    "list_price": "0.95",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0273",
+    "timestamp": "2026-09-23 21:59:02",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0274",
+    "timestamp": "2026-09-23 21:59:18",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.72",
+    "list_price": "0.72",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0275",
+    "timestamp": "2026-09-23 22:02:16",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.65",
+    "list_price": "0.65",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0276",
+    "timestamp": "2026-09-23 22:02:47",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.71",
+    "list_price": "0.71",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0277",
+    "timestamp": "2026-09-23 22:02:49",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.68",
+    "list_price": "0.68",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0278",
+    "timestamp": "2026-09-23 22:04:21",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.64",
+    "list_price": "0.64",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0279",
+    "timestamp": "2026-09-23 22:05:10",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.94",
+    "list_price": "0.94",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0280",
+    "timestamp": "2026-09-23 22:06:02",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.84",
+    "list_price": "0.84",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0281",
+    "timestamp": "2026-09-23 22:06:38",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.88",
+    "list_price": "0.88",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0282",
+    "timestamp": "2026-09-23 22:07:46",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.94",
+    "list_price": "0.94",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0283",
+    "timestamp": "2026-09-23 22:08:55",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.70",
+    "list_price": "0.7",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0284",
+    "timestamp": "2026-09-23 22:11:33",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0285",
+    "timestamp": "2026-09-23 22:12:06",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.86",
+    "list_price": "0.86",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0286",
+    "timestamp": "2026-09-23 22:12:31",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.59",
+    "list_price": "0.59",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0287",
+    "timestamp": "2026-09-23 22:12:59",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.71",
+    "list_price": "0.71",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0288",
+    "timestamp": "2026-09-23 22:13:11",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.79",
+    "list_price": "0.79",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0289",
+    "timestamp": "2026-09-23 22:18:54",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.65",
+    "list_price": "0.65",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0290",
+    "timestamp": "2026-09-23 22:23:15",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.86",
+    "list_price": "0.86",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0291",
+    "timestamp": "2026-09-23 22:25:43",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.52",
+    "list_price": "0.52",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0292",
+    "timestamp": "2026-09-23 22:26:39",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.57",
+    "list_price": "0.57",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0293",
+    "timestamp": "2026-09-23 22:27:30",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.92",
+    "list_price": "0.92",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0294",
+    "timestamp": "2026-09-23 22:27:40",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.62",
+    "list_price": "0.62",
+    "discount_pct": "-0.016",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0295",
+    "timestamp": "2026-09-23 22:28:30",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.87",
+    "list_price": "0.87",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0296",
+    "timestamp": "2026-09-23 22:29:27",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.66",
+    "list_price": "0.66",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0297",
+    "timestamp": "2026-09-23 22:29:57",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.62",
+    "list_price": "0.62",
+    "discount_pct": "-0.016",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0298",
+    "timestamp": "2026-09-23 22:31:11",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.89",
+    "list_price": "0.89",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0299",
+    "timestamp": "2026-09-23 22:32:53",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.59",
+    "list_price": "0.59",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0300",
+    "timestamp": "2026-09-23 22:33:15",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0301",
+    "timestamp": "2026-09-23 22:33:33",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.64",
+    "list_price": "0.64",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0302",
+    "timestamp": "2026-09-23 22:35:42",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.68",
+    "list_price": "0.68",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0303",
+    "timestamp": "2026-09-23 22:37:08",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.92",
+    "list_price": "0.92",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0304",
+    "timestamp": "2026-09-23 22:38:24",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "1.00",
+    "list_price": "1.0",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0305",
+    "timestamp": "2026-09-23 22:38:35",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.59",
+    "list_price": "0.59",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0306",
+    "timestamp": "2026-09-23 22:38:44",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.82",
+    "list_price": "0.82",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0307",
+    "timestamp": "2026-09-23 22:39:11",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.70",
+    "list_price": "0.7",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0308",
+    "timestamp": "2026-09-23 22:39:48",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.58",
+    "list_price": "0.58",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0309",
+    "timestamp": "2026-09-23 22:40:16",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0310",
+    "timestamp": "2026-09-23 22:40:25",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.71",
+    "list_price": "0.71",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0311",
+    "timestamp": "2026-09-23 22:40:38",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.95",
+    "list_price": "0.95",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0312",
+    "timestamp": "2026-09-23 22:42:24",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.76",
+    "list_price": "0.76",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0313",
+    "timestamp": "2026-09-23 22:42:51",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.66",
+    "list_price": "0.66",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0314",
+    "timestamp": "2026-09-23 22:43:36",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.95",
+    "list_price": "0.95",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0315",
+    "timestamp": "2026-09-23 22:46:23",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.93",
+    "list_price": "0.93",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0316",
+    "timestamp": "2026-09-23 22:47:27",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.66",
+    "list_price": "0.66",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0317",
+    "timestamp": "2026-09-23 22:47:48",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.57",
+    "list_price": "0.57",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0318",
+    "timestamp": "2026-09-23 22:48:05",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.54",
+    "list_price": "0.54",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0319",
+    "timestamp": "2026-09-23 22:49:54",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.69",
+    "list_price": "0.69",
+    "discount_pct": "-0.015",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0320",
+    "timestamp": "2026-09-23 22:50:22",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.71",
+    "list_price": "0.71",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0321",
+    "timestamp": "2026-09-23 22:52:32",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.72",
+    "list_price": "0.72",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0322",
+    "timestamp": "2026-09-23 22:53:21",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.53",
+    "list_price": "0.53",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0323",
+    "timestamp": "2026-09-23 22:53:28",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.96",
+    "list_price": "0.96",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0324",
+    "timestamp": "2026-09-23 22:54:57",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.70",
+    "list_price": "0.7",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0325",
+    "timestamp": "2026-09-23 22:55:06",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.76",
+    "list_price": "0.76",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0326",
+    "timestamp": "2026-09-23 22:56:56",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.79",
+    "list_price": "0.79",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0327",
+    "timestamp": "2026-09-23 22:59:03",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.68",
+    "list_price": "0.68",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0328",
+    "timestamp": "2026-09-23 23:01:18",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.93",
+    "list_price": "0.93",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0329",
+    "timestamp": "2026-09-23 23:01:41",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.93",
+    "list_price": "0.93",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0330",
+    "timestamp": "2026-09-23 23:03:24",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0331",
+    "timestamp": "2026-09-23 23:05:11",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.96",
+    "list_price": "0.96",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0332",
+    "timestamp": "2026-09-23 23:05:14",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.70",
+    "list_price": "0.7",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0333",
+    "timestamp": "2026-09-23 23:05:51",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.86",
+    "list_price": "0.86",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0334",
+    "timestamp": "2026-09-23 23:06:41",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.54",
+    "list_price": "0.54",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0335",
+    "timestamp": "2026-09-23 23:07:06",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.74",
+    "list_price": "0.74",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0336",
+    "timestamp": "2026-09-23 23:09:38",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.70",
+    "list_price": "0.7",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0337",
+    "timestamp": "2026-09-23 23:10:17",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.55",
+    "list_price": "0.55",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0338",
+    "timestamp": "2026-09-23 23:10:48",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.57",
+    "list_price": "0.57",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0339",
+    "timestamp": "2026-09-23 23:14:30",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.81",
+    "list_price": "0.81",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0340",
+    "timestamp": "2026-09-23 23:14:32",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.62",
+    "list_price": "0.62",
+    "discount_pct": "-0.016",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0341",
+    "timestamp": "2026-09-23 23:18:08",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.52",
+    "list_price": "0.52",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0342",
+    "timestamp": "2026-09-23 23:18:53",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.83",
+    "list_price": "0.83",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0343",
+    "timestamp": "2026-09-23 23:18:57",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.83",
+    "list_price": "0.83",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0344",
+    "timestamp": "2026-09-23 23:20:36",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.74",
+    "list_price": "0.74",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0345",
+    "timestamp": "2026-09-23 23:22:42",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.54",
+    "list_price": "0.54",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0346",
+    "timestamp": "2026-09-23 23:24:12",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.96",
+    "list_price": "0.96",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0347",
+    "timestamp": "2026-09-23 23:26:09",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0348",
+    "timestamp": "2026-09-23 23:26:26",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.63",
+    "list_price": "0.63",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0349",
+    "timestamp": "2026-09-23 23:27:25",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.58",
+    "list_price": "0.58",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0350",
+    "timestamp": "2026-09-23 23:28:23",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.86",
+    "list_price": "0.86",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0351",
+    "timestamp": "2026-09-23 23:28:51",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.93",
+    "list_price": "0.93",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0352",
+    "timestamp": "2026-09-23 23:32:06",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.57",
+    "list_price": "0.57",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0353",
+    "timestamp": "2026-09-23 23:32:07",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.83",
+    "list_price": "0.83",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0354",
+    "timestamp": "2026-09-23 23:32:19",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "1.00",
+    "list_price": "1.0",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0355",
+    "timestamp": "2026-09-23 23:33:57",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.88",
+    "list_price": "0.88",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0356",
+    "timestamp": "2026-09-23 23:33:58",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.66",
+    "list_price": "0.66",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0357",
+    "timestamp": "2026-09-23 23:34:04",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.51",
+    "list_price": "0.51",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0358",
+    "timestamp": "2026-09-23 23:35:21",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.85",
+    "list_price": "0.85",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0359",
+    "timestamp": "2026-09-23 23:37:45",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0360",
+    "timestamp": "2026-09-23 23:38:33",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.88",
+    "list_price": "0.88",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0361",
+    "timestamp": "2026-09-23 23:41:34",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.78",
+    "list_price": "0.78",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0362",
+    "timestamp": "2026-09-23 23:43:45",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0363",
+    "timestamp": "2026-09-23 23:44:31",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0364",
+    "timestamp": "2026-09-23 23:45:36",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0365",
+    "timestamp": "2026-09-23 23:45:41",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0366",
+    "timestamp": "2026-09-23 23:46:29",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "1.00",
+    "list_price": "1.0",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0367",
+    "timestamp": "2026-09-23 23:47:23",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0368",
+    "timestamp": "2026-09-23 23:48:29",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.73",
+    "list_price": "0.73",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0369",
+    "timestamp": "2026-09-23 23:49:08",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.72",
+    "list_price": "0.72",
+    "discount_pct": "-0.014",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0370",
+    "timestamp": "2026-09-23 23:50:20",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.86",
+    "list_price": "0.86",
+    "discount_pct": "-0.012",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0371",
+    "timestamp": "2026-09-23 23:51:02",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.94",
+    "list_price": "0.94",
+    "discount_pct": "-0.011",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0372",
+    "timestamp": "2026-09-23 23:51:53",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.58",
+    "list_price": "0.58",
+    "discount_pct": "-0.018",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0373",
+    "timestamp": "2026-09-23 23:54:24",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.61",
+    "list_price": "0.61",
+    "discount_pct": "-0.017",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0374",
+    "timestamp": "2026-09-23 23:55:33",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9001",
+    "amount_eur": "0.90",
+    "list_price": "0.9",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0375",
+    "timestamp": "2026-09-23 23:55:47",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9002",
+    "amount_eur": "0.50",
+    "list_price": "0.5",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0376",
+    "timestamp": "2026-09-23 23:58:05",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.98",
+    "list_price": "0.98",
+    "discount_pct": "-0.01",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260923-0377",
+    "timestamp": "2026-09-23 23:59:38",
+    "channel": "PAYPAL",
+    "customer_id": "PP-9003",
+    "amount_eur": "0.53",
+    "list_price": "0.53",
+    "discount_pct": "0.0",
+    "tier": "EXCLUDED",
+    "reasons": [
+      "SELF_DEALING_SUSPECT"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260927-0086",
+    "timestamp": "2026-09-27 18:51:24",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "3.92",
+    "list_price": "4.35",
+    "discount_pct": "0.097",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260928-0053",
+    "timestamp": "2026-09-28 13:49:52",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260929-0014",
+    "timestamp": "2026-09-29 08:24:37",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0337",
+    "amount_eur": "2.74",
+    "list_price": "7.85",
+    "discount_pct": "0.651",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260929-0033",
+    "timestamp": "2026-09-29 09:30:39",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0140",
+    "amount_eur": "2.88",
+    "list_price": "5.2",
+    "discount_pct": "0.446",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260929-0034",
+    "timestamp": "2026-09-29 09:30:55",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0101",
+    "amount_eur": "2.10",
+    "list_price": "5.06",
+    "discount_pct": "0.584",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260929-0036",
+    "timestamp": "2026-09-29 09:37:11",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260929-0039",
+    "timestamp": "2026-09-29 09:45:29",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0017",
+    "amount_eur": "1.27",
+    "list_price": "3.84",
+    "discount_pct": "0.668",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260929-0081",
+    "timestamp": "2026-09-29 13:04:33",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "4.12",
+    "list_price": "10.61",
+    "discount_pct": "0.611",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260929-0092",
+    "timestamp": "2026-09-29 13:48:11",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0244",
+    "amount_eur": "2.61",
+    "list_price": "5.99",
+    "discount_pct": "0.564",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260929-0115",
+    "timestamp": "2026-09-29 17:44:16",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0148",
+    "amount_eur": "2.19",
+    "list_price": "4.79",
+    "discount_pct": "0.543",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20260929-0141",
+    "timestamp": "2026-09-29 20:48:06",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0382",
+    "amount_eur": "7.22",
+    "list_price": "13.43",
+    "discount_pct": "0.462",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261001-0111",
+    "timestamp": "2026-10-01 19:52:02",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0211",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261002-0127",
+    "timestamp": "2026-10-02 19:50:22",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261004-0064",
+    "timestamp": "2026-10-04 14:04:44",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "14.97",
+    "list_price": "14.97",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261005-0111",
+    "timestamp": "2026-10-05 18:45:46",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0008",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261007-0107",
+    "timestamp": "2026-10-07 19:06:34",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "14.53",
+    "list_price": "14.53",
+    "discount_pct": "-0.001",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261012-0106",
+    "timestamp": "2026-10-12 16:30:28",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261012-0108",
+    "timestamp": "2026-10-12 17:01:11",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "3.57",
+    "list_price": "3.97",
+    "discount_pct": "0.101",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261013-0081",
+    "timestamp": "2026-10-13 15:07:28",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261014-0120",
+    "timestamp": "2026-10-14 18:32:16",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0227",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261015-0014",
+    "timestamp": "2026-10-15 08:27:04",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0151",
+    "amount_eur": "2.43",
+    "list_price": "5.99",
+    "discount_pct": "0.594",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261015-0024",
+    "timestamp": "2026-10-15 08:54:44",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0085",
+    "amount_eur": "2.70",
+    "list_price": "3.0",
+    "discount_pct": "0.1",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261015-0035",
+    "timestamp": "2026-10-15 09:53:51",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0085",
+    "amount_eur": "1.75",
+    "list_price": "5.36",
+    "discount_pct": "0.674",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261015-0042",
+    "timestamp": "2026-10-15 10:26:42",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0184",
+    "amount_eur": "4.86",
+    "list_price": "8.22",
+    "discount_pct": "0.409",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261015-0043",
+    "timestamp": "2026-10-15 10:27:13",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0253",
+    "amount_eur": "5.21",
+    "list_price": "9.48",
+    "discount_pct": "0.45",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261015-0064",
+    "timestamp": "2026-10-15 12:36:51",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0173",
+    "amount_eur": "2.83",
+    "list_price": "6.88",
+    "discount_pct": "0.588",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261015-0065",
+    "timestamp": "2026-10-15 12:46:55",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0246",
+    "amount_eur": "2.51",
+    "list_price": "4.61",
+    "discount_pct": "0.456",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261015-0094",
+    "timestamp": "2026-10-15 16:00:34",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "5.51",
+    "list_price": "9.63",
+    "discount_pct": "0.428",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261015-0131",
+    "timestamp": "2026-10-15 20:29:47",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "6.40",
+    "list_price": "10.95",
+    "discount_pct": "0.415",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261018-0024",
+    "timestamp": "2026-10-18 10:27:56",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261018-0085",
+    "timestamp": "2026-10-18 15:40:31",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261019-0022",
+    "timestamp": "2026-10-19 09:02:39",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "14.91",
+    "list_price": "14.91",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261019-0044",
+    "timestamp": "2026-10-19 10:31:43",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "14.48",
+    "list_price": "14.48",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261019-0047",
+    "timestamp": "2026-10-19 10:52:05",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "3.86",
+    "list_price": "4.29",
+    "discount_pct": "0.1",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261020-0004",
+    "timestamp": "2026-10-20 08:00:20",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0273",
+    "amount_eur": "4.10",
+    "list_price": "7.24",
+    "discount_pct": "0.434",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261020-0012",
+    "timestamp": "2026-10-20 08:25:16",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "1.74",
+    "list_price": "3.12",
+    "discount_pct": "0.442",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261020-0046",
+    "timestamp": "2026-10-20 09:56:51",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0168",
+    "amount_eur": "6.97",
+    "list_price": "15.0",
+    "discount_pct": "0.535",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261020-0084",
+    "timestamp": "2026-10-20 14:15:40",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0060",
+    "amount_eur": "2.82",
+    "list_price": "5.4",
+    "discount_pct": "0.478",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261020-0086",
+    "timestamp": "2026-10-20 14:34:43",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0230",
+    "amount_eur": "1.53",
+    "list_price": "4.81",
+    "discount_pct": "0.681",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261020-0094",
+    "timestamp": "2026-10-20 15:49:52",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0209",
+    "amount_eur": "4.24",
+    "list_price": "7.69",
+    "discount_pct": "0.449",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP",
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261020-0098",
+    "timestamp": "2026-10-20 16:38:23",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0128",
+    "amount_eur": "3.25",
+    "list_price": "7.48",
+    "discount_pct": "0.566",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261020-0119",
+    "timestamp": "2026-10-20 19:56:04",
+    "channel": "POS_CARD",
+    "customer_id": "CARD-0206",
+    "amount_eur": "3.88",
+    "list_price": "9.28",
+    "discount_pct": "0.581",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "PRICE_OVERRIDE_DEEP"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261022-0046",
+    "timestamp": "2026-10-22 12:41:30",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "10.91",
+    "list_price": "12.12",
+    "discount_pct": "0.099",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261026-0126",
+    "timestamp": "2026-10-26 18:38:34",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261027-0020",
+    "timestamp": "2026-10-27 09:40:44",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261101-0022",
+    "timestamp": "2026-11-01 10:02:22",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261102-0031",
+    "timestamp": "2026-11-02 09:33:02",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261104-0120",
+    "timestamp": "2026-11-04 20:01:10",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261105-0058",
+    "timestamp": "2026-11-05 12:18:06",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "12.48",
+    "list_price": "13.87",
+    "discount_pct": "0.1",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261105-0082",
+    "timestamp": "2026-11-05 13:26:01",
+    "channel": "PAYPAL",
+    "customer_id": "PP-0111",
+    "amount_eur": "13.50",
+    "list_price": "15.0",
+    "discount_pct": "0.1",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  },
+  {
+    "txn_id": "TXN-20261105-0092",
+    "timestamp": "2026-11-05 14:09:44",
+    "channel": "POS_CASH_REPORTED",
+    "customer_id": "CASH-ANON",
+    "amount_eur": "15.00",
+    "list_price": "15.0",
+    "discount_pct": "0.0",
+    "tier": "UNDER_REVIEW",
+    "reasons": [
+      "IF_OUTLIER"
+    ]
+  }
+]

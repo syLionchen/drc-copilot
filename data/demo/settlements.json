@@ -1,0 +1,14 @@
+[
+  {
+    "date": "2026-11-06",
+    "verified_revenue": "166.84",
+    "rate_applied": "0.050000",
+    "drc_due": "8.34",
+    "payout_amount": "8.34",
+    "merchant_payout_fee": "0.17",
+    "servicing_fee": "0.42",
+    "investor_net": "7.92",
+    "cumulative_due": "8.34",
+    "status": "SUCCESS"
+  }
+]

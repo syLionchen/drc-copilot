@@ -11,3 +11,4 @@ matplotlib
 fpdf2
 anthropic
 tzdata
+plotly

@@ -148,5 +148,18 @@
       "source_quote": "The Merchant shall deliver to the Investor in electronic form: (a) within 10 days after each month-end, a statement of Total Receipts for that month by payment channel, including cash and other receipts outside PayPal; (b) within 14 days after filing, a copy of each periodic VAT return (Umsatzsteuer-Voranmeldung); and (c) within 6 months after each financial year-end, its annual financial statements and the related income tax filing or assessment.",
       "not_found_reason": null
     }
+  },
+  "meta": {
+    "elapsed_seconds": 23.0,
+    "api_seconds": 15.7,
+    "api_calls": 1,
+    "input_tokens": 8592,
+    "output_tokens": 3361,
+    "estimated_cost_usd": "0.0508",
+    "pricing_usd_per_mtok": {
+      "input": "2.00",
+      "output": "10.00"
+    },
+    "note": "cost is an estimate from list prices, not a billed amount"
   }
 }

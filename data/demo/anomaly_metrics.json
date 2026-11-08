@@ -1,0 +1,74 @@
+{
+  "detectors": [
+    {
+      "level": "transaction",
+      "detector": "SELF_DEALING_SUSPECT",
+      "injected_type": "SELF_DEALING_SMALL_ORDERS",
+      "true": 436,
+      "tp": 436,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "level": "transaction",
+      "detector": "PRICE_OVERRIDE_DEEP",
+      "injected_type": "PRICE_OVERRIDE",
+      "true": 40,
+      "tp": 40,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "level": "day",
+      "detector": "CARD_REVENUE_MISSING",
+      "injected_type": "CARD_REVENUE_MISSING",
+      "true": 3,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "level": "day",
+      "detector": "EVENING_SHARE_DROP",
+      "injected_type": "EVENING_TRAFFIC_DROP",
+      "true": 14,
+      "tp": 14,
+      "fp": 6,
+      "fn": 0,
+      "precision": 0.7,
+      "recall": 1.0
+    },
+    {
+      "level": "day",
+      "detector": "SELF_DEALING_DAY",
+      "injected_type": "SELF_DEALING_SMALL_ORDERS",
+      "true": 2,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "level": "day",
+      "detector": "VOID_SPIKE_DAY",
+      "injected_type": "VOID_SPIKE",
+      "true": 7,
+      "tp": 7,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.875,
+      "recall": 1.0
+    }
+  ],
+  "business_orders": {
+    "total": 26,
+    "false_positives": 0
+  }
+}

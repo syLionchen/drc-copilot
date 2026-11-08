@@ -25,6 +25,13 @@ data/contract_params_rejected.json
 # Parsed contract parameters ARE committed
 !data/contract_params.json
 
+# Streamlit secrets never go to Git (.streamlit/config.toml is committed)
+.streamlit/secrets.toml
+
+# Demo snapshot for the web app IS committed
+!data/demo/
+!data/demo/*
+
 # OS / editor
 .DS_Store
 Thumbs.db

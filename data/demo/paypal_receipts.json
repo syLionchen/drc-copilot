@@ -1,0 +1,103 @@
+[
+  {
+    "date": "2026-11-06",
+    "summary": {
+      "count": 4,
+      "gross": "171.50",
+      "fees": "4.66",
+      "net": "166.84"
+    },
+    "transactions": [
+      {
+        "transaction_id": "…5712",
+        "time_berlin": "2026-11-06T23:33:24+01:00",
+        "payer_name": "Anna Schmidt",
+        "gross": "12.50",
+        "fee": "0.59",
+        "net": "11.91",
+        "currency": "EUR",
+        "event_code": "T0000"
+      },
+      {
+        "transaction_id": "…721K",
+        "time_berlin": "2026-11-06T23:38:14+01:00",
+        "payer_name": "Anna Schmidt",
+        "gross": "4.80",
+        "fee": "0.44",
+        "net": "4.36",
+        "currency": "EUR",
+        "event_code": "T0000"
+      },
+      {
+        "transaction_id": "…830V",
+        "time_berlin": "2026-11-06T23:42:39+01:00",
+        "payer_name": "Anna Schmidt",
+        "gross": "9.20",
+        "fee": "0.52",
+        "net": "8.68",
+        "currency": "EUR",
+        "event_code": "T0000"
+      },
+      {
+        "transaction_id": "…0236",
+        "time_berlin": "2026-11-06T23:45:56+01:00",
+        "payer_name": "John and Peter GmbH",
+        "gross": "145.00",
+        "fee": "3.11",
+        "net": "141.89",
+        "currency": "EUR",
+        "event_code": "T0000"
+      }
+    ],
+    "excluded": [
+      {
+        "transaction_id": "…8507",
+        "event_code": "T1503",
+        "amount": "-1.02",
+        "reason": "event code T1503 is not a customer payment (T00xx); amount is not positive (money out: payout, refund or fee)"
+      },
+      {
+        "transaction_id": "…8529",
+        "event_code": "T0001",
+        "amount": "-1.00",
+        "reason": "amount is not positive (money out: payout, refund or fee)"
+      },
+      {
+        "transaction_id": "…634V",
+        "event_code": "T1105",
+        "amount": "1.02",
+        "reason": "event code T1105 (reversal / hold release) is not a customer payment (T00xx)"
+      }
+    ]
+  },
+  {
+    "date": "2026-11-07",
+    "summary": {
+      "count": 0,
+      "gross": "0.00",
+      "fees": "0.00",
+      "net": "0.00"
+    },
+    "transactions": [],
+    "excluded": [
+      {
+        "transaction_id": "…951S",
+        "event_code": "T1503",
+        "amount": "-8.51",
+        "reason": "event code T1503 is not a customer payment (T00xx); amount is not positive (money out: payout, refund or fee)"
+      },
+      {
+        "transaction_id": "…161A",
+        "event_code": "T0001",
+        "amount": "-8.34",
+        "reason": "amount is not positive (money out: payout, refund or fee)"
+      },
+      {
+        "transaction_id": "…945R",
+        "event_code": "T1105",
+        "amount": "8.51",
+        "reason": "event code T1105 (reversal / hold release) is not a customer payment (T00xx)"
+      }
+    ]
+  }
+]

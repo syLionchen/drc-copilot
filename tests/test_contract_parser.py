@@ -89,6 +89,25 @@ class SavedContractParams(unittest.TestCase):
         self.assertEqual(failed, [])
 
 
+class RunStatistics(unittest.TestCase):
+    def test_cost_is_estimated_from_list_prices(self):
+        # claude-sonnet-5-5: USD 2.00 per million input tokens, USD 10.00 per million output tokens
+        self.assertEqual(cp.estimate_cost_usd("claude-sonnet-5-5", 10_000, 2_000), Decimal("0.0400"))
+        self.assertEqual(cp.estimate_cost_usd("claude-sonnet-5-5", 0, 0), Decimal("0.0000"))
+
+    def test_unknown_model_has_no_estimate(self):
+        self.assertIsNone(cp.estimate_cost_usd("some-other-model", 1000, 1000))
+
+    def test_meta_fields(self):
+        usage = {"api_calls": 1, "input_tokens": 6000, "output_tokens": 3000, "api_seconds": 11.26}
+        meta = cp.build_meta("claude-sonnet-5-5", 12.34, usage)
+        self.assertEqual((meta["elapsed_seconds"], meta["api_seconds"]), (12.3, 11.3))
+        self.assertEqual((meta["input_tokens"], meta["output_tokens"], meta["api_calls"]), (6000, 3000, 1))
+        self.assertEqual(meta["estimated_cost_usd"], "0.0420")            # 6000 x 2 + 3000 x 10 per million
+        self.assertEqual(meta["pricing_usd_per_mtok"], {"input": "2.00", "output": "10.00"})
+        self.assertIsNone(cp.build_meta("unpriced", 1.0, usage)["estimated_cost_usd"])
+
+
 GOOD = {
     "investment_amount": 20000, "cap_multiple": 1.15, "cap_amount": 23000,
     "tiers": [{"up_to": 703.26, "rate": 0.05}, {"up_to": None, "rate": 0.03}],

@@ -18,8 +18,9 @@
 import json
 import re
 import sys
+import time
 from datetime import date
-from decimal import Decimal
+from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
 import config
@@ -133,7 +134,8 @@ def read_pdf_text(path=PDF_PATH):
 
 
 def extract_with_claude(contract_text):
-    """Call Claude once (plus one retry if it skips the tool). Returns the tool input dict."""
+    """Call Claude once (plus one retry if it skips the tool). Returns (tool input dict, usage dict);
+    usage counts API calls, tokens and API seconds over all attempts."""
     provider = (config.LLM_PROVIDER or "").strip().lower()
     if provider != "anthropic":
         raise SystemExit(
@@ -151,7 +153,9 @@ def extract_with_claude(contract_text):
               f"Extract the parameters by calling the tool {TOOL_NAME}.")
     reminder = f"\n\nYou must answer by calling the tool {TOOL_NAME}; do not reply with text."
 
+    usage = {"api_calls": 0, "input_tokens": 0, "output_tokens": 0, "api_seconds": 0.0}
     for attempt in (1, 2):
+        started = time.monotonic()
         try:
             response = client.messages.create(
                 model=config.CLAUDE_MODEL,
@@ -169,13 +173,17 @@ def extract_with_claude(contract_text):
         except anthropic.APIStatusError as exc:
             raise SystemExit(f"Anthropic API error {exc.status_code}: {exc.message}")
 
+        usage["api_calls"] += 1
+        usage["api_seconds"] += time.monotonic() - started
+        usage["input_tokens"] += response.usage.input_tokens
+        usage["output_tokens"] += response.usage.output_tokens
         if response.stop_reason == "refusal":
             raise SystemExit("The model refused the request (stop_reason=refusal).")
         if response.stop_reason == "max_tokens":
             raise SystemExit("The answer was cut off (max_tokens). Increase max_tokens in contract_parser.py.")
         for block in response.content:
             if block.type == "tool_use" and block.name == TOOL_NAME:
-                return block.input
+                return block.input, usage
         print(f"Attempt {attempt}: the model did not call the tool; "
               f"{'retrying once' if attempt == 1 else 'giving up'}.")
     raise SystemExit(f"The model did not call the tool {TOOL_NAME} after 2 attempts.")
@@ -359,6 +367,32 @@ def validate(params, evidence, pdf_text, missing=()):
     return results
 
 
+def estimate_cost_usd(model, input_tokens, output_tokens):
+    """Estimated cost of the tokens at list price (config.CLAUDE_PRICING_USD_PER_MTOK), in USD,
+    rounded to 0.0001. None if the model has no price on file. An estimate, not a billed amount."""
+    price = config.CLAUDE_PRICING_USD_PER_MTOK.get(model)
+    if price is None:
+        return None
+    cost = (Decimal(input_tokens) * price["input"] + Decimal(output_tokens) * price["output"]) / Decimal(1_000_000)
+    return cost.quantize(Decimal("0.0001"), rounding=ROUND_HALF_UP)
+
+
+def build_meta(model, elapsed_seconds, usage):
+    """Run statistics stored in contract_params.json under 'meta' (shown on the web app)."""
+    cost = estimate_cost_usd(model, usage["input_tokens"], usage["output_tokens"])
+    price = config.CLAUDE_PRICING_USD_PER_MTOK.get(model)
+    return {
+        "elapsed_seconds": round(elapsed_seconds, 1),          # PDF read + Claude call(s) + validation
+        "api_seconds": round(usage["api_seconds"], 1),
+        "api_calls": usage["api_calls"],
+        "input_tokens": usage["input_tokens"],
+        "output_tokens": usage["output_tokens"],
+        "estimated_cost_usd": str(cost) if cost is not None else None,
+        "pricing_usd_per_mtok": {k: str(v) for k, v in price.items()} if price else None,
+        "note": "cost is an estimate from list prices, not a billed amount",
+    }
+
+
 def write_report(results, model):
     failed = [r for r in results if not r[1]]
     lines = [
@@ -376,21 +410,24 @@ def write_report(results, model):
 
 # ------------------------------------------------------------------------- main
 def main():
+    started = time.monotonic()
     if not PDF_PATH.exists():
         raise SystemExit(f"{PDF_PATH} not found. Run: python -m data.make_contract")
     pdf_text = read_pdf_text(PDF_PATH)
     print(f"Read {PDF_PATH.name}: {len(pdf_text):,} characters. Asking {config.CLAUDE_MODEL} ...")
 
-    raw = extract_with_claude(pdf_text)
+    raw, usage = extract_with_claude(pdf_text)
     params, evidence, missing = split_result(raw)
     results = validate(params, evidence, pdf_text, missing)
     failed = write_report(results, config.CLAUDE_MODEL)
+    meta = build_meta(config.CLAUDE_MODEL, time.monotonic() - started, usage)
 
     payload = {
         "source_pdf": PDF_PATH.relative_to(ROOT).as_posix(),
         "model": config.CLAUDE_MODEL,
         "params": params,
         "evidence": evidence,
+        "meta": meta,
     }
     if failed:
         REJECTED_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -403,6 +440,10 @@ def main():
     PARAMS_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Validation PASSED ({len(results)} checks).")
     print(f"Saved  : {PARAMS_PATH}\nReport : {REPORT_PATH}")
+    cost = meta["estimated_cost_usd"]
+    print(f"Run    : {meta['elapsed_seconds']} s, {meta['api_calls']} API call(s), "
+          f"{meta['input_tokens']:,} in / {meta['output_tokens']:,} out tokens"
+          + (f", estimated cost ${cost}" if cost else ""))
     print(f"tiers  : {params['tiers']}")
     print(f"cap    : {params['cap_multiple']}x = EUR {params['cap_amount']}, "
           f"term {params['max_term_months']} months, funding {params['funding_date']}")
