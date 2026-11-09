@@ -1,0 +1,291 @@
+{
+  "profile": {
+    "id": "sample-bakery",
+    "name": "Sample Bakery GmbH",
+    "sample": true,
+    "description": "SAMPLE: a bakery with only 45 days of PayPal history that has not submitted a VAT return yet.",
+    "as_of": "2026-11-06"
+  },
+  "notice": "Indicative only, not an offer. The investor makes the final decision.",
+  "rules": {
+    "illustrative": true,
+    "note": "ILLUSTRATIVE demo thresholds for engine/eligibility.py. This is not a credit policy and not an offer.",
+    "rules": {
+      "paypal_account_age": {
+        "min_days": 90,
+        "illustrative": true,
+        "reference": "Modelled on the published application conditions of PayPal Businesskredit (PayPal business account open for at least 90 days). Check PayPal's current terms."
+      },
+      "paypal_annual_sales": {
+        "min_eur": 12000,
+        "illustrative": true,
+        "reference": "Modelled on the published application conditions of PayPal Businesskredit (annual PayPal sales of at least EUR 12,000). Check PayPal's current terms."
+      },
+      "verified_history": {
+        "min_trading_days": 90,
+        "illustrative": true,
+        "reason": "The Baseline Threshold of the contract is computed from 90 trading days of verified net revenue."
+      },
+      "stable_revenue": {
+        "illustrative": true,
+        "source": "The health covenant of the parsed contract (data/contract_params.json): fall threshold and the short and long window. Computed with engine/health_agent.py."
+      },
+      "verifiable_share": {
+        "min_percent": 60,
+        "illustrative": true,
+        "reason": "Revenue the platform can see in PayPal, plus revenue covered by documents that reconcile with our data."
+      },
+      "documents_complete": {
+        "recent_pos_report_max_age_days": 90,
+        "vat_return_max_age_days": 45,
+        "illustrative": true
+      },
+      "reconciliation_clean": {
+        "illustrative": true
+      },
+      "screening": {
+        "max_excluded_percent": 5,
+        "illustrative": true
+      },
+      "consent": {
+        "required_sources": [
+          "paypal",
+          "pos",
+          "vat"
+        ],
+        "illustrative": true
+      }
+    },
+    "indicative_amount": {
+      "percent_of_annual_verified_revenue": 8,
+      "cap_eur": 50000,
+      "illustrative": true,
+      "disclaimer": "Indicative only, not an offer. The investor makes the final decision."
+    }
+  },
+  "checks": [
+    {
+      "id": "paypal_account_age",
+      "number": 1,
+      "name": "PayPal business account history",
+      "status": "not_met",
+      "base_status": "not_met",
+      "requirement": "at least 90 days",
+      "numbers": {
+        "Account age (days)": "45",
+        "Required (days)": "90"
+      },
+      "detail": "The PayPal business account is 45 days old; 90 days are required.",
+      "how_to_fix": "Only time helps: the account needs 45 days more.",
+      "depends_on": [
+        "paypal"
+      ],
+      "missing_consent": [],
+      "earliest_possible_days": 45
+    },
+    {
+      "id": "paypal_annual_sales",
+      "number": 2,
+      "name": "PayPal annual sales",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "at least EUR 12,000 a year",
+      "numbers": {
+        "PayPal sales in the period (EUR)": "10881.10",
+        "Period (days)": "45",
+        "Annualised PayPal sales (EUR)": "88257.81",
+        "Required (EUR)": "12000.00"
+      },
+      "detail": "PayPal sales of EUR 10,881.10 in 45 days are EUR 88,257.81 a year; EUR 12,000 are required.",
+      "how_to_fix": "",
+      "depends_on": [
+        "paypal"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "verified_history",
+      "number": 3,
+      "name": "Verified revenue history",
+      "status": "not_met",
+      "base_status": "not_met",
+      "requirement": "at least 90 trading days",
+      "numbers": {
+        "Verified trading days": "39",
+        "Required (trading days)": "90"
+      },
+      "detail": "39 trading days of verified revenue are available; 90 are needed to compute the Baseline Threshold.",
+      "how_to_fix": "Only time helps: 51 more trading days of PayPal history are needed.",
+      "depends_on": [
+        "paypal"
+      ],
+      "missing_consent": [],
+      "earliest_possible_days": 51
+    },
+    {
+      "id": "stable_revenue",
+      "number": 4,
+      "name": "Stable revenue",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "the 7-day average is not more than 20% below the 30-day average",
+      "numbers": {
+        "7-day average (EUR)": "375.08",
+        "30-day average (EUR)": "376.08",
+        "Fall vs 30-day average (%)": "0.27",
+        "Limit (%)": "20"
+      },
+      "detail": "The 7-day average is EUR 375.08, the 30-day average EUR 376.08: a fall of 0.27% against a limit of 20%.",
+      "how_to_fix": "",
+      "depends_on": [
+        "paypal"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "verifiable_share",
+      "number": 5,
+      "name": "Verifiable share of revenue",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "at least 60% of revenue",
+      "numbers": {
+        "PayPal share of revenue (%)": "62.53",
+        "Covered by reconciled documents (%)": "0.89",
+        "Verifiable share (%)": "63.42",
+        "Required (%)": "60"
+      },
+      "detail": "62.53% of revenue is visible in PayPal and 0.89% is covered by reconciled documents: 63.42% verifiable against 60% required.",
+      "how_to_fix": "",
+      "depends_on": [
+        "paypal",
+        "pos",
+        "vat"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "documents_complete",
+      "number": 6,
+      "name": "Documents complete",
+      "status": "action_needed",
+      "base_status": "action_needed",
+      "requirement": "at least 1 recent POS daily report and the latest VAT return, read with validation PASSED",
+      "numbers": {
+        "Recent POS daily reports": "1",
+        "Recent VAT returns": "0",
+        "Documents failing validation": "0"
+      },
+      "detail": "Missing or unreadable: no recent VAT return (UStVA).",
+      "how_to_fix": "Upload your latest VAT return (UStVA) as a PDF.",
+      "depends_on": [
+        "pos",
+        "vat"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "reconciliation_clean",
+      "number": 7,
+      "name": "Document reconciliation",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "no unresolved MISMATCH",
+      "numbers": {
+        "Unresolved MISMATCH": "0"
+      },
+      "detail": "No document disagrees with our data by more than the tolerance.",
+      "how_to_fix": "",
+      "depends_on": [
+        "pos",
+        "vat"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "screening",
+      "number": 8,
+      "name": "Transaction screening",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "excluded transactions below 5% of revenue (by amount)",
+      "numbers": {
+        "Revenue (EUR)": "17400.87",
+        "Excluded (EUR)": "0.00",
+        "Excluded transactions": "0",
+        "Transactions": "2210",
+        "Excluded share by amount (%)": "0.00",
+        "Excluded share by count (%)": "0.00",
+        "Limit (%)": "5"
+      },
+      "detail": "By amount, EUR 0.00 of EUR 17,400.87 were excluded by screening: 0.00% against a limit of 5%. (By count it is 0 of 2,210 transactions, 0.00%; the limit applies to the amount.)",
+      "how_to_fix": "",
+      "depends_on": [
+        "paypal"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "consent",
+      "number": 9,
+      "name": "Data consent",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "all required data sources are shared",
+      "numbers": {
+        "Required sources shared": "3 of 3"
+      },
+      "detail": "Every required data source is shared.",
+      "how_to_fix": "",
+      "depends_on": [],
+      "missing_consent": []
+    }
+  ],
+  "progress": {
+    "met": 6,
+    "total": 9
+  },
+  "annual_verified_revenue_eur": "141140.39",
+  "indicative": null,
+  "advice": {
+    "status": "VALID",
+    "problems": [],
+    "model": "claude-sonnet-5-5",
+    "meta": {
+      "elapsed_seconds": 3.8,
+      "api_seconds": 3.8,
+      "api_calls": 1,
+      "input_tokens": 2374,
+      "output_tokens": 463,
+      "estimated_cost_usd": "0.0094",
+      "pricing_usd_per_mtok": {
+        "input": "2.00",
+        "output": "10.00"
+      },
+      "note": "cost is an estimate from list prices, not a billed amount"
+    },
+    "summary": "You meet 6 of 9 conditions. The most important thing you can do now is upload your latest VAT return (UStVA) as a PDF, while the PayPal account age and verified revenue history need time to build up.",
+    "steps": [
+      {
+        "check_id": "paypal_account_age",
+        "what_to_do": "There is nothing to submit for this one. Your PayPal business account is 45 days old and 90 days are required, so it needs 45 more days. Keep the account active and keep trading through it.",
+        "materials": [],
+        "time_estimate_days": 45
+      },
+      {
+        "check_id": "verified_history",
+        "what_to_do": "Only time helps here. You have 39 trading days of verified revenue and 90 are needed, so you need 51 more trading days of PayPal history. Keep processing your sales through PayPal and keep your data sources shared.",
+        "materials": [],
+        "time_estimate_days": 51
+      },
+      {
+        "check_id": "documents_complete",
+        "what_to_do": "Upload your latest VAT return (UStVA) as a PDF. It is the only document missing, because your POS daily report is already in. Make sure the PDF is clear and readable so it passes validation.",
+        "materials": [
+          "Latest VAT return (UStVA) as a PDF"
+        ],
+        "time_estimate_days": 1
+      }
+    ]
+  }
+}

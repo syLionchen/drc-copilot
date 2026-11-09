@@ -1,0 +1,296 @@
+{
+  "profile": {
+    "id": "kaffee-und-tee",
+    "name": "Kaffee und Tee GmbH",
+    "sample": false,
+    "description": "Demo merchant. Simulated 90-day history (2026-08-08 to 2026-11-05), sample POS reports and VAT return. The PayPal account is assumed to be open since the first day of the history.",
+    "as_of": "2026-11-06"
+  },
+  "notice": "Indicative only, not an offer. The investor makes the final decision.",
+  "rules": {
+    "illustrative": true,
+    "note": "ILLUSTRATIVE demo thresholds for engine/eligibility.py. This is not a credit policy and not an offer.",
+    "rules": {
+      "paypal_account_age": {
+        "min_days": 90,
+        "illustrative": true,
+        "reference": "Modelled on the published application conditions of PayPal Businesskredit (PayPal business account open for at least 90 days). Check PayPal's current terms."
+      },
+      "paypal_annual_sales": {
+        "min_eur": 12000,
+        "illustrative": true,
+        "reference": "Modelled on the published application conditions of PayPal Businesskredit (annual PayPal sales of at least EUR 12,000). Check PayPal's current terms."
+      },
+      "verified_history": {
+        "min_trading_days": 90,
+        "illustrative": true,
+        "reason": "The Baseline Threshold of the contract is computed from 90 trading days of verified net revenue."
+      },
+      "stable_revenue": {
+        "illustrative": true,
+        "source": "The health covenant of the parsed contract (data/contract_params.json): fall threshold and the short and long window. Computed with engine/health_agent.py."
+      },
+      "verifiable_share": {
+        "min_percent": 60,
+        "illustrative": true,
+        "reason": "Revenue the platform can see in PayPal, plus revenue covered by documents that reconcile with our data."
+      },
+      "documents_complete": {
+        "recent_pos_report_max_age_days": 90,
+        "vat_return_max_age_days": 45,
+        "illustrative": true
+      },
+      "reconciliation_clean": {
+        "illustrative": true
+      },
+      "screening": {
+        "max_excluded_percent": 5,
+        "illustrative": true
+      },
+      "consent": {
+        "required_sources": [
+          "paypal",
+          "pos",
+          "vat"
+        ],
+        "illustrative": true
+      }
+    },
+    "indicative_amount": {
+      "percent_of_annual_verified_revenue": 8,
+      "cap_eur": 50000,
+      "illustrative": true,
+      "disclaimer": "Indicative only, not an offer. The investor makes the final decision."
+    }
+  },
+  "checks": [
+    {
+      "id": "paypal_account_age",
+      "number": 1,
+      "name": "PayPal business account history",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "at least 90 days",
+      "numbers": {
+        "Account age (days)": "90",
+        "Required (days)": "90"
+      },
+      "detail": "The PayPal business account is 90 days old; 90 days are required.",
+      "how_to_fix": "",
+      "depends_on": [
+        "paypal"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "paypal_annual_sales",
+      "number": 2,
+      "name": "PayPal annual sales",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "at least EUR 12,000 a year",
+      "numbers": {
+        "PayPal sales in the period (EUR)": "29375.19",
+        "Period (days)": "90",
+        "Annualised PayPal sales (EUR)": "119132.72",
+        "Required (EUR)": "12000.00"
+      },
+      "detail": "PayPal sales of EUR 29,375.19 in 90 days are EUR 119,132.72 a year; EUR 12,000 are required.",
+      "how_to_fix": "",
+      "depends_on": [
+        "paypal"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "verified_history",
+      "number": 3,
+      "name": "Verified revenue history",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "at least 90 trading days",
+      "numbers": {
+        "Verified trading days": "90",
+        "Required (trading days)": "90"
+      },
+      "detail": "90 trading days of verified revenue are available; 90 are needed to compute the Baseline Threshold.",
+      "how_to_fix": "",
+      "depends_on": [
+        "paypal"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "stable_revenue",
+      "number": 4,
+      "name": "Stable revenue",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "the 7-day average is not more than 20% below the 30-day average",
+      "numbers": {
+        "7-day average (EUR)": "684.72",
+        "30-day average (EUR)": "743.70",
+        "Fall vs 30-day average (%)": "7.93",
+        "Limit (%)": "20"
+      },
+      "detail": "The 7-day average is EUR 684.72, the 30-day average EUR 743.70: a fall of 7.93% against a limit of 20%.",
+      "how_to_fix": "",
+      "depends_on": [
+        "paypal"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "verifiable_share",
+      "number": 5,
+      "name": "Verifiable share of revenue",
+      "status": "action_needed",
+      "base_status": "action_needed",
+      "requirement": "at least 60% of revenue",
+      "numbers": {
+        "PayPal share of revenue (%)": "40.30",
+        "Covered by reconciled documents (%)": "18.87",
+        "Verifiable share (%)": "59.18",
+        "Required (%)": "60",
+        "Missing (percentage points)": "0.82",
+        "Adds with the UStVA for August 2026 (%)": "16.77",
+        "Total with the UStVA for August 2026 (%)": "75.95",
+        "Adds with the UStVA for September 2026 (%)": "21.00",
+        "Total with the UStVA for September 2026 (%)": "80.18"
+      },
+      "detail": "40.30% of revenue is visible in PayPal and 18.87% is covered by reconciled documents: 59.18% verifiable against 60% required.",
+      "how_to_fix": "The 59.18% is 40.30% visible in PayPal plus 18.87% covered by reconciled documents; 60% is required, so 0.82 percentage points are missing. Submit the VAT return (UStVA) for August 2026 (2026-08-08 to 2026-08-31; adds 16.77%, giving 75.95%) or for September 2026 (2026-09-01 to 2026-09-30; adds 21.00%, giving 80.18%). A daily POS report covers only one day. Resolve any MISMATCH first: a document that does not reconcile does not count.",
+      "depends_on": [
+        "paypal",
+        "pos",
+        "vat"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "documents_complete",
+      "number": 6,
+      "name": "Documents complete",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "at least 1 recent POS daily report and the latest VAT return, read with validation PASSED",
+      "numbers": {
+        "Recent POS daily reports": "2",
+        "Recent VAT returns": "1",
+        "Documents failing validation": "0"
+      },
+      "detail": "All required documents are present and were read successfully.",
+      "how_to_fix": "",
+      "depends_on": [
+        "pos",
+        "vat"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "reconciliation_clean",
+      "number": 7,
+      "name": "Document reconciliation",
+      "status": "action_needed",
+      "base_status": "action_needed",
+      "requirement": "no unresolved MISMATCH",
+      "numbers": {
+        "Unresolved MISMATCH": "1",
+        "Document": "z_bericht_B_2026-10-22.pdf",
+        "Card payments reported (EUR)": "247.21",
+        "Our data (EUR)": "301.47",
+        "Difference (EUR)": "-54.26",
+        "Difference (%)": "-18.00"
+      },
+      "detail": "z_bericht_B_2026-10-22.pdf: card payments reported EUR 247.21, our data shows EUR 301.47 (difference EUR -54.26, -18.00%).",
+      "how_to_fix": "Explain the difference in writing, or send a corrected report. A person reviews it; nothing changes automatically.",
+      "depends_on": [
+        "pos",
+        "vat"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "screening",
+      "number": 8,
+      "name": "Transaction screening",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "excluded transactions below 5% of revenue (by amount)",
+      "numbers": {
+        "Revenue (EUR)": "72883.44",
+        "Excluded (EUR)": "324.30",
+        "Excluded transactions": "436",
+        "Transactions": "10852",
+        "Excluded share by amount (%)": "0.44",
+        "Excluded share by count (%)": "4.02",
+        "Limit (%)": "5"
+      },
+      "detail": "By amount, EUR 324.30 of EUR 72,883.44 were excluded by screening: 0.44% against a limit of 5%. (By count it is 436 of 10,852 transactions, 4.02%; the limit applies to the amount.)",
+      "how_to_fix": "",
+      "depends_on": [
+        "paypal"
+      ],
+      "missing_consent": []
+    },
+    {
+      "id": "consent",
+      "number": 9,
+      "name": "Data consent",
+      "status": "met",
+      "base_status": "met",
+      "requirement": "all required data sources are shared",
+      "numbers": {
+        "Required sources shared": "3 of 3"
+      },
+      "detail": "Every required data source is shared.",
+      "how_to_fix": "",
+      "depends_on": [],
+      "missing_consent": []
+    }
+  ],
+  "progress": {
+    "met": 7,
+    "total": 9
+  },
+  "annual_verified_revenue_eur": "294267.62",
+  "indicative": null,
+  "advice": {
+    "status": "VALID",
+    "problems": [],
+    "model": "claude-sonnet-5-5",
+    "meta": {
+      "elapsed_seconds": 12.3,
+      "api_seconds": 4.5,
+      "api_calls": 1,
+      "input_tokens": 2711,
+      "output_tokens": 649,
+      "estimated_cost_usd": "0.0119",
+      "pricing_usd_per_mtok": {
+        "input": "2.00",
+        "output": "10.00"
+      },
+      "note": "cost is an estimate from list prices, not a billed amount"
+    },
+    "summary": "You meet 7 of 9 conditions; the two open ones are the verifiable share of revenue (59.18% against 60% required) and one unresolved document mismatch. The most important next step is to resolve the mismatch on z_bericht_B_2026-10-22.pdf and submit a VAT return (UStVA), and a person will then review it, as the investor makes the final decision.",
+    "steps": [
+      {
+        "check_id": "verifiable_share",
+        "what_to_do": "You are 0.82 percentage points short of the 60% required. Submit the VAT return (UStVA) for August 2026 (2026-08-08 to 2026-08-31), which adds 16.77% and gives 75.95%, or for September 2026 (2026-09-01 to 2026-09-30), which adds 21.00% and gives 80.18%. A daily POS report covers only one day, so it will not be enough. Resolve the mismatch on z_bericht_B_2026-10-22.pdf first, because a document that does not reconcile does not count.",
+        "materials": [
+          "UStVA for August 2026 (2026-08-08 to 2026-08-31) or UStVA for September 2026 (2026-09-01 to 2026-09-30)"
+        ],
+        "time_estimate_days": 3
+      },
+      {
+        "check_id": "reconciliation_clean",
+        "what_to_do": "The document z_bericht_B_2026-10-22.pdf reports card payments of EUR 247.21, while our data shows EUR 301.47, a difference of EUR -54.26 (-18.00%). Either explain the difference in writing or send a corrected report. A person will review it; nothing changes automatically.",
+        "materials": [
+          "Written explanation of the difference of EUR -54.26",
+          "Corrected POS daily report for 2026-10-22, if one is available"
+        ],
+        "time_estimate_days": 3
+      }
+    ]
+  }
+}

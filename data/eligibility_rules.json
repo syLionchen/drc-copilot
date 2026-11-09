@@ -1,0 +1,52 @@
+{
+  "illustrative": true,
+  "note": "ILLUSTRATIVE demo thresholds for engine/eligibility.py. This is not a credit policy and not an offer.",
+  "rules": {
+    "paypal_account_age": {
+      "min_days": 90,
+      "illustrative": true,
+      "reference": "Modelled on the published application conditions of PayPal Businesskredit (PayPal business account open for at least 90 days). Check PayPal's current terms."
+    },
+    "paypal_annual_sales": {
+      "min_eur": 12000,
+      "illustrative": true,
+      "reference": "Modelled on the published application conditions of PayPal Businesskredit (annual PayPal sales of at least EUR 12,000). Check PayPal's current terms."
+    },
+    "verified_history": {
+      "min_trading_days": 90,
+      "illustrative": true,
+      "reason": "The Baseline Threshold of the contract is computed from 90 trading days of verified net revenue."
+    },
+    "stable_revenue": {
+      "illustrative": true,
+      "source": "The health covenant of the parsed contract (data/contract_params.json): fall threshold and the short and long window. Computed with engine/health_agent.py."
+    },
+    "verifiable_share": {
+      "min_percent": 60,
+      "illustrative": true,
+      "reason": "Revenue the platform can see in PayPal, plus revenue covered by documents that reconcile with our data."
+    },
+    "documents_complete": {
+      "recent_pos_report_max_age_days": 90,
+      "vat_return_max_age_days": 45,
+      "illustrative": true
+    },
+    "reconciliation_clean": {
+      "illustrative": true
+    },
+    "screening": {
+      "max_excluded_percent": 5,
+      "illustrative": true
+    },
+    "consent": {
+      "required_sources": ["paypal", "pos", "vat"],
+      "illustrative": true
+    }
+  },
+  "indicative_amount": {
+    "percent_of_annual_verified_revenue": 8,
+    "cap_eur": 50000,
+    "illustrative": true,
+    "disclaimer": "Indicative only, not an offer. The investor makes the final decision."
+  }
+}

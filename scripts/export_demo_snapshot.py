@@ -14,6 +14,9 @@
 #   extracted.json, reconciliation.json, merchant_doc_texts.json
 #                          the merchant documents: what the AI read, how it matched our data, and the
 #                          PDF text (only when ai.doc_reader --all and engine.reconcile have been run)
+#   eligibility_kaffee-und-tee.json, eligibility_sample-bakery.json
+#                          copy of data/eligibility/*.json: the nine-condition checklist of two merchant profiles,
+#                          Claude's next steps and the (illustrative) rules (only after ai.eligibility_advisor)
 #   health_recommendation.json
 #                          copy of data/health/recommendation.json: the merchant-health trigger metrics, Claude's
 #                          recommendation (recommendation only) and the chart series (only after engine.health_agent)
@@ -295,6 +298,15 @@ def build_health(health_dir):
     return {"health_recommendation.json": path.read_text(encoding="utf-8")}
 
 
+def build_eligibility(eligibility_dir):
+    """data/eligibility/<profile>.json as eligibility_<profile>.json: checklist, Claude's next steps and the rules used.
+    Returns {} if ai.eligibility_advisor has not run yet."""
+    folder = Path(eligibility_dir)
+    if not folder.exists():
+        return {}
+    return {f"eligibility_{path.name}": path.read_text(encoding="utf-8") for path in sorted(folder.glob("*.json"))}
+
+
 def build_all(db_path, merchant_id, params, verified_daily_path, days, skip_paypal=False, reporting_module=None,
               data_dir=None):
     """Everything as {file name: text}. Nothing is written here."""
@@ -331,6 +343,7 @@ def build_all(db_path, merchant_id, params, verified_daily_path, days, skip_payp
     }
     files.update(build_merchant_docs(data_dir / "merchant_docs"))
     files.update(build_health(data_dir / "health"))
+    files.update(build_eligibility(data_dir / "eligibility"))
     if not skip_paypal:
         files["paypal_receipts.json"] = dump(build_receipts(days, reporting_module))
     return files
@@ -381,6 +394,8 @@ def main(argv=None):
     if "extracted.json" not in files:
         print("Merchant documents were not exported: run `python -m ai.doc_reader --all` and "
               "`python -m engine.reconcile` first.")
+    if not any(name.startswith("eligibility_") for name in files):
+        print("Eligibility results were not exported: run `python -m ai.eligibility_advisor` first.")
     if "health_recommendation.json" not in files:
         print("Merchant health was not exported: run `python -m engine.health_agent` first.")
     print("Safety check passed: no '@', 'sk-', 'client_secret' or 'access_token' in any output.")
