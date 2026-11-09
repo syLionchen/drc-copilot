@@ -1021,13 +1021,46 @@ def contract_text(path_text, modified):
         return "\n\n".join((page.extract_text() or "") for page in pdf.pages)
 
 
+def money_text(value):
+    """20000 -> 'EUR 20,000'; 703.26 -> 'EUR 703.26'. Display only; the stored value is not changed."""
+    amount = D(value)
+    return eur(amount, 0 if amount == amount.to_integral_value() else 2)
+
+
 def format_value(name, value):
+    """Contract value as text for people: amounts as EUR, multiples as 1.15x, terms with their unit."""
     if name == "tiers" and isinstance(value, list):
-        return "; ".join(f"up to {t['up_to']}: {t['rate'] * 100:g}%" if t["up_to"] is not None
+        return "; ".join(f"up to {money_text(t['up_to'])}: {t['rate'] * 100:g}%" if t["up_to"] is not None
                          else f"above: {t['rate'] * 100:g}%" for t in value)
     if isinstance(value, bool):
         return "yes" if value else "no"
-    return "null" if value is None else str(plain_value(value))
+    if value is None:
+        return "null"
+    if isinstance(value, (int, float)):
+        if name.endswith("_amount"):
+            return money_text(value)
+        if name.endswith("_multiple"):
+            return f"{value:g}x"
+        for suffix, unit in (("_months", "month"), ("_days", "day")):
+            if name.endswith(suffix):
+                return f"{value:g} {unit}" + ("" if value == 1 else "s")
+    return str(plain_value(value))
+
+
+def extraction_note(contract):
+    """'Extracted by <model> with tool use in 23 s, ~$0.051.' with whatever the run record holds."""
+    meta = contract.get("meta") or {}
+    parts = []
+    if meta.get("elapsed_seconds") is not None:
+        parts.append(f"in {float(meta['elapsed_seconds']):.0f} s")
+    if meta.get("estimated_cost_usd"):
+        parts.append(f"~${float(meta['estimated_cost_usd']):.3f} (estimated from list prices)")
+    return (f"Extracted by {contract.get('model', 'Claude')} with tool use"
+            + (" " + ", ".join(parts) if parts else "") + f". {len(contract['params'])} fields, each with a source quote.")
+
+
+REVENUE_BASE_NOTE = ("Card and cash are part of Total Receipts, so the merchant’s POS reports and VAT returns "
+                     "are checked on the Merchant documents page.")
 
 
 def page_contract():
@@ -1052,14 +1085,16 @@ def page_contract():
             st.error(f"sample_contract.pdf is missing. Create it with: python -m data.make_contract")
     with right:
         st.subheader("Extracted parameters")
-        st.caption(f"Extracted by {contract.get('model', 'Claude')} with tool use. "
-                   f"{len(contract['params'])} fields, each with a source quote.")
+        st.caption(extraction_note(contract))
         rows = []
         for name, value in contract["params"].items():
             evidence = contract["evidence"].get(name, {})
             quote = evidence.get("source_quote") or f"(not found: {evidence.get('not_found_reason')})"
             rows.append(f"<tr><td><b>{html.escape(human_name(name))}</b></td><td>{html.escape(format_value(name, value))}</td>"
                         f"<td class='quote'>{html.escape(quote)}</td></tr>")
+            if name == "revenue_base":
+                rows.append(f"<tr><td colspan='3' style='color:{GRAY};font-size:0.82rem'>{html.escape(REVENUE_BASE_NOTE)}"
+                            f"</td></tr>")
         with st.container(height=640, border=True):
             st.markdown("<table class='params'><tr><th>Field</th><th>Value</th><th>Source quote</th></tr>"
                         + "".join(rows) + "</table>", unsafe_allow_html=True)
