@@ -1,14 +1,16 @@
-requests
-python-dotenv
-pandas
-numpy
-numpy-financial
-scikit-learn
-pdfplumber
-streamlit
-streamlit-aggrid
-matplotlib
-fpdf2
-anthropic
-tzdata
-plotly
+# Everything needed to run the whole project locally (web app, scripts, tests). Versions = the ones tested.
+# Python 3.12.7 (see .python-version).
+streamlit==1.67.0
+streamlit-aggrid==1.2.1.post2
+plotly==7.1.0
+pandas==3.1.1
+numpy==2.5.4
+numpy-financial==1.0.0
+scikit-learn==1.9.1
+pdfplumber==0.11.10
+python-dotenv==1.2.4
+requests==2.34.2
+matplotlib==3.11.2
+fpdf2==2.9.0
+anthropic==2.6.0
+tzdata==2026.6
