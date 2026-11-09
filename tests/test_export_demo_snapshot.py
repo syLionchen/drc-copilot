@@ -185,6 +185,19 @@ class MerchantDocs(unittest.TestCase):
             exp.check_clean({"merchant_doc_texts.json": '{"a.pdf": "contact: buyer@example.test"}'})
 
 
+class MerchantHealth(unittest.TestCase):
+    def test_nothing_is_exported_before_the_health_agent_ran(self):
+        with tempfile.TemporaryDirectory() as folder:
+            self.assertEqual(exp.build_health(folder), {})
+
+    def test_the_recommendation_is_exported_as_it_is(self):
+        with tempfile.TemporaryDirectory() as folder:
+            (Path(folder) / "recommendation.json").write_text('{"status": "VALID"}', encoding="utf-8")
+            files = exp.build_health(folder)
+        self.assertEqual(files, {"health_recommendation.json": '{"status": "VALID"}'})
+        exp.check_clean(files)
+
+
 class WholeExport(unittest.TestCase):
     def setUp(self):
         needed = (exp.se.PARAMS_PATH, exp.irr.VERIFIED_DAILY_PATH)
@@ -198,7 +211,8 @@ class WholeExport(unittest.TestCase):
         base = {"verified_daily.csv", "settlements.json", "projection.json",
                 "anomaly_daily.json", "anomaly_flagged.json", "anomaly_metrics.json"}
         merchant = {"extracted.json", "reconciliation.json", "merchant_doc_texts.json"}
-        self.assertIn(set(files), (base, base | merchant))          # the merchant documents are optional
+        health = {"health_recommendation.json"}
+        self.assertIn(set(files) - health, (base, base | merchant))  # merchant documents and health are optional
         exp.check_clean(files)
         projection = json.loads(files["projection.json"])
         self.assertEqual([s["name"] for s in projection["scenarios"]], ["Baseline", "-20%", "-40%"])

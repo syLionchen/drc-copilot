@@ -1,0 +1,532 @@
+{
+  "status": "VALID",
+  "problems": [],
+  "notice": "Recommendation only. The payout rule changes only after the investor approves.",
+  "requires_investor_approval": true,
+  "simulated_scenario": true,
+  "data_source": "data/health_scenarios/dip_scenario.csv",
+  "merchant_note_used": "data/health_scenarios/merchant_note.txt",
+  "model": "claude-sonnet-5-5",
+  "as_of": "2026-11-05",
+  "metrics": {
+    "as_of": "2026-11-05",
+    "short_window_days": 7,
+    "long_window_days": 30,
+    "prior_window_days": 23,
+    "ma_short": "445.07",
+    "ma_long": "687.78",
+    "decline_pct": "35.29",
+    "trigger_decline_pct": "20",
+    "ma_prior_days": "761.65",
+    "short_vs_prior_decline_pct": "41.57",
+    "lowest_day": "2026-10-30",
+    "lowest_day_net": "311.01",
+    "triggered": true
+  },
+  "contract_terms": {
+    "health_trigger_drop_pct": "20",
+    "health_window_short_days": 7,
+    "health_window_long_days": 30,
+    "reduced_rate": "0.03",
+    "reduced_rate_max_days": 30,
+    "requires_investor_approval": true,
+    "tiers": [
+      {
+        "up_to": 703.26,
+        "rate": 0.05
+      },
+      {
+        "up_to": null,
+        "rate": 0.03
+      }
+    ],
+    "baseline_threshold_amount": 703.26
+  },
+  "triggered_days": [
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05"
+  ],
+  "base_history": {
+    "days": 90,
+    "triggered_days": 0,
+    "largest_fall_pct": "12.58",
+    "largest_fall_date": "2026-10-11"
+  },
+  "scenario_dip": {
+    "dip_pct": "35",
+    "dip_days": 7
+  },
+  "recommendation": {
+    "recommendation": "approve_reduced_rate",
+    "suggested_duration_days": 30,
+    "conditions": [
+      "Review every week, using the merchant's weekly POS report and short update, which the merchant has offered to send.",
+      "The normal rate returns as soon as the 7-day average is back at or above the baseline threshold of EUR 703.26 a day, or when the maximum reduced-rate period of 30 days ends, whichever comes first.",
+      "The merchant must split the daily revenue into walk-in sales and PayPal online orders in each weekly report, so the claim that online orders are about the same can be checked.",
+      "The merchant must tell the investor straight away if the road works end early or the city changes the timetable.",
+      "If the road is still closed when the period ends, the merchant must make a new request and the investor decides again on the data then; no automatic extension."
+    ],
+    "reasons": [
+      {
+        "reason": "The fall is large, clearly past the covenant trigger, and still going on.",
+        "evidence": "The 7-day average is EUR 445.07 against a 30-day average of EUR 687.78, a fall of 35.29% versus the trigger of a fall of more than 20%. Every day from 2026-10-30 to 2026-11-05 is below the baseline threshold of EUR 703.26, with the best being EUR 642.37 on 2026-11-05."
+      },
+      {
+        "reason": "The merchant's date for the start of the fall is confirmed by the data.",
+        "evidence": "Revenue was EUR 862.95 on 2026-10-29 and dropped to EUR 311.01 on 2026-10-30, the lowest day, followed by EUR 367.56 on 2026-10-31 and EUR 396.72 on 2026-11-01. The last 7 days are 41.57% below the average of EUR 761.65 for the 23 days before."
+      },
+      {
+        "reason": "The cause (road works) and the expected end are NOT verified by the data; they are the merchant's claim only.",
+        "evidence": "The note says the works last about 6 weeks, until mid-December, and that PayPal online orders are about the same. The verified daily figures are a single total and cannot show a split between walk-in and online sales."
+      },
+      {
+        "reason": "There are early signs of a partial rebound, but not a recovery, and a reduced rate is limited in time and cost.",
+        "evidence": "Daily revenue rose from EUR 408.64 on 2026-11-03 to EUR 525.85 on 2026-11-04 and EUR 642.37 on 2026-11-05, still below the baseline threshold of EUR 703.26. The reduced rate of 3% compares with 5% up to EUR 703.26 a day under the normal rates, and the maximum reduced-rate period is 30 days."
+      }
+    ],
+    "risks": [
+      "The road works may last longer than the merchant says, so revenue could stay low beyond the maximum reduced-rate period of 30 days.",
+      "The claim that PayPal online orders are unchanged is unverified, so the fall could have other causes than the road works.",
+      "Sales may not return to normal after the road reopens, leaving the investor with a lower revenue share for longer.",
+      "The rebound to EUR 642.37 on 2026-11-05 may be a single good day. Daily revenue was already volatile before the fall, for example EUR 483.49 on 2026-10-24.",
+      "The merchant may stop sending reports, which would leave the investor with little visibility while the rate is reduced."
+    ],
+    "confidence": "medium"
+  },
+  "meta": {
+    "elapsed_seconds": 23.8,
+    "api_seconds": 15.6,
+    "api_calls": 1,
+    "input_tokens": 2402,
+    "output_tokens": 2085,
+    "estimated_cost_usd": "0.0257",
+    "pricing_usd_per_mtok": {
+      "input": "2.00",
+      "output": "10.00"
+    },
+    "note": "cost is an estimate from list prices, not a billed amount"
+  },
+  "chart": [
+    {
+      "date": "2026-09-07",
+      "verified_net": "759.16",
+      "ma_short": null,
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-08",
+      "verified_net": "912.48",
+      "ma_short": null,
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-09",
+      "verified_net": "834.44",
+      "ma_short": null,
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-10",
+      "verified_net": "1008.42",
+      "ma_short": null,
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-11",
+      "verified_net": "725.58",
+      "ma_short": null,
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-12",
+      "verified_net": "728.95",
+      "ma_short": null,
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-13",
+      "verified_net": "657.97",
+      "ma_short": "803.86",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-14",
+      "verified_net": "830.10",
+      "ma_short": "813.99",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-15",
+      "verified_net": "853.36",
+      "ma_short": "805.55",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-16",
+      "verified_net": "740.91",
+      "ma_short": "792.18",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-17",
+      "verified_net": "971.54",
+      "ma_short": "786.92",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-18",
+      "verified_net": "685.80",
+      "ma_short": "781.23",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-19",
+      "verified_net": "732.80",
+      "ma_short": "781.78",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-20",
+      "verified_net": "577.91",
+      "ma_short": "770.35",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-21",
+      "verified_net": "948.37",
+      "ma_short": "787.24",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-22",
+      "verified_net": "1011.45",
+      "ma_short": "809.83",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-23",
+      "verified_net": "894.50",
+      "ma_short": "831.77",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-24",
+      "verified_net": "1073.88",
+      "ma_short": "846.39",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-25",
+      "verified_net": "749.62",
+      "ma_short": "855.50",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-26",
+      "verified_net": "545.78",
+      "ma_short": "828.79",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-27",
+      "verified_net": "602.75",
+      "ma_short": "832.34",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-28",
+      "verified_net": "706.37",
+      "ma_short": "797.76",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-29",
+      "verified_net": "1038.74",
+      "ma_short": "801.66",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-09-30",
+      "verified_net": "746.69",
+      "ma_short": "780.55",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-10-01",
+      "verified_net": "900.70",
+      "ma_short": "755.81",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-10-02",
+      "verified_net": "879.09",
+      "ma_short": "774.30",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-10-03",
+      "verified_net": "602.44",
+      "ma_short": "782.40",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-10-04",
+      "verified_net": "662.64",
+      "ma_short": "790.95",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-10-05",
+      "verified_net": "614.78",
+      "ma_short": "777.87",
+      "ma_long": null,
+      "trigger_level": null
+    },
+    {
+      "date": "2026-10-06",
+      "verified_net": "849.02",
+      "ma_short": "750.77",
+      "ma_long": "794.87",
+      "trigger_level": "635.90"
+    },
+    {
+      "date": "2026-10-07",
+      "verified_net": "683.08",
+      "ma_short": "741.68",
+      "ma_long": "792.34",
+      "trigger_level": "633.87"
+    },
+    {
+      "date": "2026-10-08",
+      "verified_net": "679.82",
+      "ma_short": "710.12",
+      "ma_long": "784.58",
+      "trigger_level": "627.67"
+    },
+    {
+      "date": "2026-10-09",
+      "verified_net": "746.01",
+      "ma_short": "691.11",
+      "ma_long": "781.64",
+      "trigger_level": "625.31"
+    },
+    {
+      "date": "2026-10-10",
+      "verified_net": "534.94",
+      "ma_short": "681.47",
+      "ma_long": "765.85",
+      "trigger_level": "612.68"
+    },
+    {
+      "date": "2026-10-11",
+      "verified_net": "541.44",
+      "ma_short": "664.16",
+      "ma_long": "759.72",
+      "trigger_level": "607.77"
+    },
+    {
+      "date": "2026-10-12",
+      "verified_net": "858.37",
+      "ma_short": "698.95",
+      "ma_long": "764.03",
+      "trigger_level": "611.22"
+    },
+    {
+      "date": "2026-10-13",
+      "verified_net": "841.43",
+      "ma_short": "697.87",
+      "ma_long": "770.14",
+      "trigger_level": "616.12"
+    },
+    {
+      "date": "2026-10-14",
+      "verified_net": "914.95",
+      "ma_short": "730.99",
+      "ma_long": "772.97",
+      "trigger_level": "618.38"
+    },
+    {
+      "date": "2026-10-15",
+      "verified_net": "968.48",
+      "ma_short": "772.23",
+      "ma_long": "776.81",
+      "trigger_level": "621.45"
+    },
+    {
+      "date": "2026-10-16",
+      "verified_net": "749.34",
+      "ma_short": "772.71",
+      "ma_long": "777.09",
+      "trigger_level": "621.67"
+    },
+    {
+      "date": "2026-10-17",
+      "verified_net": "568.64",
+      "ma_short": "777.52",
+      "ma_long": "763.66",
+      "trigger_level": "610.93"
+    },
+    {
+      "date": "2026-10-18",
+      "verified_net": "737.35",
+      "ma_short": "805.51",
+      "ma_long": "765.38",
+      "trigger_level": "612.30"
+    },
+    {
+      "date": "2026-10-19",
+      "verified_net": "806.69",
+      "ma_short": "798.13",
+      "ma_long": "767.84",
+      "trigger_level": "614.27"
+    },
+    {
+      "date": "2026-10-20",
+      "verified_net": "927.42",
+      "ma_short": "810.41",
+      "ma_long": "779.49",
+      "trigger_level": "623.59"
+    },
+    {
+      "date": "2026-10-21",
+      "verified_net": "986.45",
+      "ma_short": "820.62",
+      "ma_long": "780.76",
+      "trigger_level": "624.61"
+    },
+    {
+      "date": "2026-10-22",
+      "verified_net": "826.95",
+      "ma_short": "800.41",
+      "ma_long": "774.61",
+      "trigger_level": "619.69"
+    },
+    {
+      "date": "2026-10-23",
+      "verified_net": "610.31",
+      "ma_short": "780.54",
+      "ma_long": "765.14",
+      "trigger_level": "612.11"
+    },
+    {
+      "date": "2026-10-24",
+      "verified_net": "483.49",
+      "ma_short": "768.38",
+      "ma_long": "745.46",
+      "trigger_level": "596.37"
+    },
+    {
+      "date": "2026-10-25",
+      "verified_net": "523.80",
+      "ma_short": "737.87",
+      "ma_long": "737.93",
+      "trigger_level": "590.35"
+    },
+    {
+      "date": "2026-10-26",
+      "verified_net": "954.01",
+      "ma_short": "758.92",
+      "ma_long": "751.54",
+      "trigger_level": "601.23"
+    },
+    {
+      "date": "2026-10-27",
+      "verified_net": "653.38",
+      "ma_short": "719.77",
+      "ma_long": "753.23",
+      "trigger_level": "602.58"
+    },
+    {
+      "date": "2026-10-28",
+      "verified_net": "1058.62",
+      "ma_short": "730.08",
+      "ma_long": "764.97",
+      "trigger_level": "611.98"
+    },
+    {
+      "date": "2026-10-29",
+      "verified_net": "862.95",
+      "ma_short": "735.22",
+      "ma_long": "759.11",
+      "trigger_level": "607.29"
+    },
+    {
+      "date": "2026-10-30",
+      "verified_net": "311.01",
+      "ma_short": "692.47",
+      "ma_long": "744.59",
+      "trigger_level": "595.67"
+    },
+    {
+      "date": "2026-10-31",
+      "verified_net": "367.56",
+      "ma_short": "675.90",
+      "ma_long": "726.82",
+      "trigger_level": "581.45"
+    },
+    {
+      "date": "2026-11-01",
+      "verified_net": "396.72",
+      "ma_short": "657.75",
+      "ma_long": "710.74",
+      "trigger_level": "568.59"
+    },
+    {
+      "date": "2026-11-02",
+      "verified_net": "463.31",
+      "ma_short": "587.65",
+      "ma_long": "706.10",
+      "trigger_level": "564.88"
+    },
+    {
+      "date": "2026-11-03",
+      "verified_net": "408.64",
+      "ma_short": "552.69",
+      "ma_long": "697.63",
+      "trigger_level": "558.11"
+    },
+    {
+      "date": "2026-11-04",
+      "verified_net": "525.85",
+      "ma_short": "476.58",
+      "ma_long": "694.67",
+      "trigger_level": "555.73"
+    },
+    {
+      "date": "2026-11-05",
+      "verified_net": "642.37",
+      "ma_short": "445.07",
+      "ma_long": "687.78",
+      "trigger_level": "550.22"
+    }
+  ]
+}

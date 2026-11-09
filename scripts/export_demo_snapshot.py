@@ -14,6 +14,9 @@
 #   extracted.json, reconciliation.json, merchant_doc_texts.json
 #                          the merchant documents: what the AI read, how it matched our data, and the
 #                          PDF text (only when ai.doc_reader --all and engine.reconcile have been run)
+#   health_recommendation.json
+#                          copy of data/health/recommendation.json: the merchant-health trigger metrics, Claude's
+#                          recommendation (recommendation only) and the chart series (only after engine.health_agent)
 #
 # Safety check: everything is built in memory and scanned first. If any output contains "@", "sk-",
 # "client_secret" or "access_token", nothing is written and the script stops with an error.
@@ -283,6 +286,15 @@ def build_merchant_docs(merchant_dir):
     }
 
 
+def build_health(health_dir):
+    """data/health/recommendation.json as health_recommendation.json (a recommendation only; the file holds the
+    metrics, the Claude recommendation and the chart series). Returns {} if engine.health_agent has not run yet."""
+    path = Path(health_dir) / "recommendation.json"
+    if not path.exists():
+        return {}
+    return {"health_recommendation.json": path.read_text(encoding="utf-8")}
+
+
 def build_all(db_path, merchant_id, params, verified_daily_path, days, skip_paypal=False, reporting_module=None,
               data_dir=None):
     """Everything as {file name: text}. Nothing is written here."""
@@ -318,6 +330,7 @@ def build_all(db_path, merchant_id, params, verified_daily_path, days, skip_payp
         "anomaly_metrics.json": dump(build_anomaly_metrics(flagged_text, injected_text, csv_text, transactions_text)),
     }
     files.update(build_merchant_docs(data_dir / "merchant_docs"))
+    files.update(build_health(data_dir / "health"))
     if not skip_paypal:
         files["paypal_receipts.json"] = dump(build_receipts(days, reporting_module))
     return files
@@ -368,6 +381,8 @@ def main(argv=None):
     if "extracted.json" not in files:
         print("Merchant documents were not exported: run `python -m ai.doc_reader --all` and "
               "`python -m engine.reconcile` first.")
+    if "health_recommendation.json" not in files:
+        print("Merchant health was not exported: run `python -m engine.health_agent` first.")
     print("Safety check passed: no '@', 'sk-', 'client_secret' or 'access_token' in any output.")
     return 0
 

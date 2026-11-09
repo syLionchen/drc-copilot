@@ -151,6 +151,34 @@ def style(fig, title, height=520):
     return fig
 
 
+WORD_FIXES = {"pct": "%", "vat": "VAT", "pp": "pp", "pdf": "PDF", "id": "ID", "eur": "EUR"}
+
+
+def human_name(name):
+    """An internal name as plain words: 'health_trigger_drop_pct' -> 'Health trigger drop %'."""
+    text = " ".join(WORD_FIXES.get(word, word) for word in str(name).lower().split("_"))
+    return text[:1].upper() + text[1:]
+
+
+def plain_value(value):
+    """An internal code shown as a value ('trading_day', 'z_report') as plain words."""
+    if isinstance(value, str) and re.fullmatch(r"[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)+", value):
+        return value.replace("_", " ").lower()
+    return value
+
+
+# internal terms that can appear in text coming from the data files -> words for people
+TERM_WORDS = (("verified_daily.csv", "the simulated history"), ("verified_net", "daily revenue"),
+              ("drc_due", "contributions"), ("investor_net", "investor net"),
+              ("investment_amount", "amount invested"), ("cap_amount", "cap"), (">=", "≥"))
+
+
+def readable(text):
+    for internal, words in TERM_WORDS:
+        text = text.replace(internal, words)
+    return text
+
+
 def tier_parameters(params):
     tiers = params["tiers"]
     return D(tiers[0]["up_to"]), D(tiers[0]["rate"]), D(tiers[1]["rate"])
@@ -177,7 +205,7 @@ def caught_sentence(reconciliation):
         checks = reconciliation["documents"][review["document"]]["checks"]
         lead = next((c for c in checks if c["check"] in review["affected_checks"] and c["status"] == "MISMATCH"), None)
         if lead and lead["percent"] is not None:
-            label = CHECK_LABELS.get(lead["check"], (lead["check"],))[0].lower()
+            label = CHECK_LABELS.get(lead["check"], (human_name(lead["check"]),))[0].lower()
             size = abs(Decimal(lead["percent"])).normalize()
             return (f"In the demo set it caught a POS report that {lead['direction']} {label} by "
                     f"{size:f}%.")
@@ -405,8 +433,8 @@ def projection_figure(projection):
                              line=dict(color=GRAY, dash="dot", width=2),
                              name=(f"Investor breaks even: {eur(breakeven, 0)} contributions = {eur(investment, 0)} "
                                    f"net after {servicing:g}% servicing fee")))
-    for dash, text in (("dash", "Vertical dashed line: principal recovered (cum. investor_net = principal)"),
-                       ("dot", "Vertical dotted line: cap reached / contract ends (cum. drc_due = cap)")):
+    for dash, text in (("dash", "Vertical dashed line: principal recovered (cumulative investor net = amount invested)"),
+                       ("dot", "Vertical dotted line: cap reached / contract ends (cumulative contributions = cap)")):
         fig.add_trace(go.Scatter(x=[None], y=[None], mode="lines", line=dict(color=GRAY, dash=dash, width=2), name=text))
 
     plot_height, y_max = 380, cap * 1.15              # plot area in pixels (680 - margins) and in EUR
@@ -463,17 +491,17 @@ def summary_table(projection):
         reached = (f"{m['cap_reached_on']} ({m['days_to_cap']} d)" if m["cap_reached_on"]
                    else f"not reached ({eur(m['total_drc_due'])})")
         table[minus(scenario["name"])] = {
-            "Average daily verified_net": eur(scenario["avg_daily_revenue"]),
-            f"Principal recovered (cum. investor_net >= {investment})": principal,
-            f"Cap reached / contract ends (cum. drc_due = {cap})": reached,
+            "Average daily revenue": eur(scenario["avg_daily_revenue"]),
+            f"Principal recovered (investor net ≥ {investment})": principal,
+            f"Cap reached (contributions = {cap})": reached,
             "Investor net recovery multiple": f"{m['net_multiple']}x",
-            "Net IRR (investor_net)": pct(m["net_irr"]),
-            "Gross IRR (drc_due)": pct(m["gross_irr"]),
+            "Net IRR (investor)": pct(m["net_irr"]),
+            "Gross IRR (contributions)": pct(m["gross_irr"]),
             "Merchant effective APR (incl. fees)": (
                 f"{pct(m['merchant_apr'])} (repaid less than funded)"
                 if m["merchant_apr"] is not None and m["merchant_apr"] < 0 else pct(m["merchant_apr"])),
-            "Collected drc_due": eur(m["total_drc_due"]),
-            "Collected investor_net": eur(m["total_investor_net"]),
+            "Collected contributions": eur(m["total_drc_due"]),
+            "Collected by investor": eur(m["total_investor_net"]),
             "Shortfall vs cap at maturity": eur(m["shortfall_vs_cap"]),
         }
     return pd.DataFrame(table)
@@ -515,8 +543,14 @@ def basis_sentence(assumptions):
     lead = {"revenue": "future revenue is ", "merchant_payout_fee": "merchant payout fee ",
             "irr": "returns use ", "principal_recovered": "principal recovered means ",
             "cap_reached": "cap reached means "}
-    return "Projection basis: " + "; ".join(lead.get(key, f"{key.replace('_', ' ')}: ") + text
+    return "Projection basis: " + "; ".join(lead.get(key, f"{key.replace('_', ' ')}: ") + readable(text)
                                            for key, text in assumptions.items()) + "."
+
+
+# settlements.json column -> header shown in the ledger table (payout_amount equals DRC due, so it is not shown)
+LEDGER_COLUMNS = {"date": "Date", "verified_revenue": "Verified revenue", "rate_applied": "Rate",
+                  "drc_due": "DRC due", "merchant_payout_fee": "Payout fee", "servicing_fee": "Servicing fee",
+                  "investor_net": "Investor net", "cumulative_due": "Cumulative", "status": "Status"}
 
 
 def page_investor():
@@ -562,11 +596,124 @@ def page_investor():
     if settlements:
         ledger_table = pd.DataFrame(settlements)
         ledger_table["rate_applied"] = [f"{float(r) * 100:.2f}%" for r in ledger_table["rate_applied"]]
+        ledger_table = ledger_table[list(LEDGER_COLUMNS)].rename(columns=LEDGER_COLUMNS)
         st.dataframe(ledger_table, width="stretch", hide_index=True,
-                     column_config={"status": st.column_config.TextColumn("status", width="medium"),
-                                    "date": st.column_config.TextColumn("date", width="small")})
+                     column_config={"Status": st.column_config.TextColumn("Status", width="medium"),
+                                    "Date": st.column_config.TextColumn("Date", width="small")})
     else:
         st.info("No settlements recorded yet.")
+
+    merchant_health()
+
+
+# ----------------------------------------------------------- Merchant health
+RECOMMENDATION_LABELS = {"approve_reduced_rate": ("Approve reduced rate", GREEN),
+                         "decline": ("Decline", RED),
+                         "request_more_info": ("Request more information", ORANGE)}
+
+
+def float_or_none(value):
+    return None if value is None else float(value)
+
+
+def health_figure(record):
+    terms, metrics = record["contract_terms"], record["metrics"]
+    short, long_ = terms["health_window_short_days"], terms["health_window_long_days"]
+    chart = record["chart"]
+    dates = [row["date"] for row in chart]
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=dates, y=[float(r["verified_net"]) for r in chart], mode="lines",
+                             name="Daily verified net", line=dict(color="#C5D3E8", width=1.5)))
+    fig.add_trace(go.Scatter(x=dates, y=[float_or_none(r["ma_long"]) for r in chart], mode="lines",
+                             name=f"{long_}-day mean", line=dict(color=BLUE_DARK, width=3)))
+    fig.add_trace(go.Scatter(x=dates, y=[float_or_none(r["ma_short"]) for r in chart], mode="lines",
+                             name=f"{short}-day mean", line=dict(color=BLUE, width=3)))
+    fig.add_trace(go.Scatter(x=dates, y=[float_or_none(r["trigger_level"]) for r in chart], mode="lines",
+                             name=f"Trigger line ({metrics['trigger_decline_pct']}% below the {long_}-day mean)",
+                             line=dict(color=RED, width=2, dash="dash")))
+    by_date = {r["date"]: r for r in chart}
+    fired = [d for d in record.get("triggered_days", []) if d in by_date and by_date[d]["ma_short"]]
+    if fired:
+        fig.add_trace(go.Scatter(x=fired, y=[float(by_date[d]["ma_short"]) for d in fired], mode="markers",
+                                 name="Trigger fired", marker=dict(color=RED, size=8)))
+    fig.update_yaxes(title_text="EUR per day", rangemode="tozero")
+    fig.update_xaxes(range=[dates[0], dates[-1]])          # end on the last day of data, no empty space on the right
+    return style(fig, f"{short}-day vs {long_}-day mean of verified net revenue"
+                 + (" (simulated scenario)" if record["simulated_scenario"] else ""), height=420)
+
+
+def bullet_list(items):
+    return "<ul>" + "".join(f"<li>{html.escape(str(item))}</li>" for item in items) + "</ul>"
+
+
+def merchant_health():
+    st.divider()
+    st.subheader("Merchant health")
+    st.markdown("**Recommendation only. The payout rule changes only after the investor approves.**")
+    record = load_json("health_recommendation.json")
+    if record is None:
+        st.info("No health check yet. Run: python -m engine.health_agent --scenario "
+                f"data/health_scenarios/dip_scenario.csv, then {SNAPSHOT_HINT}")
+        return
+    terms, metrics, rec = record["contract_terms"], record["metrics"], record["recommendation"]
+    short, long_ = metrics["short_window_days"], metrics["long_window_days"]
+
+    base, dip = record.get("base_history"), record.get("scenario_dip")
+    if record["simulated_scenario"] and base and dip:
+        triggers = ("no day triggers" if base["triggered_days"] == 0 else
+                    f"{base['triggered_days']} day(s) trigger")
+        st.caption(f"On the {base['days']}-day base history {triggers} (largest fall on {base['largest_fall_date']}: "
+                   f"{base['largest_fall_pct']}%). To show the agent, this scenario applies a −{dip['dip_pct']}% "
+                   f"dip to the last {dip['dip_days']} days"
+                   + (", with a sample merchant note." if record.get("merchant_note_used") else "."))
+    st.plotly_chart(health_figure(record), width="stretch")
+    st.caption(f"As of {metrics['as_of']}: the {short}-day mean is {eur(metrics['ma_short'])}, the {long_}-day mean "
+               f"{eur(metrics['ma_long'])}, a fall of {metrics['decline_pct']}%. The contract triggers at more than "
+               f"{metrics['trigger_decline_pct']}%.")
+
+    with st.container(border=True):
+        tags = ""
+        if record["simulated_scenario"]:
+            tags += (f"<span style='background:{ORANGE};color:white;border-radius:6px;padding:2px 10px;"
+                     f"font-weight:700'>Simulated scenario</span> ")
+        valid = record["status"] == "VALID"
+        tags += (f"<span style='background:{GREEN if valid else RED};color:white;border-radius:6px;padding:2px 10px;"
+                 f"font-weight:700'>{record['status']}</span>")
+        st.markdown(f"#### Claude's recommendation &nbsp; {tags}", unsafe_allow_html=True)
+        if not valid:
+            st.error("This recommendation failed the checks and must not be relied on:\n\n"
+                     + "\n".join(f"- {problem}" for problem in record["problems"]))
+        label, color = RECOMMENDATION_LABELS.get(rec.get("recommendation"), (str(rec.get("recommendation")), GRAY))
+        c1, c2, c3, c4 = st.columns(4)
+        c1.markdown(f"<div style='font-size:0.85rem;color:{GRAY}'>Recommendation</div>"
+                    f"<div style='font-size:1.4rem;font-weight:700;color:{color}'>{html.escape(label)}</div>",
+                    unsafe_allow_html=True)
+        c2.metric("Suggested duration", f"{rec.get('suggested_duration_days')} days")
+        c2.caption(f"contract limit {terms['reduced_rate_max_days']} days")
+        c3.metric("Reduced rate", pct(float(terms["reduced_rate"]), 0))
+        c3.caption("set by the contract")
+        c4.metric("Confidence", str(rec.get("confidence", "")).capitalize())
+
+        left, right = st.columns(2)
+        with left:
+            st.markdown("**Conditions**")
+            st.markdown(bullet_list(rec.get("conditions", [])), unsafe_allow_html=True)
+            st.markdown("**Risks**")
+            st.markdown(bullet_list(rec.get("risks", [])), unsafe_allow_html=True)
+        with right:
+            st.markdown("**Reasons and evidence**")
+            for item in rec.get("reasons", []):
+                st.markdown(f"<p style='margin:0 0 2px 0'><b>{html.escape(str(item.get('reason', '')))}</b></p>"
+                            f"<p style='margin:0 0 10px 0;color:#33415c'>Evidence: "
+                            f"{html.escape(str(item.get('evidence', '')))}</p>", unsafe_allow_html=True)
+
+        meta = record.get("meta") or {}
+        cost = meta.get("estimated_cost_usd")
+        st.caption(f"Written by Claude in {meta.get('elapsed_seconds')} s"
+                   + (f", ~${float(cost):.3f} (estimated from list prices)" if cost else "")
+                   + ". Every number in the reasons was checked against the input data by code. "
+                   + ("Based on a simulated revenue dip and a sample merchant note, not real data."
+                      if record["simulated_scenario"] else ""))
 
 
 # --------------------------------------------------------- AI verification
@@ -578,7 +725,7 @@ REASON_TEXT = {
 
 
 def reasons_text(reasons):
-    return "; ".join(REASON_TEXT.get(r, r) for r in reasons)
+    return "; ".join(REASON_TEXT.get(r, human_name(r)) for r in reasons)
 
 
 DETECTOR_LABELS = {
@@ -650,8 +797,8 @@ def page_ai():
 
     with st.expander("All detectors"):
         st.dataframe(pd.DataFrame([{
-            "Detector": DETECTOR_LABELS.get(d["detector"], d["detector"]), "Level": d["level"],
-            "Injected pattern": d["injected_type"], "Injected": d["true"],
+            "Detector": DETECTOR_LABELS.get(d["detector"], human_name(d["detector"])), "Level": d["level"],
+            "Injected pattern": human_name(d["injected_type"]), "Injected": d["true"],
             "TP": d["tp"], "FP": d["fp"], "FN": d["fn"],
             "Precision": pct(d["precision"], 0), "Recall": pct(d["recall"], 0)} for d in metrics["detectors"]]),
             width="stretch", hide_index=True)
@@ -671,7 +818,7 @@ def page_ai():
                              line=dict(color=GRAY, width=2, dash="dot")))
     fig.add_trace(go.Scatter(x=anomaly["date"], y=anomaly["verified_gross"], mode="lines", name="Verified revenue",
                              line=dict(color=BLUE_DARK, width=3),
-                             text=[", ".join(f) for f in anomaly["flags"]], hovertemplate="%{x}: EUR %{y:.2f}<br>%{text}"))
+                             text=[", ".join(human_name(x) for x in f) for f in anomaly["flags"]], hovertemplate="%{x}: EUR %{y:.2f}<br>%{text}"))
     fig.update_layout(barmode="stack")
     fig.update_yaxes(tickprefix="EUR ", title_text="Revenue per day")
     style(fig, "Raw vs. verified revenue (90 simulated days)", height=500)
@@ -717,6 +864,9 @@ CHECK_LABELS = {  # check -> (what the merchant reported, name of our data)
 }
 
 
+STATUS_LABELS = {"NOT_REPORTED": "Not reported", "NO_REFERENCE": "No data to compare"}
+
+
 def doc_key(file_name):
     return next((k for k in DOC_ORDER if file_name.startswith(k)), None)
 
@@ -756,7 +906,7 @@ def review_message(review, checks):
     """Plain-English explanation of one review record, built from the reconciliation numbers."""
     by_name = {c["check"]: c for c in checks}
     lead = by_name[review["affected_checks"][0]]
-    label, data_label = CHECK_LABELS.get(lead["check"], (lead["check"], "our data"))
+    label, data_label = CHECK_LABELS.get(lead["check"], (human_name(lead["check"]), "our data"))
     text = (f"{label} reported EUR {review['reported']}, {data_label} shows EUR {review['reference']} "
             f"({fmt_percent(lead['percent'])}, {lead['direction']}). Flagged for review (contract "
             f"{sections_text(review['contract'])}: a person decides whether it is a breach); "
@@ -764,7 +914,7 @@ def review_message(review, checks):
     same = [by_name[n] for n in review["affected_checks"][1:] if n in by_name]
     if same:
         text += (" Same root cause: " + ", ".join(
-            f"{CHECK_LABELS.get(c['check'], (c['check'],))[0].lower()} is short by the same amount "
+            f"{CHECK_LABELS.get(c['check'], (human_name(c['check']),))[0].lower()} is short by the same amount "
             f"({fmt_percent(c['percent'])})" for c in same) + ", counted as one finding.")
     return text
 
@@ -836,11 +986,12 @@ def page_merchant_docs():
         for field, value in result["values"].items():
             evidence = result["evidence"][field]
             printed = result["raw"].get(field)
-            shown = "—" if value is None else html.escape(str(value))
+            shown = "—" if value is None else html.escape(str(plain_value(value)))
             if value is not None and printed is not None and str(printed) != str(value):
                 shown += f" <span style='color:#6B7C93'>(printed {html.escape(str(printed))})</span>"
             quote = evidence["source_quote"] or f"(not in the document: {evidence['not_found_reason']})"
-            rows.append(f"<tr><td><b>{field}</b></td><td>{shown}</td><td class='quote'>{html.escape(quote)}</td></tr>")
+            rows.append(f"<tr><td><b>{html.escape(human_name(field))}</b></td><td>{shown}</td>"
+                        f"<td class='quote'>{html.escape(quote)}</td></tr>")
         with st.container(height=340, border=True):
             st.markdown("<table class='params'><tr><th>Field</th><th>Value</th><th>Source quote</th></tr>"
                         + "".join(rows) + "</table>", unsafe_allow_html=True)
@@ -849,8 +1000,8 @@ def page_merchant_docs():
         comparison = []
         for c in checks:
             color = {"OK": GREEN, "MISMATCH": RED}.get(c["status"], GRAY)
-            label = CHECK_LABELS.get(c["check"], (c["check"],))[0]
-            status = c["status"] + (f" ({c['direction']})" if c["direction"] else "")
+            label = CHECK_LABELS.get(c["check"], (human_name(c["check"]),))[0]
+            status = STATUS_LABELS.get(c["status"], c["status"]) + (f" ({c['direction']})" if c["direction"] else "")
             comparison.append(
                 f"<tr><td>{html.escape(label)}</td><td>{c['reported'] or '—'}</td><td>{c['reference'] or '—'}</td>"
                 f"<td>{c['difference'] or '—'}</td><td>{fmt_percent(c['percent'])}</td>"
@@ -876,7 +1027,7 @@ def format_value(name, value):
                          else f"above: {t['rate'] * 100:g}%" for t in value)
     if isinstance(value, bool):
         return "yes" if value else "no"
-    return "null" if value is None else str(value)
+    return "null" if value is None else str(plain_value(value))
 
 
 def page_contract():
@@ -907,7 +1058,7 @@ def page_contract():
         for name, value in contract["params"].items():
             evidence = contract["evidence"].get(name, {})
             quote = evidence.get("source_quote") or f"(not found: {evidence.get('not_found_reason')})"
-            rows.append(f"<tr><td><b>{html.escape(name)}</b></td><td>{html.escape(format_value(name, value))}</td>"
+            rows.append(f"<tr><td><b>{html.escape(human_name(name))}</b></td><td>{html.escape(format_value(name, value))}</td>"
                         f"<td class='quote'>{html.escape(quote)}</td></tr>")
         with st.container(height=640, border=True):
             st.markdown("<table class='params'><tr><th>Field</th><th>Value</th><th>Source quote</th></tr>"

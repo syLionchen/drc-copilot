@@ -1,0 +1,20 @@
+SAMPLE - SIMULATED MERCHANT NOTE (written for the demo, not a real merchant's message)
+
+To: DRC Fund I investors
+From: Kaffee und Tee GmbH, Hannover
+Subject: Request for a temporary reduction of the revenue share
+
+Dear investors,
+
+Since 30 October the road in front of our shop has been dug up for gas pipe works.
+The pavement is closed, the entrance is only reachable through a narrow detour, and
+our lunch and afternoon customers have mostly stopped coming. Our walk-in sales
+dropped sharply from that day on; PayPal online orders are about the same as before.
+
+The city has told us the works will take about 6 weeks, until mid-December. We expect
+sales to return to normal once the street is open again. We would like to ask for the
+reduced revenue share (health covenant) while the road is closed. We will send our
+POS reports and a short update every week.
+
+Kind regards,
+Kaffee und Tee GmbH
