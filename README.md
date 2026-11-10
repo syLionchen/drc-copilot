@@ -6,7 +6,7 @@ Live demo: https://drc-copilot.onrender.com (Render free tier: the first load ma
 
 ![DRC Copilot overview](docs/screenshots/overview.png)
 
-Built for the PayPal AI Hackathon 2026. Demo merchant: Kaffee und Tee GmbH, Hannover (EUR). All money moves in the PayPal sandbox.
+Built for the PayPal AI Hackathon 2026. DRC (Daily Revenue Contract) is the financing structure behind it: the merchant pays a small share of each day's verified revenue until a cap is reached; our contract for the demo merchant is the “Daily Revenue Contribution Agreement” (see the Contract page). Demo merchant: Kaffee und Tee GmbH, Hannover (EUR). All money moves in the PayPal sandbox.
 
 ## The problem
 
@@ -203,11 +203,13 @@ requirements-web.txt            web app only (pinned), used on Render
 
 ## Why not PayPal Businesskredit?
 
-Three things DRC Copilot does differently:
+Three differences:
 
-1. **All-channel revenue.** PayPal is only about 40% of the demo merchant's revenue (40.30%). The rest is card and cash, which DRC Copilot verifies from the POS reports and VAT returns that the AI reads and code cross-checks.
-2. **Outside capital.** The money comes from investors who fund the deal. PayPal verifies, splits and services.
-3. **Investors see the data every day.** Verified daily revenue, settlements, scenarios and the merchant health check stay visible to the investor for the whole term, not only at the application.
+1. **Not a loan.** Businesskredit must be repaid in full, with a minimum payment every 90 days. DRC is a revenue share: if revenue falls short by the end of the term, investors share the loss and the merchant owes nothing more.
+2. **All revenue, not just PayPal.** Businesskredit is sized and repaid on PayPal sales only. DRC verifies cash and card revenue too: AI reads POS reports and VAT returns, and code cross-checks every number.
+3. **Investors see verified data daily.** Every settlement and health recommendation is visible to the investor.
+
+PayPal’s German financing page also lists a fixed-term loan from YouLend (funded by Banking Circle, fixed weekly repayments); DRC differs from it on points 1 and 2.
 
 ## Limitations
 
