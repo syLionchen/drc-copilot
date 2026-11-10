@@ -790,7 +790,10 @@ def page_ai():
              ("Card revenue missing (days)", "CARD_REVENUE_MISSING"), ("Evening-share drop (days)", "EVENING_SHARE_DROP"))
     for column, (label, key) in zip(st.columns(4), items):
         d = by_name[key]
-        column.metric(label, f"P {pct(d['precision'], 0)} / R {pct(d['recall'], 0)}")
+        column.markdown(f"**{label}**")
+        precision_col, recall_col = column.columns(2)
+        precision_col.metric("Precision", pct(d["precision"], 0))
+        recall_col.metric("Recall", pct(d["recall"], 0))
         column.caption(f"TP {d['tp']}, FP {d['fp']}, FN {d['fn']} (of {d['true']} injected)")
     business = metrics.get("business_orders")
     if business:
